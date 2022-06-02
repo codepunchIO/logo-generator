@@ -15,9 +15,7 @@ const StartPage: React.FC = () => {
         <p className="text-l text-center font-semibold">
           Flex is a Small SaaS Business. Flex isn’t a traditional company.{' '}
         </p>
-        <p className="text-l text-center font-semibold">
-          Flex is a Small SaaS Business. Flex isn’t a traditional company.{' '}
-        </p>
+        
         <div className="flex flex-row justify-center mt-10 ">
           <form>
             {/* <textarea
