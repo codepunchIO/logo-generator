@@ -1,16 +1,19 @@
 import Box from '@mui/material/Box'
 import Stepper from '@mui/material/Stepper'
-import Step from '@mui/material/Step'
 import StepButton from '@mui/material/StepButton'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { useState } from 'react'
-import { Container, Main } from './styles'
+import menuImg from '../../assets/img/menu.svg'
+
+import Industry from '../Industry'
+import StartPage from '../Start'
 
 const steps = ['Name', 'Industry', 'Style', 'Colors', 'Fonts', 'Icon']
+const components = [<StartPage />, <Industry />, []]
 
 const GeneratorPage: React.FC = () => {
-  const [activeStep, setActiveStep] = useState(0)
+  const [activeStep, setActiveStep] = useState(1)
   const [completed, setCompleted] = useState<{
     [k: number]: boolean
   }>({})
@@ -62,14 +65,13 @@ const GeneratorPage: React.FC = () => {
   }
 
   return (
-    <Container>
+    <main>
       <Stepper nonLinear activeStep={activeStep}>
+        <img src={menuImg} alt="logo" />
         {steps.map((label, index) => (
-          // <Step key={label} completed={completed[index]}>
           <StepButton color="inherit" onClick={handleStep(index)}>
             {label}
           </StepButton>
-          // </Step>
         ))}
       </Stepper>
       <div>
@@ -84,11 +86,12 @@ const GeneratorPage: React.FC = () => {
             </Box>
           </>
         ) : (
-          <Main>
+          <div className="flex flex-col justify-around w-full h-5/4">
             <Typography sx={{ mt: 2, mb: 1 }}>
-              {steps[activeStep]} {activeStep + 1}
+              {components[activeStep]}
+              {/* {activeStep + 1} */}
             </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+            <div className="fixed bottom-0 right-0">
               <Button
                 color="inherit"
                 disabled={activeStep === 0}
@@ -110,11 +113,11 @@ const GeneratorPage: React.FC = () => {
                     {completedSteps() === totalSteps() - 1 ? 'Finish' : 'Complete Step'}
                   </Button>
                 ))}
-            </Box>
-          </Main>
+            </div>
+          </div>
         )}
       </div>
-    </Container>
+    </main>
   )
 }
 
