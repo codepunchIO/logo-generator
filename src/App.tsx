@@ -6,11 +6,13 @@ import EditorPage from './pages/Editor'
 
 const App: React.FC = () => {
   return (
+    <div className='h-screen'>
     <Routes>
       <Route path="/" element={<StartPage />} />
       <Route path="/generator" element={<GeneratorPage />} />
       <Route path="/editor" element={<EditorPage />} />
-    </Routes>
+      </Routes>
+      </div>
   )
 }
 

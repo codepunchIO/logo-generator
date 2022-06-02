@@ -4,7 +4,7 @@ const StartPage: React.FC = () => {
   return(
     <div className='p-1 h-full flex flex-col'>
       <Header />
-      <div className='flex flex-col justify-self-center py-6 w-auto mx-auto h-5/6 '>
+      <div className='flex flex-col justify-self-center  w-auto mx-auto h-full items-center justify-center'>
       <p className='text-3xl  text-center font-bold mb-4 '>
      Create logo in 3 minutes
         </p>

@@ -512,20 +512,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 2.25rem;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
-.h-10 {
-  height: 2.5rem;
+.h-5\/6 {
+  height: 83.333333%;
 }
 
 .h-full {
   height: 100%;
 }
 
-.h-5\/6 {
-  height: 83.333333%;
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .w-24 {
@@ -550,6 +550,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex-col {
   flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
 }
 
 .justify-center {
@@ -608,6 +612,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-align: center;
 }
 
+.align-middle {
+  vertical-align: middle;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -632,6 +640,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 body {
+  height: 100vh;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
