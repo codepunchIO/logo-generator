@@ -1,16 +1,16 @@
-import * as React from 'react'
 import Box from '@mui/material/Box'
 import Stepper from '@mui/material/Stepper'
 import Step from '@mui/material/Step'
 import StepButton from '@mui/material/StepButton'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
+import { useState } from 'react'
 
 const steps = ['First Step', 'Second Step', 'Third Step', 'Fouth Step', 'Fifth Step']
 
-export default function GeneratorPage() {
-  const [activeStep, setActiveStep] = React.useState(0)
-  const [completed, setCompleted] = React.useState<{
+const GeneratorPage: React.FC = () => {
+  const [activeStep, setActiveStep] = useState(0)
+  const [completed, setCompleted] = useState<{
     [k: number]: boolean
   }>({})
 
@@ -73,7 +73,7 @@ export default function GeneratorPage() {
       </Stepper>
       <div>
         {allStepsCompleted() ? (
-          <React.Fragment>
+          <>
             <Typography sx={{ mt: 2, mb: 1 }}>
               All steps completed - you&apos;re finished
             </Typography>
@@ -81,9 +81,9 @@ export default function GeneratorPage() {
               <Box sx={{ flex: '1 1 auto' }} />
               <Button onClick={handleReset}>Reset</Button>
             </Box>
-          </React.Fragment>
+          </>
         ) : (
-          <React.Fragment>
+          <>
             <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
               <Button
@@ -108,9 +108,11 @@ export default function GeneratorPage() {
                   </Button>
                 ))}
             </Box>
-          </React.Fragment>
+          </>
         )}
       </div>
     </Box>
   )
 }
+
+export default GeneratorPage
