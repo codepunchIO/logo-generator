@@ -2,11 +2,31 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { NavLink } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { useSelector, useDispatch } from 'react-redux'
+import { updateBrand } from '../../store/slices/brandSlice'
+import { RootState } from '../../store/store'
+import { getValue } from '@testing-library/user-event/dist/utils'
+import { useCallback, useRef } from 'react'
 
 const StartPage: React.FC = () => {
   //  const handleSubmit=(e:React.FormEventHandler<HTMLFormElement>)=>{
 
   //   }
+  const brand = useSelector((state: RootState) => state.brand.value)
+  const dispatch = useDispatch()
+  const newBrandRef = useRef<HTMLInputElement>(null);
+
+  const handleSubmit = useCallback(() => {
+    
+    console.log('hello')
+    if (newBrandRef.current) {
+      console.log(newBrandRef.current.value);
+      dispatch(updateBrand(newBrandRef.current.value));
+     
+    }
+
+  }, []);
+
   return (
     <div className="p-1 h-full flex flex-col">
       <Header />
@@ -15,28 +35,28 @@ const StartPage: React.FC = () => {
         <p className="text-l text-center font-semibold">
           Flex is a Small SaaS Business. Flex isn’t a traditional company.{' '}
         </p>
-        <p className="text-l text-center font-semibold">
-          Flex is a Small SaaS Business. Flex isn’t a traditional company.{' '}
-        </p>
+     
         <div className="flex flex-row justify-center mt-10 ">
-          <form>
-            {/* <textarea
-                placeholder='Brand name...'
-                className='border border-black-100 h-10 w-64'
-             ></textarea> */}
+         
+         
             <input
+            ref={newBrandRef}
               name="brand"
               placeholder="Brand name..."
               className="border border-black-100 h-10 w-64"
+              
             />
 
             <NavLink to={'/generator'}>
               {' '}
-              <button className="w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white">
+            <button className="w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white"
+                    onClick={handleSubmit}    
+                  >
                 Get Started!
               </button>
             </NavLink>
-          </form>
+          
+          <p className='text-center font-black'> Brand: {brand}</p>
         </div>
       </div>
 
