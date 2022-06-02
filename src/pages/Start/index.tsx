@@ -1,6 +1,14 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import { NavLink } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+
 const StartPage: React.FC = () => {
+
+
+//  const handleSubmit=(e:React.FormEventHandler<HTMLFormElement>)=>{
+  
+//   }
   return(
     <div className='p-1 h-full flex flex-col'>
       <Header />
@@ -11,13 +19,23 @@ const StartPage: React.FC = () => {
         <p className='text-l text-center font-semibold'>
           Flex is a Small SaaS Business. Flex isn’t a traditional company. </p>
         <div className='flex flex-row justify-center mt-10 '>
-              <textarea
+          <form>
+              
+              {/* <textarea
                 placeholder='Brand name...'
                 className='border border-black-100 h-10 w-64'
-             ></textarea>
-             <button className='w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white'>
+             ></textarea> */}
+            <input
+              name='brand'
+              placeholder='Brand name...'
+                className='border border-black-100 h-10 w-64'
+            />
+            
+            <NavLink to={'/generator'}> <button className='w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white'>
                 Get Started!
-        </button>
+          </button>
+            </NavLink>
+            </form>
         </div>
 
         
