@@ -4,12 +4,13 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { useState } from 'react'
 import menuImg from '../../assets/img/menu.svg'
-
+import Style from '../../components/Style/Style'
 import Industry from '../Industry'
 import StartPage from '../Start'
+import NameEditor from '../../components/NameEditor/NameEditor'
 
 const steps = ['Name', 'Industry', 'Style', 'Colors', 'Fonts', 'Icon']
-const components = [<StartPage />, <Industry />, []]
+const components = [<NameEditor/>, <Industry />,<Style />, []]
 
 const GeneratorPage: React.FC = () => {
   const [activeStep, setActiveStep] = useState(1)
