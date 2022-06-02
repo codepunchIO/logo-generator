@@ -10,7 +10,7 @@ import StartPage from '../Start'
 import NameEditor from '../../components/NameEditor/NameEditor'
 
 const steps = ['Name', 'Industry', 'Style', 'Colors', 'Fonts', 'Icon']
-const components = [<NameEditor/>, <Industry />,<Style />, []]
+const components = [<NameEditor />, <Industry />, <Style />, []]
 
 const GeneratorPage: React.FC = () => {
   const [activeStep, setActiveStep] = useState(1)
@@ -65,7 +65,7 @@ const GeneratorPage: React.FC = () => {
   }
 
   return (
-    <main>
+    <main className="h-full flex flex-col">
       <Stepper nonLinear activeStep={activeStep}>
         <img src={menuImg} alt="logo" />
         {steps.map((label, index) => (
@@ -74,7 +74,7 @@ const GeneratorPage: React.FC = () => {
           </StepButton>
         ))}
       </Stepper>
-      <div className="border h-3/4 border-sky-500 flex flex-col justify-between items-center">
+      <div className="border-sky-500 h-full flex-col justify-evenly">
         {allStepsCompleted() ? (
           <>
             <div>All steps completed - you&apos;re finished</div>
@@ -83,17 +83,11 @@ const GeneratorPage: React.FC = () => {
             </div>
           </>
         ) : (
-          <div className="flex flex-col justify-around w-full h-5/4">
-            <Typography sx={{ mt: 2, mb: 1 }}>
-              {components[activeStep]}
-              {/* {activeStep + 1} */}
-            </Typography>
+          // <div className="flex flex-col justify-center w-full h-5/4">
+          <div className="">
+            <div>{components[activeStep]}</div>
             <div className="fixed bottom-0 right-0">
-              <Button
-                color="inherit"
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                sx={{ mr: 1 }}>
+              <Button color="inherit" disabled={activeStep === 0} onClick={handleBack}>
                 Back
               </Button>
               <Button onClick={handleNext}>Next</Button>

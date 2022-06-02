@@ -1,37 +1,35 @@
-import { Combobox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronDownIcon } from "@heroicons/react/solid";
-import { Fragment, useState } from "react";
+import { Combobox, Transition } from '@headlessui/react'
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/solid'
+import { Fragment, useState } from 'react'
 interface Person {
-  id: number;
-  name: string;
-  unavailable: boolean;
+  id: number
+  name: string
+  unavailable: boolean
 }
 const people = [
-  { id: 1, name: "Durward Reynolds", unavailable: true },
-  { id: 2, name: "Kenton Towne", unavailable: false },
-  { id: 3, name: "Therese Wunsch", unavailable: false },
-  { id: 4, name: "Benedict Kessler", unavailable: false },
-  { id: 5, name: "Katelyn Rohan", unavailable: false },
-];
+  { id: 1, name: 'Durward Reynolds', unavailable: true },
+  { id: 2, name: 'Kenton Towne', unavailable: false },
+  { id: 3, name: 'Therese Wunsch', unavailable: false },
+  { id: 4, name: 'Benedict Kessler', unavailable: false },
+  { id: 5, name: 'Katelyn Rohan', unavailable: false },
+]
 
 const Industry: React.FC = () => {
-  const [selected, setSelected] = useState(people[0]);
-  const [query, setQuery] = useState("");
+  const [selected, setSelected] = useState(people[0])
+  const [query, setQuery] = useState('')
   const filteredPeople =
-    query === ""
+    query === ''
       ? people
       : people.filter((person) =>
           person.name
             .toLowerCase()
-            .replace(/\s+/g, "")
-            .includes(query.toLowerCase().replace(/\s+/g, ""))
-        );
+            .replace(/\s+/g, '')
+            .includes(query.toLowerCase().replace(/\s+/g, '')),
+        )
 
   return (
-    <div>
-      <h1 className=" text-4xl font-bold tracking-wide text-center mt-60">
-        Your industry
-      </h1>
+    <div className="mt-5">
+      <h1 className="text-4xl font-bold tracking-wide text-center">Your industry</h1>
       <form className="rounded-md max-w-xl h-14 mt-10 mx-auto">
         <Combobox value={selected} onChange={setSelected}>
           <div className="relative ">
@@ -42,10 +40,7 @@ const Industry: React.FC = () => {
                 onChange={(event) => setQuery(event.target.value)}
               />
               <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
-                <ChevronDownIcon
-                  className="h-5 w-5 text-gray-700"
-                  aria-hidden="true"
-                />
+                <ChevronDownIcon className="h-5 w-5 text-gray-700" aria-hidden="true" />
               </Combobox.Button>
             </div>
             <Transition
@@ -53,10 +48,9 @@ const Industry: React.FC = () => {
               leave="transition ease-in duration-100"
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
-              afterLeave={() => setQuery("")}
-            >
+              afterLeave={() => setQuery('')}>
               <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                {filteredPeople.length === 0 && query !== "" ? (
+                {filteredPeople.length === 0 && query !== '' ? (
                   <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                     Nothing found.
                   </div>
@@ -66,30 +60,24 @@ const Industry: React.FC = () => {
                       key={person.id}
                       className={({ active }) =>
                         `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                          active ? "bg-gray-400 text-white" : "text-gray-900"
+                          active ? 'bg-gray-400 text-white' : 'text-gray-900'
                         }`
                       }
-                      value={person}
-                    >
+                      value={person}>
                       {({ selected, active }) => (
                         <>
                           <span
                             className={`block truncate ${
-                              selected ? "font-medium" : "font-normal"
-                            }`}
-                          >
+                              selected ? 'font-medium' : 'font-normal'
+                            }`}>
                             {person.name}
                           </span>
                           {selected ? (
                             <span
                               className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                                active ? "text-white" : "text-gray-900"
-                              }`}
-                            >
-                              <CheckIcon
-                                className="h-4 w-4"
-                                aria-hidden="true"
-                              />
+                                active ? 'text-white' : 'text-gray-900'
+                              }`}>
+                              <CheckIcon className="h-4 w-4" aria-hidden="true" />
                             </span>
                           ) : null}
                         </>
@@ -166,6 +154,6 @@ const Industry: React.FC = () => {
         </select>
       </div>  */}
     </div>
-  );
-};
-export default Industry;
+  )
+}
+export default Industry
