@@ -7,12 +7,13 @@ import StartPage from "./pages/Start";
 
 const App: React.FC = () => {
   return (
+    <div className='h-screen'>
     <Routes>
       <Route path="/" element={<StartPage />} />
       <Route path="/industry" element={<IndustryPage />} />
       <Route path="/generator" element={<GeneratorPage />} />
       <Route path="/editor" element={<EditorPage />} />
-    </Routes>
+    </Routes></div>
   );
 };
 
