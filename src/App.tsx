@@ -1,17 +1,19 @@
-import './App.css'
-import { Route, Routes } from 'react-router-dom'
-import StartPage from './pages/Start'
-import GeneratorPage from './pages/Generator'
-import EditorPage from './pages/Editor'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import EditorPage from "./pages/Editor";
+import GeneratorPage from "./pages/Generator";
+import IndustryPage from "./pages/Industry";
+import StartPage from "./pages/Start";
 
 const App: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<StartPage />} />
+      <Route path="/industry" element={<IndustryPage />} />
       <Route path="/generator" element={<GeneratorPage />} />
       <Route path="/editor" element={<EditorPage />} />
     </Routes>
-  )
-}
+  );
+};
 
-export default App
+export default App;
