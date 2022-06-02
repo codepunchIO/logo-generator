@@ -29,13 +29,6 @@ const Industry: React.FC = () => {
 
   return (
     <div>
-<<<<<<< Updated upstream
-      <h1 className=" text-4xl font-bold tracking-wide text-center mt-60">Your industry</h1>
-      <div className="  rounded-md max-w-xl h-14 mt-10 mx-auto">
-        <select className=" form-input border-2 rounded-md w-full h-full p-2" placeholder="Search">
-          <option value="" disabled selected hidden>
-            <i className=" "></i>
-=======
       <h1 className=" text-4xl font-bold tracking-wide text-center mt-60">
         Your industry
       </h1>
@@ -164,7 +157,6 @@ const Industry: React.FC = () => {
           defaultValue={"selectedOptionId"}
         >
           <option value="selectedOptionId" disabled hidden>
->>>>>>> Stashed changes
             Search..
           </option>
 
@@ -174,6 +166,6 @@ const Industry: React.FC = () => {
         </select>
       </div>  */}
     </div>
-  )
-}
-export default Industry
+  );
+};
+export default Industry;
