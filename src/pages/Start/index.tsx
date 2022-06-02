@@ -1,4 +1,13 @@
+import Header from '../../components/Header'
+
 const StartPage: React.FC = () => {
-  return <div>Hello StartPage</div>
+  return(
+    <div>
+      <Header />
+      Hello StartPage
+    
+    </div>
+    
+  )
 }
 export default StartPage
