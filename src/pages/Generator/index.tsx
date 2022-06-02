@@ -5,8 +5,9 @@ import StepButton from '@mui/material/StepButton'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { useState } from 'react'
+import { Container, Main } from './styles'
 
-const steps = ['First Step', 'Second Step', 'Third Step', 'Fouth Step', 'Fifth Step']
+const steps = ['Name', 'Industry', 'Style', 'Colors', 'Fonts', 'Icon']
 
 const GeneratorPage: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -61,14 +62,14 @@ const GeneratorPage: React.FC = () => {
   }
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Container>
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
-          <Step key={label} completed={completed[index]}>
-            <StepButton color="inherit" onClick={handleStep(index)}>
-              {label}
-            </StepButton>
-          </Step>
+          // <Step key={label} completed={completed[index]}>
+          <StepButton color="inherit" onClick={handleStep(index)}>
+            {label}
+          </StepButton>
+          // </Step>
         ))}
       </Stepper>
       <div>
@@ -83,9 +84,9 @@ const GeneratorPage: React.FC = () => {
             </Box>
           </>
         ) : (
-          <>
+          <Main>
             <Typography sx={{ mt: 2, mb: 1 }}>
-              HERE CONTENT, HELLO CONTENT {activeStep + 1}
+              {steps[activeStep]} {activeStep + 1}
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
               <Button
@@ -110,10 +111,10 @@ const GeneratorPage: React.FC = () => {
                   </Button>
                 ))}
             </Box>
-          </>
+          </Main>
         )}
       </div>
-    </Box>
+    </Container>
   )
 }
 
