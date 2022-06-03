@@ -1,8 +1,9 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import GeneratorPage from './pages/Generator'
-import IndustryPage from './pages/Industry'
+import IndustryPage from './components/Industry'
 import StartPage from './pages/Start'
+import EditorPage from './pages/Editor'
 
 const App: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const App: React.FC = () => {
         <Route path="/" element={<StartPage />} />
         <Route path="/industry" element={<IndustryPage />} />
         <Route path="/generator" element={<GeneratorPage />} />
+        <Route path="/editor" element={<EditorPage />} />
       </Routes>
     </div>
   )

@@ -6,7 +6,7 @@ import { useState } from 'react'
 import menuImg from '../../assets/img/menu.svg'
 import NameEditor from '../../components/NameEditor/NameEditor'
 import Style from '../../components/Style/Style'
-import Industry from '../Industry'
+import Industry from '../../components/Industry'
 
 const steps = ['Name', 'Industry', 'Style', 'Colors', 'Fonts', 'Icon']
 const components = [<NameEditor />, <Industry />, <Style />, []]
