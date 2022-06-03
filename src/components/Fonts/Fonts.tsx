@@ -8,6 +8,7 @@ import Handwritten from '../../assets/img/Fonts/Handwritten.svg'
 import Luxury from '../../assets/img/Fonts/Luxury.svg'
 import Modern from '../../assets/img/Fonts/Modern.svg'
 import Rounded from '../../assets/img/Fonts/Rounded.svg'
+
 const Fonts = () => {
   return (
     <div className="flex flex-col h-full w-full p-1">
@@ -18,7 +19,7 @@ const Fonts = () => {
         </div>
         <div className="">
           <img className="hover:bg-green-500 p-1 rounded-lg" src={Modern} alt="layout2" />
-            </div>
+        </div>
         <div className="">
           <img className="hover:bg-green-500 p-1 rounded-lg" src={Funny} alt="layout4" />
         </div>
@@ -30,21 +31,21 @@ const Fonts = () => {
         <div className="">
           <img className="hover:bg-green-500 p-1 rounded-lg" src={Handwritten} alt="layout4" />
         </div>
-         <div className="">
+        <div className="">
           <img className="hover:bg-green-500 p-1 rounded-lg" src={Geometric} alt="layout4" />
         </div>
-        </div>
-         <div className=" flex flex-row justify-evenly py-10">
+      </div>
+      <div className=" flex flex-row justify-evenly py-10">
         <div className="">
           <img className="hover:bg-green-500 p-1 rounded-lg" src={Rounded} alt="layout3" />
         </div>
         <div className="">
           <img className="hover:bg-green-500 p-1 rounded-lg" src={Futuristic} alt="layout4" />
         </div>
-         <div className="">
+        <div className="">
           <img className="hover:bg-green-500 p-1 rounded-lg" src={Funky} alt="layout4" />
         </div>
-      </div>  
+      </div>
     </div>
   )
 }
