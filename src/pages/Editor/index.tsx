@@ -1,4 +1,10 @@
+import Navbar from '../../components/NavBar'
+
 const EditorPage: React.FC = () => {
-  return <div>EditorPage</div>
+  return (
+    <>
+      <Navbar />
+    </>
+  )
 }
 export default EditorPage
