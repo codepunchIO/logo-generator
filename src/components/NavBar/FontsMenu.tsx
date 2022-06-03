@@ -1,4 +1,4 @@
-import { Dialog, DialogTitle, Menu, MenuItem } from '@mui/material'
+import { Menu, MenuItem } from '@mui/material'
 import Clean from '../../assets/img/Fonts/Clean.svg'
 import Modern from '../../assets/img/Fonts/Modern.svg'
 import Funny from '../../assets/img/Fonts/Funny.svg'
@@ -20,7 +20,6 @@ const FontsMenu: React.FC<PropsType> = ({ isOpen, anchorEl, handleClose }) => {
           'aria-labelledby': 'basic-button',
         }}>
         <MenuItem onClick={handleClose}>
-          {' '}
           <div className="">
             <img className="hover:bg-green-500 p-1 rounded-lg" src={Clean} alt="layout1" />
           </div>

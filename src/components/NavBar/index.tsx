@@ -29,15 +29,18 @@ const Navbar: React.FC = () => {
             <GridViewIcon className="mr-1" />
             <Typography>Layout</Typography>
           </IconButton>
+
           <LayoutMenu
             isOpen={buttonType === 'Layout'}
             anchorEl={anchorEl}
             handleClose={handleClose}
           />
+
           <IconButton className="mr-3" onClick={(e) => handleClick(e)}>
             <TextFieldsIcon className="mr-1" />
             <Typography>Fonts</Typography>
           </IconButton>
+
           <FontsMenu
             anchorEl={anchorEl}
             handleClose={handleClose}
