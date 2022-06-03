@@ -9,7 +9,7 @@ import Style from '../../components/Style/Style'
 import Industry from '../../components/Industry'
 import Colors from '../../components/Colors/Colors'
 import Fonts from '../../components/Fonts/Fonts'
-
+import  { NavLink } from 'react-router-dom'
 
 const steps = ['Name', 'Industry', 'Style', 'Colors', 'Fonts', 'Icon']
 const components = [<NameEditor />, <Industry />, <Style />,<Colors />,<Fonts />, []]
@@ -59,6 +59,7 @@ const GeneratorPage: React.FC = () => {
     newCompleted[activeStep] = true
     setCompleted(newCompleted)
     handleNext()
+    
   }
 
   const handleReset = () => {
@@ -100,7 +101,7 @@ const GeneratorPage: React.FC = () => {
                   </Typography>
                 ) : (
                   <Button onClick={handleComplete}>
-                    {completedSteps() === totalSteps() - 1 ? 'Finish' : 'Complete Step'}
+                    {completedSteps() === totalSteps() - 1 ? <NavLink to='/editor'>Finish'</NavLink> : 'Complete Step'}
                   </Button>
                 ))}
             </div>
