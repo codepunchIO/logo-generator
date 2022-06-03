@@ -3,7 +3,7 @@ import Footer from '../../components/Footer'
 import { NavLink } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { useSelector, useDispatch } from 'react-redux'
-import { updateBrand } from '../../store/slices/brandSlice'
+import { updateBrand } from '../../store/slices/brandSlice/brandSlice'
 import { RootState } from '../../store/store'
 import { useCallback, useRef } from 'react'
 

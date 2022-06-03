@@ -1,13 +1,12 @@
-import Stepper from '@mui/material/Stepper'
-import StepButton from '@mui/material/StepButton'
 import Button from '@mui/material/Button'
+import StepButton from '@mui/material/StepButton'
+import Stepper from '@mui/material/Stepper'
 import Typography from '@mui/material/Typography'
 import { useState } from 'react'
 import menuImg from '../../assets/img/menu.svg'
+import NameEditor from '../../components/NameEditor/NameEditor'
 import Style from '../../components/Style/Style'
 import Industry from '../Industry'
-import StartPage from '../Start'
-import NameEditor from '../../components/NameEditor/NameEditor'
 
 const steps = ['Name', 'Industry', 'Style', 'Colors', 'Fonts', 'Icon']
 const components = [<NameEditor />, <Industry />, <Style />, []]
@@ -83,7 +82,7 @@ const GeneratorPage: React.FC = () => {
             </div>
           </>
         ) : (
-          // <div className="flex flex-col justify-center w-full h-5/4">
+          // <div className="flex Oflex-col justify-center w-full h-5/4">
           <div className="">
             <div>{components[activeStep]}</div>
             <div className="fixed bottom-0 right-0">
