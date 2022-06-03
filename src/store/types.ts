@@ -11,3 +11,13 @@ export interface IUser {
   email?: string
   token?: string
 }
+
+
+export interface Logo{
+  brandName?: string
+  industry?: string
+  style?: number
+  colors?: number
+  fonts?: number
+  icons?:number
+}

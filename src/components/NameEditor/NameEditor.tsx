@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { updateBrand } from '../../store/slices/brandSlice/brandSlice'
+import { setBrandName } from '../../store/slices/logoSlice/logoSlice'
 import { RootState } from '../../store/store'
 
 import { useCallback, useRef } from 'react'
@@ -8,14 +8,14 @@ const NameEditor: React.FC = () => {
   //  const handleSubmit=(e:React.FormEventHandler<HTMLFormElement>)=>{
 
   //   }
-  const brand = useSelector((state: RootState) => state.brand.value)
+  const brand = useSelector((state: RootState) => state.logo.data?.brandName)
   const dispatch = useDispatch()
   const newBrandRef = useRef<HTMLInputElement>(null)
 
   const handleSubmit = useCallback(() => {
     if (newBrandRef.current) {
       console.log(newBrandRef.current.value)
-      dispatch(updateBrand(newBrandRef.current.value))
+      dispatch(setBrandName(newBrandRef.current.value))
     }
   }, [])
 

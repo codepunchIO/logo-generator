@@ -5,7 +5,7 @@ import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import SignInModal from '../../components/SignIn'
 import SignUpModal from '../../components/SignUp'
-import { updateBrand } from '../../store/slices/brandSlice/brandSlice'
+import { setBrandName } from '../../store/slices/logoSlice/logoSlice'
 import { RootState } from '../../store/store'
 import menuImg from '../../assets/img/menu.svg'
 
@@ -25,7 +25,7 @@ const StartPage: React.FC<PropsType> = ({ isVisibleModal }) => {
   }
   //MODALS
 
-  const brand = useSelector((state: RootState) => state.brand.value)
+  // const brand = useSelector((state: RootState) => state.logo.data?.brandName)
   const dispatch = useDispatch()
   const newBrandRef = useRef<HTMLInputElement>(null)
 
@@ -33,7 +33,7 @@ const StartPage: React.FC<PropsType> = ({ isVisibleModal }) => {
     console.log('hello')
     if (newBrandRef.current) {
       console.log(newBrandRef.current.value)
-      dispatch(updateBrand(newBrandRef.current.value))
+      dispatch(setBrandName(newBrandRef.current.value))
     }
   }, [])
 

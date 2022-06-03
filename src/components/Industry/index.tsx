@@ -1,13 +1,16 @@
 import { Combobox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/solid'
-import { Fragment, useState } from 'react'
+import { Fragment, useState,useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setIndustry } from '../../store/slices/logoSlice/logoSlice'
+import { RootState } from '../../store/store'
 interface Person {
   id: number
   name: string
   unavailable: boolean
 }
 const people = [
-  { id: 1, name: 'Durward Reynolds', unavailable: true },
+  { id: 1, name: 'Durward Reynolds', unavailable: true},
   { id: 2, name: 'Kenton Towne', unavailable: false },
   { id: 3, name: 'Therese Wunsch', unavailable: false },
   { id: 4, name: 'Benedict Kessler', unavailable: false },
@@ -26,15 +29,33 @@ const Industry: React.FC = () => {
             .replace(/\s+/g, '')
             .includes(query.toLowerCase().replace(/\s+/g, '')),
         )
+//select logic
+  
+  const dispatch = useDispatch()
+  const newIndustryRef = useRef<HTMLInputElement>(null)
+  const changeIndustry = () => {
+    if (newIndustryRef.current) {
+      console.log(newIndustryRef.current.value)
+      dispatch(setIndustry(newIndustryRef.current.value))
+      }
+  }
 
+  // const twoFunctions = () => {
+  //   setSelected(newIndustryRef)
+  //   changeIndustry()
+  // }
   return (
     <div className="mt-5">
       <h1 className="text-4xl font-bold tracking-wide text-center">Your industry</h1>
-      <form className="rounded-md max-w-xl h-14 mt-10 mx-auto">
+      <form className="rounded-md max-w-xl h-14 mt-10 mx-auto"
+      >
         <Combobox value={selected} onChange={setSelected}>
           <div className="relative ">
             <div className="relative w-full h-14 cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
               <Combobox.Input
+                // onInput={changeIndustry}
+                onSelect={changeIndustry}
+                ref={newIndustryRef}
                 className="w-full h-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0 border-2"
                 displayValue={(person: Person) => person.name}
                 onChange={(event) => setQuery(event.target.value)}
