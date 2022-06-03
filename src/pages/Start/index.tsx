@@ -1,19 +1,14 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import Footer from '../../components/Footer'
-import Header from '../../components/Header'
 import SignInModal from '../../components/SignIn'
 import SignUpModal from '../../components/SignUp'
 import { setBrandName } from '../../store/slices/logoSlice/logoSlice'
 import { RootState } from '../../store/store'
 import menuImg from '../../assets/img/menu.svg'
 
-interface PropsType {
-  isVisibleModal: string | null | undefined
-}
-
-const StartPage: React.FC<PropsType> = ({ isVisibleModal }) => {
+const StartPage: React.FC = () => {
   //MODALS
   const [visibleModal, setVisibleModal] = useState<string | null>()
   const handleOpenModal = (e: React.MouseEvent<HTMLButtonElement>): void => {
