@@ -23,7 +23,7 @@ const Style = () => {
       {layouts.map((layout) => 
         <div className="flex flex-row w-1/2 flex-nowrap">
           <img
-            // className="hover:bg-green-500"
+         
             className="hover:bg-green-500 p-1 rounded-lg  w-full flex justify-center"
             onClick={(e) => handleClick(e)}
             id={String(layouts.indexOf(layout)+1)}
@@ -32,49 +32,6 @@ const Style = () => {
           />
         </div>
       )}
-      
-      
-      {/* <h2 className="text-3xl text-center font-bold p-4"> Choose a layout</h2>
-      <div className=" flex flex-row justify-evenly my-30">
-        <div className="">
-          <img
-            className="hover:bg-green-500"
-            onClick={(e) => handleClick(e)}
-            id="1"
-            src={layout1}
-            alt="layout1"
-          />
-        </div>
-        <div className="">
-          <img
-            className="hover:bg-green-500"
-            id="2"
-            src={layout2}
-            alt="layout2"
-            onClick={(e) => handleClick(e)}
-          />
-        </div>
-      </div>
-      <div className=" flex flex-row justify-evenly py-10">
-        <div className="">
-          <img
-            className="hover:bg-green-500"
-            id="3"
-            src={layout3}
-            alt="layout3"
-            onClick={(e) => handleClick(e)}
-          />
-        </div>
-        <div className="">
-          <img
-            className="hover:bg-green-500"
-            id="4"
-            src={layout4}
-            alt="layout4"
-            onClick={(e) => handleClick(e)}
-          />
-        </div>
-      </div> */}
       </div>
       </div>
   )

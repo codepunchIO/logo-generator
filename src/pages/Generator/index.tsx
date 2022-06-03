@@ -10,9 +10,9 @@ import Industry from '../../components/Industry'
 import Colors from '../../components/Colors/Colors'
 import Fonts from '../../components/Fonts/Fonts'
 import  { NavLink } from 'react-router-dom'
-
+import Icons from '../../components/Icons/index'
 const steps = ['Name', 'Industry', 'Style', 'Colors', 'Fonts', 'Icon']
-const components = [<NameEditor />, <Industry />, <Style />,<Colors />,<Fonts />, []]
+const components = [<NameEditor />, <Industry />, <Style />,<Colors />,<Fonts />,<Icons />, []]
 
 const GeneratorPage: React.FC = () => {
   const [activeStep, setActiveStep] = useState(1)
@@ -70,7 +70,7 @@ const GeneratorPage: React.FC = () => {
   return (
     <main className="h-full flex flex-col">
       <Stepper nonLinear activeStep={activeStep}>
-        <img src={menuImg} alt="logo" />
+        <img src={menuImg}   alt="logo" />
         {steps.map((label, index) => (
           <StepButton color="inherit" onClick={handleStep(index)}>
             {label}
