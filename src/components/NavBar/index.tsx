@@ -3,22 +3,17 @@ import GridViewIcon from '@mui/icons-material/GridView'
 import TextFieldsIcon from '@mui/icons-material/TextFields'
 import Logotype from './Logotype'
 import { useState } from 'react'
-import LayoutDiaglog from './LayoutMenu'
-import FontsDiaglog from './FontsMenu'
+import LayoutMenu from './LayoutMenu'
 import FontsMenu from './FontsMenu'
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-  const [buttonType, setButtonType] = useState('')
+  const [buttonType, setButtonType] = useState<null | string>('')
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>, type: string) => {
-    console.log('handleClick work!')
-    console.log('type', type)
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
-    setButtonType(type)
+    setButtonType(event.currentTarget.textContent)
   }
-  const open = Boolean(anchorEl)
-
   const handleClose = () => {
     console.log('handleClose work!')
     setAnchorEl(null)
@@ -30,16 +25,16 @@ const Navbar = () => {
       <Toolbar className="flex justify-between">
         <Logotype />
         <div>
-          <IconButton className="mr-3" onClick={(e) => handleClick(e, 'Layout')}>
+          <IconButton className="mr-3" onClick={(e) => handleClick(e)}>
             <GridViewIcon className="mr-1" />
             <Typography>Layout</Typography>
           </IconButton>
-          <LayoutDiaglog
+          <LayoutMenu
             isOpen={buttonType === 'Layout'}
             anchorEl={anchorEl}
             handleClose={handleClose}
           />
-          <IconButton className="mr-3" onClick={(e) => handleClick(e, 'Fonts')}>
+          <IconButton className="mr-3" onClick={(e) => handleClick(e)}>
             <TextFieldsIcon className="mr-1" />
             <Typography>Fonts</Typography>
           </IconButton>
