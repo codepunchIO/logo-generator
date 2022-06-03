@@ -1,8 +1,10 @@
 import { Menu, MenuItem, Typography } from '@mui/material'
-import Clean from '../../assets/img/Fonts/Clean.svg'
-import Funny from '../../assets/img/Fonts/Funny.svg'
-import Modern from '../../assets/img/Fonts/Modern.svg'
+import layout1 from '../../assets/img/Style_layouts/layout1.svg'
+import layout2 from '../../assets/img/Style_layouts/layout2.svg'
+import layout3 from '../../assets/img/Style_layouts/layout3.svg'
+import layout4 from '../../assets/img/Style_layouts/layout4.svg'
 
+const layouts = [layout1, layout2, layout3, layout4]
 interface PropsType {
   isOpen: boolean
   anchorEl: any
@@ -17,25 +19,19 @@ const LayoutMenu: React.FC<PropsType> = ({ isOpen, anchorEl, handleClose }) => {
         anchorEl={anchorEl}
         open={isOpen}
         onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
+        PaperProps={{
+          style: {
+            width: 350,
+          },
         }}>
         <Typography>Several layout options for your logo :)</Typography>
-        <MenuItem onClick={handleClose}>
-          <div className="">
-            <img className="hover:bg-green-500 p-1 rounded-lg" src={Clean} alt="layout1" />
-          </div>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <div className="">
-            <img className="hover:bg-green-500 p-1 rounded-lg" src={Modern} alt="layout2" />
-          </div>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <div className="">
-            <img className="hover:bg-green-500 p-1 rounded-lg" src={Funny} alt="layout4" />
-          </div>
-        </MenuItem>
+        {layouts.map((layout) => (
+          <MenuItem onClick={handleClose}>
+            <div className="">
+              <img className="hover:bg-green-500 p-1 rounded-lg" src={layout} alt="layout1" />
+            </div>
+          </MenuItem>
+        ))}
       </Menu>
     </>
   )

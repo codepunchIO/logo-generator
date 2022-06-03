@@ -16,8 +16,10 @@ const FontsMenu: React.FC<PropsType> = ({ isOpen, anchorEl, handleClose }) => {
         anchorEl={anchorEl}
         open={isOpen}
         onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
+        PaperProps={{
+          style: {
+            width: 350,
+          },
         }}>
         <MenuItem onClick={handleClose}>
           <div className="">
