@@ -7,9 +7,12 @@ import menuImg from '../../assets/img/menu.svg'
 import NameEditor from '../../components/NameEditor/NameEditor'
 import Style from '../../components/Style/Style'
 import Industry from '../../components/Industry'
+import Colors from '../../components/Colors/Colors'
+import Fonts from '../../components/Fonts/Fonts'
+
 
 const steps = ['Name', 'Industry', 'Style', 'Colors', 'Fonts', 'Icon']
-const components = [<NameEditor />, <Industry />, <Style />, []]
+const components = [<NameEditor />, <Industry />, <Style />,<Colors />,<Fonts />, []]
 
 const GeneratorPage: React.FC = () => {
   const [activeStep, setActiveStep] = useState(1)

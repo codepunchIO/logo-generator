@@ -1,8 +1,8 @@
 import React from 'react'
-import layout1 from '../../assets/img/layout1.svg'
-import layout2 from '../../assets/img/layout2.svg'
-import layout3 from '../../assets/img/layout3.svg'
-import layout4 from '../../assets/img/layout4.svg'
+import layout1 from '../../assets/img/Style_layouts/layout1.svg'
+import layout2 from '../../assets/img/Style_layouts/layout2.svg'
+import layout3 from '../../assets/img/Style_layouts/layout3.svg'
+import layout4 from '../../assets/img/Style_layouts/layout4.svg'
 const Style = () => {
   return (
     <div className="flex flex-col h-full w-full p-1">
