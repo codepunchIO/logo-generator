@@ -1,40 +1,44 @@
-import Button from '@mui/material/Button'
-import StepButton from '@mui/material/StepButton'
-import Stepper from '@mui/material/Stepper'
-import Typography from '@mui/material/Typography'
-import { useState } from 'react'
-import menuImg from '../../assets/img/menu.svg'
-import NameEditor from '../../components/NameEditor/NameEditor'
-import Style from '../../components/Style/Style'
-import Industry from '../../components/Industry'
-import Colors from '../../components/Colors/Colors'
-import Fonts from '../../components/Fonts/Fonts'
+import Button from "@mui/material/Button";
+import StepButton from "@mui/material/StepButton";
+import Stepper from "@mui/material/Stepper";
+import Typography from "@mui/material/Typography";
+import { useState } from "react";
+import menuImg from "../../assets/img/menu.svg";
+import Colors from "../../components/Colors/Colors";
+import Fonts from "../../components/Fonts/Fonts";
+import Industry from "../../components/Industry";
+import NameEditor from "../../components/NameEditor/NameEditor";
+import Style from "../../components/Style/Style";
 
-
-const steps = ['Name', 'Industry', 'Style', 'Colors', 'Fonts', 'Icon']
-const components = [<NameEditor />, <Industry />, <Style />,<Colors />,<Fonts />, []]
+const steps = ["Name", "Industry", "Style", "Colors", "Fonts", "Icon"];
+const components = [
+  <NameEditor />,
+  <Industry />,
+  <Style />,
+  <Colors />,
+  <Fonts />,
+  [],
+];
 
 const GeneratorPage: React.FC = () => {
-  const [activeStep, setActiveStep] = useState(1)
-  const [completed, setCompleted] = useState<{
-    [k: number]: boolean
-  }>({})
+  const [activeStep, setActiveStep] = useState(1);
+  const [completed, setCompleted] = useState<{ [k: number]: boolean }>({});
 
   const totalSteps = () => {
-    return steps.length
-  }
+    return steps.length;
+  };
 
   const completedSteps = () => {
-    return Object.keys(completed).length
-  }
+    return Object.keys(completed).length;
+  };
 
   const isLastStep = () => {
-    return activeStep === totalSteps() - 1
-  }
+    return activeStep === totalSteps() - 1;
+  };
 
   const allStepsCompleted = () => {
-    return completedSteps() === totalSteps()
-  }
+    return completedSteps() === totalSteps();
+  };
 
   const handleNext = () => {
     const newActiveStep =
@@ -42,36 +46,36 @@ const GeneratorPage: React.FC = () => {
         ? // It's the last step, but not all steps have been completed,
           // find the first step that has been completed
           steps.findIndex((step, i) => !(i in completed))
-        : activeStep + 1
-    setActiveStep(newActiveStep)
-  }
+        : activeStep + 1;
+    setActiveStep(newActiveStep);
+  };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1)
-  }
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
 
   const handleStep = (step: number) => () => {
-    setActiveStep(step)
-  }
+    setActiveStep(step);
+  };
 
   const handleComplete = () => {
-    const newCompleted = completed
-    newCompleted[activeStep] = true
-    setCompleted(newCompleted)
-    handleNext()
-  }
+    const newCompleted = completed;
+    newCompleted[activeStep] = true;
+    setCompleted(newCompleted);
+    handleNext();
+  };
 
   const handleReset = () => {
-    setActiveStep(0)
-    setCompleted({})
-  }
+    setActiveStep(0);
+    setCompleted({});
+  };
 
   return (
     <main className="h-full flex flex-col">
       <Stepper nonLinear activeStep={activeStep}>
         <img src={menuImg} alt="logo" />
         {steps.map((label, index) => (
-          <StepButton color="inherit" onClick={handleStep(index)}>
+          <StepButton color="inherit" key={index} onClick={handleStep(index)}>
             {label}
           </StepButton>
         ))}
@@ -89,18 +93,27 @@ const GeneratorPage: React.FC = () => {
           <div className="">
             <div>{components[activeStep]}</div>
             <div className="fixed bottom-0 right-0">
-              <Button color="inherit" disabled={activeStep === 0} onClick={handleBack}>
+              <Button
+                color="inherit"
+                disabled={activeStep === 0}
+                onClick={handleBack}
+              >
                 Back
               </Button>
               <Button onClick={handleNext}>Next</Button>
               {activeStep !== steps.length &&
                 (completed[activeStep] ? (
-                  <Typography variant="caption" sx={{ display: 'inline-block' }}>
+                  <Typography
+                    variant="caption"
+                    sx={{ display: "inline-block" }}
+                  >
                     Step {activeStep + 1} already completed
                   </Typography>
                 ) : (
                   <Button onClick={handleComplete}>
-                    {completedSteps() === totalSteps() - 1 ? 'Finish' : 'Complete Step'}
+                    {completedSteps() === totalSteps() - 1
+                      ? "Finish"
+                      : "Complete Step"}
                   </Button>
                 ))}
             </div>
@@ -108,7 +121,7 @@ const GeneratorPage: React.FC = () => {
         )}
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default GeneratorPage
+export default GeneratorPage;
