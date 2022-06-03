@@ -8,7 +8,7 @@ const App: React.FC = () => {
   return (
     <div className="h-screen">
       <Routes>
-        <Route path="/" element={<StartPage />} />
+        <Route path="/" element={<StartPage isVisibleModal={undefined} />} />
         <Route path="/industry" element={<IndustryPage />} />
         <Route path="/generator" element={<GeneratorPage />} />
       </Routes>
