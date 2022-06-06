@@ -48,12 +48,12 @@ const Colors = () => {
 
   return (
     <>
-      <h2 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7 ">
+      <h1 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7 ">
         {" "}
         Pick favorite color
-      </h2>
+      </h1>
       <div className="flex  h-full w-full justify-center overflow-y-auto p-3  ">
-        <div className=" flex flex-wrap flex-row justify-between w-1/2 p-2 gap-y-7 ">
+        <div className=" flex flex-wrap flex-row justify-between  p-2 gap-y-7 max-w-4xl ">
           {colorCards.map((card, index) => (
             <div
               onClick={(e) => {
