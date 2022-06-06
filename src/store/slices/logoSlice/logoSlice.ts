@@ -11,7 +11,7 @@ const initialState: LogoState = {
         industry: '',
         style: 0,
          colors: 0,
-        fonts: 0,
+        fonts: '',
         icons:0,
    }
 }

@@ -18,6 +18,6 @@ export interface Logo{
   industry?: string
   style?: number
   colors?: number
-  fonts?: number
+  fonts?:string
   icons?:number
 }

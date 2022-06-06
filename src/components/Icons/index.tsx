@@ -9,10 +9,39 @@ import icon7 from "../../assets/img/Icons/7.svg";
 import icon8 from "../../assets/img/Icons/8.svg";
 import icon9 from "../../assets/img/Icons/9.svg";
 import { setIcon } from "../../store/slices/logoSlice/logoSlice";
+import axios from 'axios';
+import addOAuthInterceptor from 'axios-oauth-1.0a';
+
 
 const icons = [icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9];
 
 const Icons = () => {
+
+
+// const client = axios.create();
+// const options = {
+//     algorithm: 'HMAC-SHA256',
+//     key: 'a708d161e0f4246bea7db999bbf7888',
+//     secret: '8c95080030194631b801dcad03dfa080',
+//   };
+//   //@ts-ignore
+// addOAuthInterceptor(client, options);
+  // axios.get('http://api.thenounproject.com/icon/1', {
+  //   auth: {
+  //     username: 'subscriptions@codepunch.io',
+  //     password: 'Theneunproject123!'
+  //   }
+  // })
+  //   .then(res => {
+  //     console.log(res);
+  //   })
+  // const token = 'a708d161e0f4246bea7db999bbf7888'
+  // const password='8c95080030194631b801dcad03dfa080'
+  axios.get('http://api.thenounproject.com/icon/car')
+    .then(res => {
+      console.log(res.data)
+    });
+
   const dispatch = useDispatch();
   const handleClick = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
     const id = e.currentTarget.id;
