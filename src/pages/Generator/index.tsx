@@ -8,11 +8,12 @@ import NameEditor from '../../components/NameEditor/NameEditor'
 import Style from '../../components/Style/Style'
 import Industry from '../../components/Industry'
 import Colors from '../../components/Colors/Colors'
+import NewColors from '../../components/NewColors/NewColors'
 import Fonts from '../../components/Fonts/Fonts'
 import  { NavLink } from 'react-router-dom'
 import Icons from '../../components/Icons/index'
 const steps = ['Name', 'Industry', 'Style', 'Colors', 'Fonts', 'Icon']
-const components = [<NameEditor />, <Industry />, <Style />,<Colors />,<Fonts />,<Icons />, []]
+const components = [<NameEditor />, <Industry />, <Style />,<NewColors />,<Fonts />,<Icons />, []]
 
 const GeneratorPage: React.FC = () => {
   const [activeStep, setActiveStep] = useState(1);

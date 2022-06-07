@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react'
+
 import { useDispatch } from "react-redux";
 import { setColor } from "../../store/slices/logoSlice/logoSlice";
 
@@ -40,48 +41,68 @@ const colorCards = [
   },
 ];
 
-const Colors = () => {
+
+
+const NewColors = () => {
+
+
   const dispatch = useDispatch();
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const id = e.currentTarget.id;
     dispatch(setColor(id));
   };
 
-  return (
-    <>
-      <h1 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7 ">
-        {" "}
-        Pick favorite color
-      </h1>
-      <div className="flex  h-full w-full justify-center overflow-y-auto p-3  ">
-        <div className=" flex flex-wrap flex-row justify-between  p-2 gap-y-7 max-w-4xl ">
-          {colorCards.map((card, index) => (
+
+    return (
+      
+
+
+
+
+   <div className="bg-white py-6 sm:py-8 lg:py-12">
+  <div className="max-w-screen-2xl px-4 md:px-8 mx-auto">
+    <div className="flex justify-center items-end gap-4 mb-6">
+      <h2 className="text-gray-800 text-2xl lg:text-3xl font-bold">Pick favorite color</h2>
+
+    </div>
+
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-4 md:gap-x-6 gap-y-8">
+                    {/* <!-- product - start --> */}
+                      {colorCards.map((card, index) => (
             <div
-              onClick={(e) => {
-                handleClick(e);
+               onClick={(e) => {
+                 handleClick(e);
               }}
               id={String(index + 1)}
-              className="hover:bg-green-500 p-1 rounded-lg flex-wrap w-56 flex justify-center border-2"
-              key={index}
+                              key={index}
+                   className="hover:scale-105 hover:border-2  hover:border-green-500 shadow hover:shadow-2xl rounded"            
             >
-              <ul className="w-full p-3 bg-white ">
-                {card.colors.map((color, index) => (
+               <ul className="w-full p-3 bg-white  "  >
+                                  {card.colors.map((color, index) => (
+                     <div className="group h-12 block bg-gray-100 rounded-lg overflow-hidden relative mb-2 lg:mb-3">
                   <li
                     id={String(index + 1)}
-                    className={`${color} h-12 w-full rounded-sm`}
+                    //  className={`${color} h-12 w-full rounded-sm`}
+                         className={`${color} h-12 w-full rounded-sm group-hover:scale-110 transition duration-200`}
                     key={index}
-                  ></li>
-                ))}
+                 ></li>
+                                          </div>
+               ))}
               </ul>
               <p className="bg-white text-base pt-2 w-full text-center h-14 font-mono p-3 font-semibold text-gray-400 ">
                 {card.title}
               </p>
-            </div>
+             </div>
           ))}
-        </div>
-      </div>
+      
     
-    </>)}
+    </div>
+  </div>
+</div>
+  )
+}
 
-export default Colors;
+export default NewColors
+
+
 
