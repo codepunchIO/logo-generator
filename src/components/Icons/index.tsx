@@ -62,7 +62,7 @@ const Icons = () => {
           {icons.map((icon, index) => (
             <div key={index} className="flex flex-row w-1/3 flex-nowrap">
               <img
-                className="hover:scale-100 hover:border-2  hover:border-green-500 m-1 hover:shadow-2xl w-full flex justify-center"
+                className="hover:scale-102  m-1 hover:shadow-2xl hover:roundet-2x1 transition duration-500 border-2 rounded-lg shadow-md ease-in-out w-full flex justify-center"
                 onClick={(e) => handleClick(e)}
                 id={String(icons.indexOf(icon) + 1)}
                 src={icon}

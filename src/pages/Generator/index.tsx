@@ -68,14 +68,18 @@ const GeneratorPage: React.FC = () => {
 
   return (
     <main className="h-full flex flex-col">
-      <Stepper nonLinear activeStep={activeStep}>
-        <img src={menuImg}   alt="logo" />
+      <div className='flex border justify-between'>
+      <img src={menuImg} alt="logo" className='w-12 h-12 my-auto ml-10'/>
+      <Stepper nonLinear activeStep={activeStep} sx={{ width: '600px' }}>
         {steps.map((label, index) => (
           <StepButton color="inherit" key={index} onClick={handleStep(index)}>
             {label}
           </StepButton>
         ))}
       </Stepper>
+      <div className='my-auto mr-10'><h1>X</h1></div>
+      </div>
+
       <div className="border-sky-500 h-full flex-col justify-evenly">
         {allStepsCompleted() ? (
           <>

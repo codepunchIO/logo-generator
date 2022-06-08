@@ -156,7 +156,7 @@ const Fonts = () => {
 
     </div>
       <div className="flex flex-col h-full w-full p-1">
-        <div className="flex flex-wrap flex-row justify-evenly w-full p-8 h-full ">
+        <div className="flex flex-wrap flex-row justify-evenly w-3/4 mx-auto p-8 h-full ">
           {/* {fonts.map((font) => (
             <div className="flex flex-row w-1/3 flex-nowrap" >
               <img
@@ -173,10 +173,10 @@ const Fonts = () => {
             familiesNames?
               familiesNames.map((family: any) => (
               (state.logo.data.brandName!=='')?(
-                  <div className=' flex flex-row w-1/3 flex-nowrap scale-95 hover:border-2  hover:border-green-500 shadow hover:shadow-2xl rounded h-24  justify-center p-3 '
+                  <div className=' flex flex-row flex-nowrap rounded h-24 justify-center p-3'
                   key={familiesNames.indexOf(family)}>
                 <span style={{ fontFamily: `${family}` }}
-                  className={`${pallete} flex flex-col text-center justify-center h-auto text-2xl px-6 py-2`}
+                  className={`${pallete} flex flex-col text-center justify-center h-auto text-xl px-6 py-2`}
                       onClick={(e) => handleClick(e)}
                       title={family}
                 >
@@ -186,10 +186,10 @@ const Fonts = () => {
                </div>
                 ) :
                 (
-              <div className=' flex flex-row w-1/3 flex-nowrap hover:scale-100 hover:border-2  hover:border-green-500 shadow hover:shadow-2xl rounded h-24  justify-center p-3 '
+              <div className=' flex flex-row flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center '
               key={familiesNames.indexOf(family)} >
                 <span style={{ fontFamily: `${family}` }}
-                       className={`${pallete} flex flex-col w-5/6  text-center justify-center h-auto text-2xl px-6 py-2`}
+                       className={`${pallete} flex flex-col w-5/6  text-center min-w-full border-2 justify-center h-auto rounded-lg text-xl px-6 py-2`}
                         onClick={(e) => handleClick(e)}
                         title={family}
                 >
