@@ -75,7 +75,7 @@ const NewColors = () => {
               }}
               id={String(index + 1)}
                               key={index}
-                   className="hover:scale-105 hover:border-2  hover:border-green-500 shadow hover:shadow-2xl rounded"            
+                   className="hover:scale-100 hover:border-2  hover:border-green-500 shadow hover:shadow-2xl rounded"            
             >
                <ul className="w-full p-3 bg-white  "  >
                                   {card.colors.map((color, index) => (

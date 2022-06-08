@@ -173,7 +173,7 @@ const Fonts = () => {
             familiesNames?
               familiesNames.map((family: any) => (
               (state.logo.data.brandName!=='')?(
-                  <div className=' flex flex-row w-1/3 flex-nowrap hover:border-2 hover:border-green-500 h-24  justify-center p-3 '
+                  <div className=' flex flex-row w-1/3 flex-nowrap scale-95 hover:border-2  hover:border-green-500 shadow hover:shadow-2xl rounded h-24  justify-center p-3 '
                   key={familiesNames.indexOf(family)}>
                 <span style={{ fontFamily: `${family}` }}
                   className={`${pallete} flex flex-col text-center justify-center h-auto text-2xl px-6 py-2`}
@@ -186,7 +186,7 @@ const Fonts = () => {
                </div>
                 ) :
                 (
-              <div className=' flex flex-row w-1/3 flex-nowrap hover:border-2 hover:border-green-500 h-24  justify-center p-3 '
+              <div className=' flex flex-row w-1/3 flex-nowrap hover:scale-100 hover:border-2  hover:border-green-500 shadow hover:shadow-2xl rounded h-24  justify-center p-3 '
               key={familiesNames.indexOf(family)} >
                 <span style={{ fontFamily: `${family}` }}
                        className={`${pallete} flex flex-col w-5/6  text-center justify-center h-auto text-2xl px-6 py-2`}

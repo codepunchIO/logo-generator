@@ -25,7 +25,7 @@ const Style = () => {
           {layouts.map((layout) => (
             <div className="flex flex-row w-1/2 flex-nowrap ">
               <img
-                className="hover:bg-green-500 p-1 rounded-2xl  w-full flex justify-center"
+                className="hover:scale-100 hover:border-2  hover:border-green-500 hover:shadow-2xl p-1 rounded-2xl  w-full flex justify-center"
                 onClick={(e) => handleClick(e)}
                 id={String(layouts.indexOf(layout) + 1)}
                 src={layout}
