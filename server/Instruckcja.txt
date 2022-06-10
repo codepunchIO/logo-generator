@@ -1,0 +1,9 @@
+0. sklonowac projekt
+w folderze projektu otworz terminal i wpisz
+1. pip install virtualenv
+2. virtualenv venv
+3. cd venv/Scripts
+4. activate (po tym powinnno na poczatku linii pisac (venv) )
+5. cd ../..
+6. python install -r requirements
+7. python main.py
