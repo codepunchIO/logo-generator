@@ -126,37 +126,36 @@ const Fonts = () => {
     console.log(selectedQuery);
   }
   return (
-    <>
-      <h1 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7 ">
-        Choose font style
-      </h1>
-      <h2 className="text-2xl text-center font-bold p-4 pt-24 text-gray-900 mb-7 ">
-        Sort by:
-      </h2>
 
+  <><div className="bg-white py-6 sm:py-8 lg:py-20">
+      <div className="w-9/12 justify-center mx-auto">
+        <h1 className="text-4xl text-center font-extrabold p-4 text-gray-900 mb-7">
+          Choose font style
+        </h1>
+
+        <h2 className="text-2xl text-center font-bold p-4 pt-24 text-gray-900 mb-7 ">
+          Sort by:
+        </h2>
+        
       <div className="flex flex-row justify-evenly">
         <div className="flex flex-col w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white  justify-center text-center"
           onClick={(e) => handleSelect(e)}
-          title='TRENDING'
-        >
+          title='TRENDING'>
           Trending
         </div>
-          <div className="flex flex-col w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white justify-center text-center"
+        <div className="flex flex-col w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white justify-center text-center"
           onClick={(e) => handleSelect(e)}
-          title='POPULARITY'
-          >
+          title='POPULARITY'>
           Most Popular
         </div>
-          <div className="flex flex-col w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white justify-center text-center"
+        <div className="flex flex-col w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white justify-center text-center"
           onClick={(e) => handleSelect(e)}
-          title='STYLE'
-          >
+          title='STYLE'>
           Styles
         </div>
-
     </div>
       <div className="flex flex-col h-full w-full p-1">
-        <div className="flex flex-wrap flex-row justify-evenly w-3/4 mx-auto p-8 h-full ">
+        <div className="flex flex-wrap flex-row justify-evenly p-4 h-full ">
           {/* {fonts.map((font) => (
             <div className="flex flex-row w-1/3 flex-nowrap" >
               <img
@@ -189,7 +188,7 @@ const Fonts = () => {
               <div className=' flex flex-row flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center '
               key={familiesNames.indexOf(family)} >
                 <span style={{ fontFamily: `${family}` }}
-                       className={`${pallete} flex flex-col w-5/6  text-center min-w-full border-2 justify-center h-auto rounded-lg text-xl px-6 py-2`}
+                       className={`${pallete} flex flex-col w-auto  text-center min-w-full border-2 justify-center h-auto rounded-lg text-xl px-6 py-2`}
                         onClick={(e) => handleClick(e)}
                         title={family}
                 >
@@ -202,6 +201,8 @@ const Fonts = () => {
                : <p>0</p>
           }
         </div>
+      </div>
+      </div>
       </div>
     </>
   );

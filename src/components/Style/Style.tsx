@@ -16,16 +16,16 @@ const Style = () => {
 
   return (
     // <div className="flex flex-row justify-evenly h-full w-1/2 p-1">
-    <>
-      <h1 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7 ">
+    <><div className="w-9/12 m-auto justify-center">
+      <h1 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7">
         Choose a layout
       </h1>
-      <div className=" flex h-full w-full ml-auto mr-auto p-1 max-w-5xl justify-center">
-        <div className="flex flex-wrap flex-row justify-center w-full p-4 ">
+      <div className=" flex flex-wrap p-4 justify-center">
+        <div className="flex flex-wrap flex-row justify-center w-full">
           {layouts.map((layout) => (
-            <div className="flex flex-row w-1/2 flex-nowrap ">
+            <div className="flex flex-row w-auto justify-center flex-nowrap ">
               <img
-                className="hover:scale-100 transition duration-500 ease-in-out mx-2 my-2 shadow-md hover:shadow-2xl border-2 rounded-2xl  w-full flex justify-center"
+                className="hover:scale-100 transition w-auto duration-500 ease-in-out mx-2 my-2 shadow-md hover:shadow-2xl border-2 rounded-2xl flex justify-center"
                 onClick={(e) => handleClick(e)}
                 id={String(layouts.indexOf(layout) + 1)}
                 src={layout}
@@ -35,6 +35,7 @@ const Style = () => {
           ))}
         </div>
       </div>
+    </div>
     </>
   );
 };

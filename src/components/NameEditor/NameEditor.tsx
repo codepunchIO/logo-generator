@@ -21,7 +21,7 @@ const NameEditor: React.FC = () => {
 
   return (
     <div className="p-1 h-[500px] flex flex-col">
-      <div className="flex flex-col justify-self-center  w-auto mx-auto h-full items-center justify-center">
+      <div className="flex flex-col justify-self-center w-auto mx-auto h-full items-center justify-center">
         <div className="flex shadow-lg flex-row justify-center mt-10 ">
           <input
             ref={newBrandRef}
