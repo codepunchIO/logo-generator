@@ -92,7 +92,7 @@ const GeneratorPage: React.FC = () => {
     },
     [`&.${stepConnectorClasses.active}`]: {
       [`& .${stepConnectorClasses.line}`]: {
-        borderColor: '#784af4',
+        borderColor: '#22c55e',
       },
     },
     [`&.${stepConnectorClasses.completed}`]: {
@@ -116,10 +116,10 @@ const GeneratorPage: React.FC = () => {
       height: 22,
       alignItems: 'center',
       ...(ownerState.active && {
-        color: '#784af4',
+        color: '#22c55e',
       }),
       '& .QontoStepIcon-completedIcon': {
-        color: '#784af4',
+        color: '#22c55e',
         zIndex: 1,
         fontSize: 18,
       },
