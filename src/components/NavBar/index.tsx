@@ -1,25 +1,30 @@
-import { AppBar, IconButton, TextField, Toolbar, Typography } from '@mui/material'
-import GridViewIcon from '@mui/icons-material/GridView'
-import TextFieldsIcon from '@mui/icons-material/TextFields'
-import Logotype from './Logotype'
-import { useState } from 'react'
-import LayoutMenu from './LayoutMenu'
-import FontsMenu from './FontsMenu'
-import { purple } from '@mui/material/colors'
+import {
+  AppBar,
+  IconButton,
+  TextField,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import GridViewIcon from "@mui/icons-material/GridView";
+import TextFieldsIcon from "@mui/icons-material/TextFields";
+import Logotype from "./Logotype";
+import { useState } from "react";
+import LayoutMenu from "./LayoutMenu";
+import FontsMenu from "./FontsMenu";
 
 const Navbar: React.FC = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-  const [buttonType, setButtonType] = useState<null | string>('')
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [buttonType, setButtonType] = useState<null | string>("");
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget)
-    setButtonType(event.currentTarget.textContent)
-  }
+    setAnchorEl(event.currentTarget);
+    setButtonType(event.currentTarget.textContent);
+  };
   const handleClose = () => {
-    console.log('handleClose work!')
-    setAnchorEl(null)
-    setButtonType('')
-  }
+    console.log("handleClose work!");
+    setAnchorEl(null);
+    setButtonType("");
+  };
 
   return (
     <>
@@ -28,7 +33,7 @@ const Navbar: React.FC = () => {
           <Logotype />
           <div>
             <TextField
-              sx={{ input: { background: 'white' } }}
+              sx={{ input: { background: "white" } }}
               id="standard-basic"
               label="Type your logo text..."
               variant="filled"
@@ -42,7 +47,7 @@ const Navbar: React.FC = () => {
             </IconButton>
 
             <LayoutMenu
-              isOpen={buttonType === 'Layout'}
+              isOpen={buttonType === "Layout"}
               anchorEl={anchorEl}
               handleClose={handleClose}
             />
@@ -55,14 +60,14 @@ const Navbar: React.FC = () => {
             <FontsMenu
               anchorEl={anchorEl}
               handleClose={handleClose}
-              isOpen={buttonType === 'Fonts'}
+              isOpen={buttonType === "Fonts"}
             />
           </div>
         </Toolbar>
       </AppBar>
       <Toolbar />
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
