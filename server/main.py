@@ -11,7 +11,8 @@ app = FastAPI()
 # endpoint = "http://api.thenounproject.com/icons/fish?limit_to_public_domain=1&limit=4"
 endpoint = "http://api.thenounproject.com/icons"
 limit = '?limit_to_public_domain=1&limit=20'
-
+google_endopoint='https://www.googleapis.com/webfonts/v1/webfonts?sort='
+google_key='&key=AIzaSyBKhpUOzLrAVaXXPJoPEKUs3qaeVbghs7o'
 
 # dupa = list(map(lambda icon: icon['icon_url'], dupa))
 # print(dupa)
@@ -26,7 +27,12 @@ def get_icons(tag):
     print(dupa)
     return dupa
 
-
+@app.get('/fonts/{query}')
+def get_fonts(query):
+    new_endpoint = f'{google_endopoint}{query}{google_key}'
+    print(new_endpoint)
+    data=json.loads(requests.get(new_endpoint).content)['items']
+    return data
 
 
 

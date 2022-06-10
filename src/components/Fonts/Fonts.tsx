@@ -34,11 +34,11 @@ const Fonts = () => {
   //possible queries
   const fetchData = async () => {
       let fonts = [];
-    const res = await axios.get(`https://www.googleapis.com/webfonts/v1/webfonts?sort=${selectedQuery}&key=AIzaSyBKhpUOzLrAVaXXPJoPEKUs3qaeVbghs7o`)
+    const res = await axios.get(`http://127.0.0.1:8443/fonts/${selectedQuery}`)
       // .then((res) => {
     // console.log(isLoaded);
         console.log(res.data)
-        fonts = res.data.items.slice(0,21);
+        fonts = res.data.slice(0,21);
         console.log(fonts);
     
       setfamiliesNames(fonts.map((font: any) => font.family))
