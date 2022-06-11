@@ -7,7 +7,6 @@ import menuImg from '../../assets/img/menu.svg'
 import NameEditor from '../../components/NameEditor/NameEditor'
 import Style from '../../components/Style/Style'
 import Industry from '../../components/Industry'
-import Colors from '../../components/Colors/Colors'
 import NewColors from '../../components/NewColors/NewColors'
 import Fonts from '../../components/Fonts/Fonts'
 import { NavLink } from 'react-router-dom'
@@ -35,7 +34,7 @@ const components = [
 
 const GeneratorPage: React.FC = () => {
   const [activeStep, setActiveStep] = useState(1)
-  const [completed, setCompleted] = useState<{ [k: number]: boolean }>({})
+  const [completed, setCompleted] = useState<{ [k: number]: boolean }>({ 0: true })
 
   const totalSteps = () => {
     return steps.length
@@ -50,15 +49,17 @@ const GeneratorPage: React.FC = () => {
   }
 
   const allStepsCompleted = () => {
+    console.log('allStepsCompleted!!!')
+    console.log('completedSteps()', completedSteps())
+    console.log('totalSteps()', totalSteps())
+
     return completedSteps() === totalSteps()
   }
 
   const handleNext = () => {
     const newActiveStep =
       isLastStep() && !allStepsCompleted()
-        ? // It's the last step, but not all steps have been completed,
-          // find the first step that has been completed
-          steps.findIndex((step, i) => !(i in completed))
+        ? steps.findIndex((step, i) => !(i in completed))
         : activeStep + 1
     setActiveStep(newActiveStep)
   }
@@ -72,6 +73,7 @@ const GeneratorPage: React.FC = () => {
   }
 
   const handleComplete = () => {
+    console.log('completed', completed)
     const newCompleted = completed
     newCompleted[activeStep] = true
     setCompleted(newCompleted)
@@ -134,56 +136,6 @@ const GeneratorPage: React.FC = () => {
   ////STYLES
 
   ////STYLES
-  const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
-    [`&.${stepConnectorClasses.alternativeLabel}`]: {
-      top: 22,
-    },
-    [`&.${stepConnectorClasses.active}`]: {
-      [`& .${stepConnectorClasses.line}`]: {
-        backgroundImage:
-          'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
-      },
-    },
-    [`&.${stepConnectorClasses.completed}`]: {
-      [`& .${stepConnectorClasses.line}`]: {
-        backgroundImage:
-          'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
-      },
-    },
-    [`& .${stepConnectorClasses.line}`]: {
-      height: 3,
-      border: 0,
-      backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[800] : '#eaeaf0',
-      borderRadius: 1,
-    },
-  }))
-  ////STYLES
-
-  ////STYLES
-  const ColorlibStepIconRoot = styled('div')<{
-    ownerState: { completed?: boolean; active?: boolean }
-  }>(({ theme, ownerState }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#ccc',
-    zIndex: 1,
-    color: '#fff',
-    width: 50,
-    height: 50,
-    display: 'flex',
-    borderRadius: '50%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    ...(ownerState.active && {
-      backgroundImage:
-        'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
-      boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
-    }),
-    ...(ownerState.completed && {
-      backgroundImage:
-        'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
-    }),
-  }))
-  ////STYLES
-
   function QontoStepIcon(props: StepIconProps) {
     const { active, completed, className } = props
 
@@ -203,7 +155,7 @@ const GeneratorPage: React.FC = () => {
       <div className="px-24 py-4 flex border justify-between">
         <img src={menuImg} alt="logo" className="w-12 h-12 my-auto" />
         <div>
-          <Stepper alternativeLabel activeStep={1} connector={<QontoConnector />}>
+          <Stepper alternativeLabel activeStep={activeStep} connector={<QontoConnector />}>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel StepIconComponent={QontoStepIcon}></StepLabel>
@@ -220,7 +172,7 @@ const GeneratorPage: React.FC = () => {
           </Stepper>
         </div>
         <div className="my-auto mr-10">
-          <h1>X</h1>
+          <NavLink to="/">x</NavLink>
         </div>
       </div>
 
@@ -233,7 +185,6 @@ const GeneratorPage: React.FC = () => {
             </div>
           </>
         ) : (
-          // <div className="flex Oflex-col justify-center w-full h-5/4">
           <div className="">
             <div>{components[activeStep]}</div>
             <div className="fixed bottom-0 right-0">
@@ -249,7 +200,7 @@ const GeneratorPage: React.FC = () => {
                 ) : (
                   <Button onClick={handleComplete}>
                     {completedSteps() === totalSteps() - 1 ? (
-                      <NavLink to="/editor">Finish'</NavLink>
+                      <NavLink to="/editor">Finish it's me'</NavLink>
                     ) : (
                       'Complete Step'
                     )}
