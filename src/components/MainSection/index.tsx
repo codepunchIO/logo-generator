@@ -1,4 +1,10 @@
-const MainSection: React.FC = () => {
+interface PropsType {
+  inputValue: string
+}
+
+const MainSection: React.FC<PropsType> = ({ inputValue }) => {
+  console.log('MainSection > inputValue', inputValue)
+
   return (
     <div className="pl-6 pr-6">
       <h1 className=" mb-4">Logo-generator</h1>
@@ -7,7 +13,7 @@ const MainSection: React.FC = () => {
       <div className="flex justify-between h-5/6mb-4">
         <div className="w-1/2 mr-6">
           <div className="border-2 rounded-lg text-blue-600 h-72 font-bold text-6xl flex  items-center justify-center">
-            <p className="">Left Section</p>
+            <p className="">{inputValue}</p>
           </div>
           <button className=" mr-4 ml-4">Download JPG</button>
           <button>Download PNG</button>
@@ -15,7 +21,7 @@ const MainSection: React.FC = () => {
 
         <div className="w-1/2 ">
           <div className="border-2  rounded-lg text-neutral-50 h-72 text-6xl bg-blue-600 font-bold flex items-center justify-center">
-            <p>Right Section</p>
+            <p>{inputValue}</p>
           </div>
           <button className=" mr-4 ml-4">Download JPG</button>
           <button>Download PNG</button>
@@ -30,6 +36,6 @@ const MainSection: React.FC = () => {
         <button>ISOTYPE</button>
       </footer>
     </div>
-  );
-};
-export default MainSection;
+  )
+}
+export default MainSection

@@ -23,6 +23,7 @@
     "@types/react-router-redux": "^5.0.21",
     "axios": "^0.27.2",
     "axios-oauth-1.0a": "^0.3.5",
+    "mui-color": "^2.0.0-beta.2",
     "oauth": "^0.9.15",
     "react": "^18.1.0",
     "react-color": "^2.19.3",
