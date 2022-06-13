@@ -5,13 +5,28 @@ import Logotype from './Logotype'
 import { useState } from 'react'
 import LayoutMenu from './LayoutMenu'
 import FontsMenu from './FontsMenu'
-// import LogotypeColor from './ColorPicker'
+import LogotypeColorPicker from './LogotypeColorPicker'
+import ColorLensIcon from '@mui/icons-material/ColorLens'
 
 interface PropsType {
   setInputValue: any
+  bgColor: any
+  setBgColor: any
+  txColor: any
+  setTxColor: any
+  lgColor: any
+  setLgColor: any
 }
 
-const Navbar: React.FC<PropsType> = ({ setInputValue }) => {
+const Navbar: React.FC<PropsType> = ({
+  setInputValue,
+  bgColor,
+  lgColor,
+  setBgColor,
+  setLgColor,
+  setTxColor,
+  txColor,
+}) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const [buttonType, setButtonType] = useState<null | string>('')
 
@@ -20,7 +35,6 @@ const Navbar: React.FC<PropsType> = ({ setInputValue }) => {
     setButtonType(event.currentTarget.textContent)
   }
   const handleClose = () => {
-    console.log('handleClose work!')
     setAnchorEl(null)
     setButtonType('')
   }
@@ -45,6 +59,43 @@ const Navbar: React.FC<PropsType> = ({ setInputValue }) => {
               color="primary"
               onChange={onTestClick}
             />
+
+            <IconButton className="mr-3" onClick={(e) => handleClick(e)}>
+              <ColorLensIcon className="mr-1" />
+              <Typography>Card color</Typography>
+            </IconButton>
+            <LogotypeColorPicker
+              isOpen={buttonType === 'Card color'}
+              anchorEl={anchorEl}
+              handleClose={handleClose}
+              color={bgColor}
+              setColor={setBgColor}
+            />
+
+            <IconButton className="mr-3" onClick={(e) => handleClick(e)}>
+              <ColorLensIcon className="mr-1" />
+              <Typography>Text color</Typography>
+            </IconButton>
+            <LogotypeColorPicker
+              isOpen={buttonType === 'Text color'}
+              anchorEl={anchorEl}
+              handleClose={handleClose}
+              color={txColor}
+              setColor={setTxColor}
+            />
+
+            <IconButton className="mr-3" onClick={(e) => handleClick(e)}>
+              <ColorLensIcon className="mr-1" />
+              <Typography>Logo color</Typography>
+            </IconButton>
+            <LogotypeColorPicker
+              isOpen={buttonType === 'Logo color'}
+              anchorEl={anchorEl}
+              handleClose={handleClose}
+              color={lgColor}
+              setColor={setLgColor}
+            />
+
             <IconButton className="mr-3" onClick={(e) => handleClick(e)}>
               <GridViewIcon className="mr-1" />
               <Typography>Layout</Typography>
@@ -67,7 +118,6 @@ const Navbar: React.FC<PropsType> = ({ setInputValue }) => {
               isOpen={buttonType === 'Fonts'}
             />
           </div>
-          {/* <LogotypeColor /> */}
         </Toolbar>
       </AppBar>
       <Toolbar />
