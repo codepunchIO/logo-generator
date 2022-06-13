@@ -7,7 +7,7 @@ const EditorPage: React.FC = () => {
   const [bgColor, setBgcolor] = useState<any>('black')
   const [txColor, setTxColor] = useState<any>('black')
   const [lgColor, setLgColor] = useState<any>('black')
-
+  const [font, setSelectedFont] = useState<any>('Sacramento')
   return (
     <>
       <div className="h-screen">
@@ -19,6 +19,8 @@ const EditorPage: React.FC = () => {
           setTxColor={setTxColor}
           lgColor={lgColor}
           setLgColor={setLgColor}
+          font={font}
+          setSelectedFont={setSelectedFont}
         />
         <main className="border border-sky-500 h-5/6">
           <MainSection
@@ -26,6 +28,7 @@ const EditorPage: React.FC = () => {
             bgColor={bgColor.hex}
             txColor={txColor.hex}
             lgColor={lgColor.hex}
+            font = {font}
           />
         </main>
       </div>
