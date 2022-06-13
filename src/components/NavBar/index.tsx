@@ -5,7 +5,7 @@ import Logotype from './Logotype'
 import { useState } from 'react'
 import LayoutMenu from './LayoutMenu'
 import FontsMenu from './FontsMenu'
-import LogotypeColor from './ColorPicker'
+// import LogotypeColor from './ColorPicker'
 
 interface PropsType {
   setInputValue: any
@@ -67,7 +67,7 @@ const Navbar: React.FC<PropsType> = ({ setInputValue }) => {
               isOpen={buttonType === 'Fonts'}
             />
           </div>
-          <LogotypeColor />
+          {/* <LogotypeColor /> */}
         </Toolbar>
       </AppBar>
       <Toolbar />
