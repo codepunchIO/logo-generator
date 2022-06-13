@@ -85,7 +85,6 @@ const GeneratorPage: React.FC = () => {
     setCompleted({})
   }
 
-  ////STYLES
   const QontoConnector = styled(StepConnector)(({ theme }) => ({
     [`&.${stepConnectorClasses.alternativeLabel}`]: {
       top: 10,
@@ -108,9 +107,7 @@ const GeneratorPage: React.FC = () => {
       borderRadius: 1,
     },
   }))
-  ////STYLES
 
-  ////STYLES
   const QontoStepIconRoot = styled('div')<{ ownerState: { active?: boolean } }>(
     ({ theme, ownerState }) => ({
       color: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#eaeaf0',
@@ -133,9 +130,7 @@ const GeneratorPage: React.FC = () => {
       },
     }),
   )
-  ////STYLES
 
-  ////STYLES
   function QontoStepIcon(props: StepIconProps) {
     const { active, completed, className } = props
 

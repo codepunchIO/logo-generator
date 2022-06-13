@@ -17,6 +17,7 @@ const MainSection: React.FC<PropsType> = ({ inputValue, bgColor, txColor, lgColo
       <h1 className=" mb-4">Logo-generator</h1>
       <hr className="w-36 mb-4" />
       <p className=" mb-10">Easy, fast and even fun! </p>
+
       <div className="flex justify-between h-5/6mb-4">
         <div className="w-1/2 mr-6">
           <Card

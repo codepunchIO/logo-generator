@@ -2,20 +2,20 @@ import { AppBar, IconButton, TextField, Toolbar, Typography } from '@mui/materia
 import GridViewIcon from '@mui/icons-material/GridView'
 import TextFieldsIcon from '@mui/icons-material/TextFields'
 import Logotype from './Logotype'
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import LayoutMenu from './LayoutMenu'
 import FontsMenu from './FontsMenu'
 import LogotypeColorPicker from './LogotypeColorPicker'
 import ColorLensIcon from '@mui/icons-material/ColorLens'
 
 interface PropsType {
-  setInputValue: any
-  bgColor: any
-  setBgColor: any
-  txColor: any
-  setTxColor: any
-  lgColor: any
-  setLgColor: any
+  setInputValue: (value: string) => void
+  setBgColor: (value: string) => void
+  setTxColor: (value: string) => void
+  setLgColor: (value: string) => void
+  bgColor: string
+  txColor: string
+  lgColor: string
 }
 
 const Navbar: React.FC<PropsType> = ({
@@ -34,7 +34,8 @@ const Navbar: React.FC<PropsType> = ({
     setAnchorEl(event.currentTarget)
     setButtonType(event.currentTarget.textContent)
   }
-  const handleClose = () => {
+  const handleClose = (e: any) => {
+    console.log(handleClose, e.target)
     setAnchorEl(null)
     setButtonType('')
   }
