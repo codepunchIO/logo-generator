@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import layout1 from "../../assets/img/Style_layouts/layout1.svg";
 import layout2 from "../../assets/img/Style_layouts/layout2.svg";
@@ -5,37 +6,48 @@ import layout3 from "../../assets/img/Style_layouts/layout3.svg";
 import layout4 from "../../assets/img/Style_layouts/layout4.svg";
 import { setStyle } from "../../store/slices/logoSlice/logoSlice";
 
-const layouts = [layout1, layout2, layout3, layout4];
+const layouts = [
+  { id: "1", screen: layout1 },
+  { id: "2", screen: layout2 },
+  { id: "3", screen: layout3 },
+  { id: "4", screen: layout4 },
+];
 
 const Style = () => {
   const dispatch = useDispatch();
-  const handleClick = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+  const [currentId, setCurrentId] = useState("");
+
+  const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const id = e.currentTarget.id;
     dispatch(setStyle(id));
+    setCurrentId(id);
   };
 
   return (
-    // <div className="flex flex-row justify-evenly h-full w-1/2 p-1">
-    <><div className="w-9/12 m-auto justify-center">
-      <h1 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7">
-        Choose a layout
-      </h1>
-      <div className=" flex flex-wrap p-4 justify-center">
-        <div className="flex flex-wrap flex-row justify-center w-full">
-          {layouts.map((layout) => (
-            <div className="flex flex-row w-auto justify-center flex-nowrap ">
-              <img
-                className="hover:scale-100 transition w-auto duration-500 ease-in-out mx-2 my-2 shadow-md hover:shadow-2xl border-2 rounded-2xl flex justify-center"
-                onClick={(e) => handleClick(e)}
-                id={String(layouts.indexOf(layout) + 1)}
-                src={layout}
-                alt="layout"
-              />
-            </div>
-          ))}
+    <>
+      <div className="max-w-7xl m-auto justify-center">
+        <h1 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7">
+          Choose a layout
+        </h1>
+        <div className=" flex flex-wrap p-4 justify-center">
+          <div className="flex flex-wrap flex-row justify-between  p-2 gap-y-7 max-w-4xl ">
+            {layouts.map(({ screen, id }) => (
+              <ul>
+                <li
+                  onClick={(e) => handleClick(e)}
+                  id={id}
+                  className={`cursor-pointer p-1 my-2 mx-2 hover:scale-100  shadow-md ease-in-out transition duration-500 hover:shadow-2xl 
+                   rounded-lg flex-wrap w-96 h-48 flex justify-center border-2   ${
+                     currentId === id ? "bg-green-500" : "bg-white-500"
+                   } `}
+                >
+                  <img src={screen} alt="layout" />
+                </li>
+              </ul>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

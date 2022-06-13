@@ -120,72 +120,8 @@ const Industry: React.FC = () => {
               </Combobox.Options>
             </Transition>
           </div>
-
         </Combobox>
-        {/* <Combobox
-          value={selectedPerson}
-          onChange={setSelectedPerson}
-          name="assignee"
-        >
-          <Combobox.Input
-            onChange={(event) => setQuery(event.target.value)}
-            displayValue={(person: Person) => person.name}
-          />
-          <Transition
-            enter="transition duration-100 ease-out"
-            enterFrom="transform scale-95 opacity-0"
-            enterTo="transform scale-100 opacity-100"
-            leave="transition duration-75 ease-out"
-            leaveFrom="transform scale-100 opacity-100"
-            leaveTo="transform scale-95 opacity-0"
-          >
-            <Combobox.Options>
-              {filteredPeople.map((person) => (
-                <Combobox.Option
-                  key={person.id}
-                  value={person}
-                  as={Fragment}
-                  disabled={person.unavailable}
-                >
-                  {({ active, selected }) => (
-                    <li
-                      className={`${
-                        active
-                          ? "bg-blue-500 text-white"
-                          : "bg-white text-black"
-                      }`}
-                    >
-                      <span className={person.unavailable ? "opacity-75" : ""}>
-                        {person.name}
-                      </span>
-                    </li>
-                  )}
-                </Combobox.Option>
-              ))}
-            </Combobox.Options>
-          </Transition>
-          {/* {({ activeOption }) => (
-            <>
-             
-            </>
-          )} 
-        </Combobox> */}
       </form>
-
-      {/* <div className="  rounded-md max-w-xl h-14 mt-10 mx-auto">
-        <select
-          className=" form-input border-2 rounded-md w-full h-full p-2"
-          defaultValue={"selectedOptionId"}
-        >
-          <option value="selectedOptionId" disabled hidden>
-            Search..
-          </option>
-
-          <option>Option 1</option>
-          <option>Option 2</option>
-          <option>Option 3</option>
-        </select>
-      </div>  */}
     </div>
   );
 };

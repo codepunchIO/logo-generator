@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import MainSection from '../../components/MainSection'
-import Navbar from '../../components/NavBar'
+import { useState } from "react";
+import MainSection from "../../components/MainSection";
+import Navbar from "../../components/NavBar";
 
 const EditorPage: React.FC = () => {
-  const [inputValue, setInputValue] = useState('Logo-generator')
-  const [bgColor, setBgcolor] = useState<any>('black')
-  const [txColor, setTxColor] = useState<any>('black')
-  const [lgColor, setLgColor] = useState<any>('black')
+  const [inputValue, setInputValue] = useState("Logo-generator");
+  const [bgColor, setBgcolor] = useState<any>("black");
+  const [txColor, setTxColor] = useState<any>("black");
+  const [lgColor, setLgColor] = useState<any>("black");
 
   return (
     <>
@@ -30,6 +30,6 @@ const EditorPage: React.FC = () => {
         </main>
       </div>
     </>
-  )
-}
-export default EditorPage
+  );
+};
+export default EditorPage;
