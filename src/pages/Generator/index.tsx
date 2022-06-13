@@ -2,7 +2,7 @@ import Button from '@mui/material/Button'
 import StepButton from '@mui/material/StepButton'
 import Stepper from '@mui/material/Stepper'
 import Typography from '@mui/material/Typography'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import menuImg from '../../assets/img/menu.svg'
 import NameEditor from '../../components/NameEditor/NameEditor'
 import Style from '../../components/Style/Style'
@@ -21,6 +21,10 @@ import {
   styled,
 } from '@mui/material'
 import { Check } from '@mui/icons-material'
+import WebFont from 'webfontloader';
+import { modern,futuristic,handWritten,retro,rounded,light }  from '../../components/Fonts/categories/categories';
+
+const fonts = [...modern, ...futuristic, ...handWritten, ...retro, ...rounded, ...light];
 const steps = ['Name', 'Industry', 'Style', 'Colors', 'Fonts', 'Icon']
 const components = [
   <NameEditor />,
@@ -35,6 +39,28 @@ const components = [
 const GeneratorPage: React.FC = () => {
   const [activeStep, setActiveStep] = useState(1)
   const [completed, setCompleted] = useState<{ [k: number]: boolean }>({ 0: true })
+
+  useEffect(() => {
+    WebFont.load({
+          loading: function() {console.log('loading')},
+          active: function () {
+            console.log('active')
+            
+          },
+  inactive: function() {console.log('inactive')},
+          google: {
+          
+            // families:['Droid Sans', 'Chilanka']
+            families: fonts
+          }
+    
+        }
+        )
+  },[])
+
+  
+
+ 
 
   const totalSteps = () => {
     return steps.length
@@ -98,7 +124,7 @@ const GeneratorPage: React.FC = () => {
     },
     [`&.${stepConnectorClasses.completed}`]: {
       [`& .${stepConnectorClasses.line}`]: {
-        borderColor: '#784af4',
+        borderColor: '#22c55e',
       },
     },
     [`& .${stepConnectorClasses.line}`]: {

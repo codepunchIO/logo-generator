@@ -19,9 +19,11 @@ interface PropsType {
   setBgColor: (value: string) => void;
   setTxColor: (value: string) => void;
   setLgColor: (value: string) => void;
+  setSelectedFont: (value: string) => void;
   bgColor: string;
   txColor: string;
   lgColor: string;
+  font: string;
 }
 
 const Navbar: React.FC<PropsType> = ({
@@ -32,6 +34,8 @@ const Navbar: React.FC<PropsType> = ({
   setLgColor,
   setTxColor,
   txColor,
+  font,
+  setSelectedFont,
 }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [buttonType, setButtonType] = useState<null | string>("");
@@ -123,6 +127,8 @@ const Navbar: React.FC<PropsType> = ({
               anchorEl={anchorEl}
               handleClose={handleClose}
               isOpen={buttonType === "Fonts"}
+              font={font}
+              setSelectedFont={setSelectedFont}
             />
           </div>
         </Toolbar>

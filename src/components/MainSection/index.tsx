@@ -6,17 +6,19 @@ interface PropsType {
   bgColor: any;
   txColor: any;
   lgColor: any;
+  font: any;
 }
 const MainSection: React.FC<PropsType> = ({
   inputValue,
   bgColor,
   txColor,
   lgColor,
+  font,
 }) => {
   const backgroundColor = bgColor ? bgColor : "cyan";
   const textColor = txColor ? txColor : " black";
   const logoColor = lgColor ? lgColor : " black";
-
+  const fontStyle = font ? font : "Sacramento";
   return (
     <div className="pl-6 pr-6">
       <h1 className=" mb-4">Logo-generator</h1>
@@ -30,7 +32,9 @@ const MainSection: React.FC<PropsType> = ({
             style={{ backgroundColor }}
           >
             <CameraIcon style={{ fontSize: "80px", color: logoColor }} />
-            <p style={{ color: textColor }}>{inputValue}</p>
+            <p style={{ color: textColor, fontFamily: fontStyle }}>
+              {inputValue}
+            </p>
           </Card>
           <button className=" mr-4 ml-4">Download JPG</button>
           <button>Download PNG</button>
