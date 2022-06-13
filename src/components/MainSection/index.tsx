@@ -1,16 +1,21 @@
-import { Card } from '@mui/material'
-import CameraIcon from '@mui/icons-material/Camera'
+import { Card } from "@mui/material";
+import CameraIcon from "@mui/icons-material/Camera";
 
 interface PropsType {
-  inputValue: string
-  bgColor: any
-  txColor: any
-  lgColor: any
+  inputValue: string;
+  bgColor: any;
+  txColor: any;
+  lgColor: any;
 }
-const MainSection: React.FC<PropsType> = ({ inputValue, bgColor, txColor, lgColor }) => {
-  const backgroundColor = bgColor ? bgColor : 'cyan'
-  const textColor = txColor ? txColor : ' black'
-  const logoColor = lgColor ? lgColor : ' black'
+const MainSection: React.FC<PropsType> = ({
+  inputValue,
+  bgColor,
+  txColor,
+  lgColor,
+}) => {
+  const backgroundColor = bgColor ? bgColor : "cyan";
+  const textColor = txColor ? txColor : " black";
+  const logoColor = lgColor ? lgColor : " black";
 
   return (
     <div className="pl-6 pr-6">
@@ -22,8 +27,9 @@ const MainSection: React.FC<PropsType> = ({ inputValue, bgColor, txColor, lgColo
         <div className="w-1/2 mr-6">
           <Card
             className="border-2 rounded-lg text-blue-600 h-72 font-bold text-6xl flex  items-center justify-center"
-            style={{ backgroundColor }}>
-            <CameraIcon style={{ fontSize: '80px', color: logoColor }} />
+            style={{ backgroundColor }}
+          >
+            <CameraIcon style={{ fontSize: "80px", color: logoColor }} />
             <p style={{ color: textColor }}>{inputValue}</p>
           </Card>
           <button className=" mr-4 ml-4">Download JPG</button>
@@ -32,7 +38,7 @@ const MainSection: React.FC<PropsType> = ({ inputValue, bgColor, txColor, lgColo
 
         <div className="w-1/2 ">
           <Card className="border-2 rounded-lg text-neutral-50 h-72 text-6xl font-bold flex items-center justify-center">
-            <CameraIcon style={{ fontSize: '80px', color: logoColor }} />
+            <CameraIcon style={{ fontSize: "80px", color: logoColor }} />
             <p style={{ color: textColor }}>{inputValue}</p>
           </Card>
           <button className=" mr-4 ml-4">Download JPG</button>
@@ -40,14 +46,14 @@ const MainSection: React.FC<PropsType> = ({ inputValue, bgColor, txColor, lgColo
         </div>
       </div>
 
-      <footer>
+      {/* <footer>
         <p>select to layout : </p>
         <button>LOGO</button>
         <button>LOGO+ISOTYPE-V</button>
         <button>LOGO+ISOTYPE-H</button>
         <button>ISOTYPE</button>
-      </footer>
+      </footer> */}
     </div>
-  )
-}
-export default MainSection
+  );
+};
+export default MainSection;
