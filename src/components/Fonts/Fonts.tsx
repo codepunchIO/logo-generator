@@ -94,33 +94,33 @@ const Fonts = () => {
 
   <><div className="bg-white py-6 sm:py-8 lg:py-20">
       <div className="w-9/12 justify-center mx-auto">
-        <h1 className="text-4xl text-center font-extrabold p-4 text-gray-900 mb-7">
+        <h1 className="text-4xl text-center w-9/12 m-auto justify-center font-extrabold p-4 text-gray-900 mb-7">
           Choose font style
         </h1>
 
-        <h2 className="text-2xl text-center font-bold p-4 pt-24 text-gray-900 mb-7 ">
+        <h2 className="text-2xl text-center w-9/12 m-auto justify-center font-bold p-4 pt-24 text-gray-900 mb-7 ">
           Sort by:
         </h2>
         
-      <div className="flex flex-row justify-evenly">
-        <div className="flex flex-col w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white  justify-center text-center"
+      <div className="flex flex-row w-9/12 m-auto justify-center justify-evenly">
+        <div className="flex flex-col w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white w-24 px-1 mx-5 h-9 cursor-pointer  shadow-lg hover:shadow-xl  ease-in-out duration-200 justify-center text-center"
           onClick={(e) => handleSelect(e)}
           title='TRENDING'>
           Trending
         </div>
-        <div className="flex flex-col w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white justify-center text-center"
+        <div className="flex flex-col w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white justify-center text-center  cursor-pointer  shadow-lg hover:shadow-xl  ease-in-out duration-200"
           onClick={(e) => handleSelect(e)}
           title='POPULARITY'>
           Most Popular
         </div>
-        <div className="flex flex-col w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white justify-center text-center"
+        <div className="flex flex-col w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white justify-center text-center  cursor-pointer  shadow-lg hover:shadow-xl  ease-in-out duration-200"
           onClick={(e) => handleSelect(e)}
           title='STYLE'>
           Styles
         </div>
     </div>
-      <div className="flex flex-col h-full w-full p-1">
-        <div className="flex flex-wrap flex-row justify-evenly p-4 h-full ">
+      <div className=" flex flex-wrap p-4 justify-center ">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-4 w-full py-4 md:gap-x-6 gap-y-8 flex flex-wrap flex-row justify-center">
           {/* {fonts.map((font) => (
             <div className="flex flex-row w-1/3 flex-nowrap" >
               <img
@@ -150,10 +150,10 @@ const Fonts = () => {
                </div>
                 ) :
                 (
-              <div className=' flex flex-row flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center '
+              <div  className={`${pallete} flex flex-wrap hover:scale-100 transition h-72 auto duration-500  cursor-pointer ease-in-out mx-2 my-2 py-14 shadow-md hover:shadow-2xl border-2 rounded-2xl flex justify-center`}
               key={familiesNames.indexOf(family)} >
                 <span style={{ fontFamily: `${family}` }}
-                       className={`${pallete} flex flex-col w-auto  text-center min-w-full border-2 justify-center h-auto rounded-lg text-xl px-6 py-2`}
+                       className={`${pallete} flex flex-col flex-wrap mx-2 text-center justify-center h-full  text-3xl`}
                         onClick={(e) => handleClick(e)}
                         title={family}
                 >

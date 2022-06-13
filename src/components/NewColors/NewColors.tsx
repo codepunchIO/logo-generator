@@ -28,6 +28,7 @@ const NewColors = () => {
                 handleClick(e)
               }}
               id={String(index + 1)}
+<<<<<<< Updated upstream
               key={index}
               className="hover:scale-100 transition duration-500 ease-in-out shadow-md hover:cursor-pointer hover:shadow-2xl rounded-2x1">
               <ul className="w-full p-3 bg-gray-30 rounded-t-lg border-2 border-b-0">
@@ -40,8 +41,24 @@ const NewColors = () => {
                       key={index}></li>
                   </div>
                 ))}
+=======
+                              key={index}
+                   className="hover:scale-100 transition duration-500 ease-in-out shadow-md hover:cursor-pointer hover:shadow-2xl rounded-2xl"            
+            >
+               <ul className="w-full p-3 bg-gray-30 rounded-t-2xl border-2 border-b-0"  >
+                                  {card.colors.map((color, index) => (
+                     <div className="group h-12 block bg-gray-100 relative">
+                  <li
+                    id={String(index + 1)}
+                    //  className={`${color} h-12 w-full rounded-sm`}
+                         className={`${color} h-12 w-full group-hover:scale-105 transition duration-500`}
+                    key={index}
+                 ></li>
+              </div>
+               ))}
+>>>>>>> Stashed changes
               </ul>
-              <p className="bg-gray-100 pt-3 border-2 text-base pt-2 w-full text-center h-14 font-mono p-3 font-semibold text-gray-400 transition duration-500 hover:text-gray-500">
+              <p className="bg-gray-100 pt-3 border-2 text-base pt-2 w-full text-center h-14 font-mono p-3 font-semibold text-gray-400 transition rounded-b-2xl duration-500 hover:text-gray-500">
                 {card.title}
               </p>
             </div>

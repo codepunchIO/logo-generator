@@ -98,7 +98,7 @@ const GeneratorPage: React.FC = () => {
     },
     [`&.${stepConnectorClasses.completed}`]: {
       [`& .${stepConnectorClasses.line}`]: {
-        borderColor: '#784af4',
+        borderColor: '#22c55e',
       },
     },
     [`& .${stepConnectorClasses.line}`]: {
