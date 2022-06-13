@@ -106,7 +106,7 @@ const Fonts = () => {
               <div className=' flex flex-row flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center '
               key={style.indexOf(family)} >
                 <span style={{ fontFamily: `${family}` }}
-                       className={`${pallete} flex flex-col w-auto  text-center min-w-full border-2 justify-center h-auto rounded-lg text-xl px-6 py-2`}
+                       className={`${pallete} flex flex-col flex-wrap mx-2 text-center justify-center h-full  text-3xl`}
                         onClick={(e) => handleClick(e)}
                         title={style[index]}
                 >

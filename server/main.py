@@ -3,10 +3,21 @@ from fastapi import FastAPI
 import requests
 from requests_oauthlib import OAuth1
 import json
-
+from fastapi.middleware.cors import CORSMiddleware
 
 auth = OAuth1("ca708d161e0f4246bea7db999bbf7888", "8c95080030194631b801dcad03dfa080")
 app = FastAPI()
+
+origins = [
+    "*"
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # endpoint = "http://api.thenounproject.com/icons/fish?limit_to_public_domain=1&limit=4"
 endpoint = "http://api.thenounproject.com/icons"

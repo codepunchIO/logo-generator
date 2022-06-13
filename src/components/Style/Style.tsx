@@ -21,11 +21,11 @@ const Style = () => {
         Choose a layout
       </h1>
       <div className=" flex flex-wrap p-4 justify-center">
-        <div className="flex flex-wrap flex-row justify-center w-full">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-4 w-auto mx-auto md:gap-x-6 gap-y-8 flex flex-wrap flex-row justify-center ">
           {layouts.map((layout) => (
             <div className="flex flex-row w-auto justify-center flex-nowrap ">
               <img
-                className="hover:scale-100 transition w-auto duration-500 ease-in-out mx-2 my-2 shadow-md hover:shadow-2xl border-2 rounded-2xl flex justify-center"
+                className="hover:scale-100 transition w-auto h-72 duration-500 ease-in-out mx-2 my-2 shadow-md hover:shadow-2xl border-2 rounded-2xl flex justify-center cursor-pointer"
                 onClick={(e) => handleClick(e)}
                 id={String(layouts.indexOf(layout) + 1)}
                 src={layout}
