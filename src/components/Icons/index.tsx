@@ -35,7 +35,7 @@ const Icons = () => {
   }
 
   const QueryIcons = (e: FormEvent<HTMLFormElement>) => {
-    debugger
+    
     e.preventDefault()
     if (searchInputValue !== '') {
       FetchIcons(searchInputValue)
@@ -44,8 +44,9 @@ const Icons = () => {
 
   const dispatch = useDispatch()
   const handleClick = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
-    const id = e.currentTarget.id
-    dispatch(setIcon(id))
+    const payload = e.currentTarget.src
+    
+    dispatch(setIcon(payload))
   }
   return (
     <div className="flex flex-col h-full w-full p-1">

@@ -1,7 +1,9 @@
 import CameraIcon from "@mui/icons-material/Camera";
 import { Card } from "@mui/material";
-import { useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
 import { store } from "../../store/store";
+import "./index.css";
 
 interface PropsType {
   inputValue: string;
@@ -11,6 +13,7 @@ interface PropsType {
   font: any;
   selectedStyle: any;
 }
+
 const MainSection: React.FC<PropsType> = ({
   inputValue,
   bgColor,
@@ -19,21 +22,27 @@ const MainSection: React.FC<PropsType> = ({
   font,
   selectedStyle,
 }) => {
+  const state = store.getState();
   const backgroundColor = bgColor ? bgColor : "cyan";
   const textColor = txColor ? txColor : " black";
   const logoColor = lgColor ? lgColor : " black";
   const fontStyle = font ? font : "Sacramento";
   const selectedStyleId = selectedStyle ? selectedStyle : "1";
 
-  const state = store.getState();
-
-  useEffect(() => {
-    console.log("selectedStyleId :", selectedStyleId);
-  }, [selectedStyleId]);
-
-  useEffect(() => {
-    console.log("state jest tu :", state.logo.data.style!);
-  }, [state]);
+  const url = state.logo.data.icons!;
+  const [svg, setSVG] = useState("");
+  axios({
+    url: url,
+    method: "GET",
+    responseType: "text",
+  }).then((response: any) => {
+    setSVG(
+      response.data.slice(0, 4) +
+        ` style="fill:${logoColor}!important"` +
+        response.data.slice(4)
+    );
+  });
+  console.log("responssss", svg);
 
   return (
     <div className="pl-6 pr-6">
@@ -53,13 +62,16 @@ const MainSection: React.FC<PropsType> = ({
               <CameraIcon style={{ fontSize: "80px", color: logoColor }} />
             </div>
 
-            <p
-              style={{ color: textColor, fontFamily: fontStyle }}
-              className={`${selectedStyleId === "3" ? "hidden" : ""}`}
-            >
+            <div
+              style={{ fill: logoColor }}
+              className={` object ${selectedStyleId === "3" ? "hidden" : ""}`}
+              dangerouslySetInnerHTML={{ __html: svg }}
+            />
+            <p style={{ color: textColor, fontFamily: fontStyle }}>
               {inputValue}
             </p>
           </Card>
+
           <button className=" mr-4 ml-4">Download JPG</button>
           <button>Download PNG</button>
         </div>
@@ -70,11 +82,15 @@ const MainSection: React.FC<PropsType> = ({
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
           >
-            <div className={`${selectedStyleId === "4" ? "hidden" : ""}`}>
-              <CameraIcon style={{ fontSize: "80px", color: logoColor }} />
-            </div>
+            <img
+              // src={state.logo.data.icons}
+              className={` w-20 h-20 fill-blue-500 ${
+                selectedStyleId === "4" ? "hidden" : ""
+              }`}
+            />
+
             <p
-              style={{ color: textColor }}
+              style={{ color: textColor, fontFamily: fontStyle }}
               className={`${selectedStyleId === "3" ? "hidden" : ""}`}
             >
               {inputValue}
