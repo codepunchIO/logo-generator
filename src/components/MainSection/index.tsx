@@ -1,7 +1,11 @@
 import { Card } from "@mui/material";
-import { useState } from "react";
-import { store } from "../../store/store";
-import "./index.css";
+import CameraIcon from "@mui/icons-material/Camera";
+import {store} from '../../store/store'
+import { text } from "stream/consumers";
+import path from "path";
+
+import axios from 'axios'
+import { useEffect, useState } from "react";
 
 interface PropsType {
   inputValue: string;
@@ -28,19 +32,40 @@ const MainSection: React.FC<PropsType> = ({
   const selectedStyleId = selectedStyle ? selectedStyle : "1";
 
   const url = state.logo.data.icons!;
-  const [svg, setSVG] = useState("");
-  axios({
-    url: url,
-    method: "GET",
-    responseType: "text",
-  }).then((response: any) => {
-    setSVG(
-      response.data.slice(0, 4) +
-        ` style="fill:${logoColor}!important"` +
-        response.data.slice(4)
-    );
-  });
-  console.log("responssss", svg);
+  const [svg,setSVG] =useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [isError, setIsError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const FetchIcon = async () => {
+    setIsError(false)
+    setIsLoading(true)
+    try {
+      const res = await axios({
+        url: url,
+        method: 'GET',
+        responseType: 'text',
+      })
+   
+      setSVG(res.data.slice(0, 4) + ` style="fill:${logoColor}!important"` + res.data.slice(4));
+      setIsLoading(false)
+     
+    }
+    
+ 
+    catch {
+      setIsError(true)
+      setErrorMessage('error')
+      setIsLoading(false)
+    }
+  }
+  
+  useEffect(() => {
+    FetchIcon();
+  
+    
+  }, [logoColor])
+  
 
   return (
     <div className="pl-6 pr-6">
@@ -59,9 +84,10 @@ const MainSection: React.FC<PropsType> = ({
             <div
               style={{ fill: logoColor }}
               dangerouslySetInnerHTML={{ __html: svg }}
-              className={` object ${selectedStyleId === "3" ? "hidden" : ""}`}
+              className={` h-20 w-20 ${selectedStyleId === "4" ? "hidden" : ""}`}
             />
-            <p style={{ color: textColor, fontFamily: fontStyle }}>
+            <p style={{ color: textColor, fontFamily: fontStyle }}
+            className={`${selectedStyleId === "3" ? "hidden" : ""}`}>
               {inputValue}
             </p>
           </Card>
@@ -79,7 +105,7 @@ const MainSection: React.FC<PropsType> = ({
             <div
               style={{ fill: logoColor }}
               dangerouslySetInnerHTML={{ __html: svg }}
-              className={` object ${selectedStyleId === "3" ? "hidden" : ""}`}
+              className={` h-20 w-20 ${selectedStyleId === "4" ? "hidden" : ""}`}
             />
 
             <p
