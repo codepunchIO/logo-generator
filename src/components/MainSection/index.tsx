@@ -1,5 +1,5 @@
-import { Card } from "@mui/material";
 import CameraIcon from "@mui/icons-material/Camera";
+import { Card } from "@mui/material";
 
 interface PropsType {
   inputValue: string;
@@ -7,6 +7,7 @@ interface PropsType {
   txColor: any;
   lgColor: any;
   font: any;
+  style: any;
 }
 const MainSection: React.FC<PropsType> = ({
   inputValue,
@@ -14,11 +15,15 @@ const MainSection: React.FC<PropsType> = ({
   txColor,
   lgColor,
   font,
+  style,
 }) => {
   const backgroundColor = bgColor ? bgColor : "cyan";
   const textColor = txColor ? txColor : " black";
   const logoColor = lgColor ? lgColor : " black";
   const fontStyle = font ? font : "Sacramento";
+  const logoStyle = style ? style : "2";
+  console.log("logoStyle :", logoStyle);
+
   return (
     <div className="pl-6 pr-6">
       <h1 className=" mb-4">Logo-generator</h1>
@@ -43,7 +48,7 @@ const MainSection: React.FC<PropsType> = ({
         <div className="w-1/2 ">
           <Card className="border-2 rounded-lg text-neutral-50 h-72 text-6xl font-bold flex items-center justify-center">
             <CameraIcon style={{ fontSize: "80px", color: logoColor }} />
-            <p style={{ color: textColor }}>{inputValue}</p>
+            <p style={{ color: textColor }}>{inputValue} </p>
           </Card>
           <button className=" mr-4 ml-4">Download JPG</button>
           <button>Download PNG</button>
