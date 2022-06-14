@@ -1,6 +1,4 @@
-import CameraIcon from "@mui/icons-material/Camera";
 import { Card } from "@mui/material";
-import axios from "axios";
 import { useState } from "react";
 import { store } from "../../store/store";
 import "./index.css";
@@ -58,14 +56,10 @@ const MainSection: React.FC<PropsType> = ({
             }`}
             style={{ backgroundColor }}
           >
-            <div className={`${selectedStyleId === "4" ? "hidden" : ""}`}>
-              <CameraIcon style={{ fontSize: "80px", color: logoColor }} />
-            </div>
-
             <div
               style={{ fill: logoColor }}
-              className={` object ${selectedStyleId === "3" ? "hidden" : ""}`}
               dangerouslySetInnerHTML={{ __html: svg }}
+              className={` object ${selectedStyleId === "3" ? "hidden" : ""}`}
             />
             <p style={{ color: textColor, fontFamily: fontStyle }}>
               {inputValue}
@@ -82,11 +76,10 @@ const MainSection: React.FC<PropsType> = ({
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
           >
-            <img
-              // src={state.logo.data.icons}
-              className={` w-20 h-20 fill-blue-500 ${
-                selectedStyleId === "4" ? "hidden" : ""
-              }`}
+            <div
+              style={{ fill: logoColor }}
+              dangerouslySetInnerHTML={{ __html: svg }}
+              className={` object ${selectedStyleId === "3" ? "hidden" : ""}`}
             />
 
             <p
