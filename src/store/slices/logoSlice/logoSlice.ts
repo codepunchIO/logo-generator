@@ -12,7 +12,7 @@ const initialState: LogoState = {
         style: 0,
          colors: 0,
         fonts: [],
-        icons:0,
+        icons:'',
    }
 }
 type InitialStateType = typeof initialState

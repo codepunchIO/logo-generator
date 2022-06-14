@@ -8,6 +8,7 @@ const EditorPage: React.FC = () => {
   const [txColor, setTxColor] = useState<any>("black");
   const [lgColor, setLgColor] = useState<any>("black");
   const [font, setSelectedFont] = useState<any>("Sacramento");
+  
   return (
     <>
       <div className="h-screen">
