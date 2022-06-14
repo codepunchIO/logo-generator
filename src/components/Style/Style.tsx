@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import layout1 from "../../assets/img/Style_layouts/layout1.svg";
 import layout2 from "../../assets/img/Style_layouts/layout2.svg";
@@ -16,12 +16,14 @@ const layouts = [
 const Style = () => {
   const dispatch = useDispatch();
   const [currentId, setCurrentId] = useState("");
-
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    const id = e.currentTarget.id;
-    dispatch(setStyle(id));
-    setCurrentId(id);
+    setCurrentId(e.currentTarget.id);
   };
+
+  useEffect(() => {
+    dispatch(setStyle(currentId));
+    console.log(currentId);
+  }, [currentId]);
 
   return (
     <>
@@ -32,7 +34,7 @@ const Style = () => {
         <div className=" flex flex-wrap p-4 justify-center">
           <div className="flex flex-wrap flex-row justify-between  p-2 gap-y-7 max-w-4xl ">
             {layouts.map(({ screen, id }) => (
-              <ul>
+              <ul key={id}>
                 <li
                   onClick={(e) => handleClick(e)}
                   id={id}

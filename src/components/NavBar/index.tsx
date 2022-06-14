@@ -25,7 +25,7 @@ interface PropsType {
   txColor: string;
   lgColor: string;
   font: string;
-  style: string;
+  selectedStyle: string;
 }
 
 const Navbar: React.FC<PropsType> = ({
@@ -38,7 +38,6 @@ const Navbar: React.FC<PropsType> = ({
   txColor,
   font,
   setSelectedFont,
-  style,
   setSelectedStyle,
 }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -48,16 +47,18 @@ const Navbar: React.FC<PropsType> = ({
     setAnchorEl(event.currentTarget);
     setButtonType(event.currentTarget.textContent);
   };
+
   const handleClose = (e: any) => {
-    console.log(handleClose, e.target);
     setAnchorEl(null);
     setButtonType("");
   };
+
   const onTestClick = (e: any) => {
     console.log(e.target.value);
     const inputValue = e.target.value;
     setInputValue(inputValue);
   };
+
   return (
     <>
       <AppBar position="fixed" color="inherit" elevation={0} className="border">

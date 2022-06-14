@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MainSection from "../../components/MainSection";
 import Navbar from "../../components/NavBar";
+import { store } from "../../store/store";
 
 const EditorPage: React.FC = () => {
   const [inputValue, setInputValue] = useState("Logo-generator");
@@ -8,7 +9,13 @@ const EditorPage: React.FC = () => {
   const [txColor, setTxColor] = useState<any>("black");
   const [lgColor, setLgColor] = useState<any>("black");
   const [font, setSelectedFont] = useState<any>("Sacramento");
-  const [style, setSelectedStyle] = useState<any>("1");
+  const [selectedStyle, setSelectedStyle] = useState<any>("1");
+
+  const state = store.getState();
+  useEffect(() => {
+    setSelectedStyle(state.logo.data.style!);
+  }, [state]);
+
   return (
     <>
       <div className="h-screen">
@@ -22,7 +29,7 @@ const EditorPage: React.FC = () => {
           setLgColor={setLgColor}
           font={font}
           setSelectedFont={setSelectedFont}
-          style={style}
+          selectedStyle={selectedStyle}
           setSelectedStyle={setSelectedStyle}
         />
         <main className="border border-sky-500 h-5/6">
@@ -32,7 +39,7 @@ const EditorPage: React.FC = () => {
             txColor={txColor.hex}
             lgColor={lgColor.hex}
             font={font}
-            style={style}
+            selectedStyle={selectedStyle}
           />
         </main>
       </div>
