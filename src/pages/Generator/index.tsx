@@ -11,6 +11,7 @@ import NewColors from '../../components/NewColors/NewColors'
 import Fonts from '../../components/Fonts/Fonts'
 import { NavLink } from 'react-router-dom'
 import Icons from '../../components/Icons/index'
+import NewStyle from '../../components/NewStyle/NewStyle'
 import {
   Stack,
   Step,
@@ -22,14 +23,14 @@ import {
 } from '@mui/material'
 import { Check } from '@mui/icons-material'
 import WebFont from 'webfontloader';
-import { modern,futuristic,handWritten,retro,rounded,light }  from '../../components/Fonts/categories/categories';
+import { modern,futuristic,handWritten,retro,rounded,light }  from '../../models/categories/categories';
 
 const fonts = [...modern, ...futuristic, ...handWritten, ...retro, ...rounded, ...light];
 const steps = ['Name', 'Industry', 'Style', 'Colors', 'Fonts', 'Icon']
 const components = [
   <NameEditor />,
   <Industry />,
-  <Style />,
+  <NewStyle />,
   <NewColors />,
   <Fonts />,
   <Icons />,
