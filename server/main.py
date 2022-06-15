@@ -1,11 +1,12 @@
 import uvicorn
-from fastapi import FastAPI
-import requests
-from requests_oauthlib import OAuth1
 import json
+import requests
+from fastapi import FastAPI
+from requests_oauthlib import OAuth1
 from fastapi.middleware.cors import CORSMiddleware
+from decouple import config
 
-auth = OAuth1("ca708d161e0f4246bea7db999bbf7888", "8c95080030194631b801dcad03dfa080")
+auth = OAuth1(config('OAUTH_LOGIN'), config('OAUTH_PASSWORD'))
 app = FastAPI()
 
 origins = [
@@ -19,38 +20,40 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# endpoint = "http://api.thenounproject.com/icons/fish?limit_to_public_domain=1&limit=4"
 endpoint = "http://api.thenounproject.com/icons"
 limit = '?limit_to_public_domain=1&limit=20'
-google_endopoint='https://www.googleapis.com/webfonts/v1/webfonts?sort='
-google_key='&key=AIzaSyBKhpUOzLrAVaXXPJoPEKUs3qaeVbghs7o'
-
-# dupa = list(map(lambda icon: icon['icon_url'], dupa))
-# print(dupa)
-
+google_endpoint = 'https://www.googleapis.com/webfonts/v1/webfonts?sort='
+google_key = config('GOOGLE_KEY')
+secret_hash = config('SECRET_HASH')
 
 
 @app.get("/icon/{tag}")
-def get_icons(tag):
-    new_endpoint = f'{endpoint}/{tag}{limit}'
-    dupa = json.loads(requests.get(new_endpoint, auth=auth).content.decode('utf-8'))['icons']
-    dupa = list(map(lambda icon: icon['icon_url'], dupa))
-    print(dupa)
-    return dupa
+def get_icons(tag, hash):
+    if hash == secret_hash:
+        new_endpoint = f'{endpoint}/{tag}{limit}'
+        icons = json.loads(requests.get(new_endpoint, auth=auth).content.decode('utf-8'))['icons']
+        icons_list = list(map(lambda icon: icon['icon_url'], icons))
+        return icons_list
+    else:
+        return []
+
 
 @app.get('/fonts/{query}')
-def get_fonts(query):
-    new_endpoint = f'{google_endopoint}{query}{google_key}'
-    print(new_endpoint)
-    data=json.loads(requests.get(new_endpoint).content)['items']
-    return data
-
-
+def get_fonts(query, hash):
+    if hash == secret_hash:
+        new_endpoint = f'{google_endpoint}{query}{google_key}'
+        data = json.loads(requests.get(new_endpoint).content)['items']
+        return data
+    else:
+        return {}
 
 
 @app.get("/")
-async def root():
-    return {"url": json.loads(requests.get(endpoint, auth=auth).content.decode('utf-8'))['icon']['icon_url']}
+async def root(hash):
+    if hash == secret_hash:
+        return {"url": json.loads(requests.get(endpoint, auth=auth).content.decode('utf-8'))['icon']['icon_url']}
+    else:
+        return {}
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8443)

@@ -23,7 +23,9 @@ const Icons = () => {
     setIsLoading(true)
 
     try {
-      const res = await axios.get(`http://127.0.0.1:8443/icon/${query}`)
+      const res = await axios.get(`http://127.0.0.1:8443/icon/${query}`, {params:{
+        hash: 'fasnfhasi!@$124casd@#$dnjzshd2q_214124SDa23123'
+        }})
       console.log(res, 'response')
       setIconsState(res.data)
       setIsLoading(false)
