@@ -4,16 +4,18 @@ import Navbar from "../../components/NavBar";
 import { store } from "../../store/store";
 
 const EditorPage: React.FC = () => {
-  const [inputValue, setInputValue] = useState("Logo-generator");
-  const [bgColor, setBgcolor] = useState<any>("black");
+  const state = store.getState();
+  const [inputValue, setInputValue] = useState(state.logo.data.brandName!);
+  const [bgColor, setBgcolor] = useState<any>("red");
   const [txColor, setTxColor] = useState<any>("black");
   const [lgColor, setLgColor] = useState<any>("black");
   const [font, setSelectedFont] = useState<any>("Sacramento");
   const [selectedStyle, setSelectedStyle] = useState<any>("1");
 
-  const state = store.getState();
+
   useEffect(() => {
-    setSelectedStyle(state.logo.data.style!);
+    setSelectedStyle(state.logo.data.style!
+    );
   }, [state]);
 
   return (
@@ -32,7 +34,7 @@ const EditorPage: React.FC = () => {
           selectedStyle={selectedStyle}
           setSelectedStyle={setSelectedStyle}
         />
-        <main className="border border-sky-500 h-5/6">
+        <main className="border border-sky-500 h-screen">
           <MainSection
             inputValue={inputValue}
             bgColor={bgColor.hex}

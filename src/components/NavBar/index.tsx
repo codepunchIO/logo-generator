@@ -76,10 +76,24 @@ const Navbar: React.FC<PropsType> = ({
               onChange={onTestClick}
             />
 
-            <IconButton className="mr-3" onClick={(e) => handleClick(e)}>
-              <ColorLensIcon className="mr-1" />
-              <Typography>Card color</Typography>
-            </IconButton>
+            <button onClick={(e) => handleClick(e)}
+                className="mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
+                      <span
+                          className="font-['Iceland'] text-lg relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                          Card color
+                      </span>
+            </button>
+            {/*<IconButton className="mr-3" onClick={(e) => handleClick(e)}>*/}
+            {/*  <ColorLensIcon className="mr-1" />*/}
+            {/*  <Typography>Card color</Typography>*/}
+            {/*</IconButton>*/}
+            <button  onClick={(e) => handleClick(e)}
+                    className="mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
+                      <span
+                          className="font-['Iceland'] text-lg relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                          Logo color
+                      </span>
+            </button>
             <LogotypeColorPicker
               isOpen={buttonType === "Card color"}
               anchorEl={anchorEl}
@@ -87,11 +101,17 @@ const Navbar: React.FC<PropsType> = ({
               color={bgColor}
               setColor={setBgColor}
             />
-
-            <IconButton className="mr-3" onClick={(e) => handleClick(e)}>
-              <ColorLensIcon className="mr-1" />
-              <Typography>Text color</Typography>
-            </IconButton>
+            <button  onClick={(e) => handleClick(e)}
+                     className="mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
+                      <span
+                          className="font-['Iceland'] text-lg relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                          Text color
+                      </span>
+            </button>
+            {/*<IconButton className="mr-3" onClick={(e) => handleClick(e)}>*/}
+            {/*  <ColorLensIcon className="mr-1" />*/}
+            {/*  <Typography>Text color</Typography>*/}
+            {/*</IconButton>*/}
             <LogotypeColorPicker
               isOpen={buttonType === "Text color"}
               anchorEl={anchorEl}
@@ -100,10 +120,10 @@ const Navbar: React.FC<PropsType> = ({
               setColor={setTxColor}
             />
 
-            <IconButton className="mr-3" onClick={(e) => handleClick(e)}>
-              <ColorLensIcon className="mr-1" />
-              <Typography>Logo color</Typography>
-            </IconButton>
+            {/*<IconButton className="mr-3" onClick={(e) => handleClick(e)}>*/}
+            {/*  <ColorLensIcon className="mr-1" />*/}
+            {/*  <Typography>Logo color</Typography>*/}
+            {/*</IconButton>*/}
             <LogotypeColorPicker
               isOpen={buttonType === "Logo color"}
               anchorEl={anchorEl}
@@ -112,11 +132,17 @@ const Navbar: React.FC<PropsType> = ({
               setColor={setLgColor}
             />
 
-            <IconButton className="mr-3" onClick={(e) => handleClick(e)}>
-              <GridViewIcon className="mr-1" />
-              <Typography>Layout</Typography>
-            </IconButton>
-
+            {/*<IconButton className="mr-3" onClick={(e) => handleClick(e)}>*/}
+            {/*  <GridViewIcon className="mr-1" />*/}
+            {/*  <Typography>Layout</Typography>*/}
+            {/*</IconButton>*/}
+            <button  onClick={(e) => handleClick(e)}
+                     className="mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
+                      <span
+                          className="font-['Iceland'] text-lg relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                          Layout
+                      </span>
+            </button>
             <LayoutMenu
               isOpen={buttonType === "Layout"}
               anchorEl={anchorEl}
@@ -124,11 +150,17 @@ const Navbar: React.FC<PropsType> = ({
               setSelectedStyle={setSelectedStyle}
             />
 
-            <IconButton className="mr-3" onClick={(e) => handleClick(e)}>
-              <TextFieldsIcon className="mr-1" />
-              <Typography>Fonts</Typography>
-            </IconButton>
-
+            {/*<IconButton className="mr-3" onClick={(e) => handleClick(e)}>*/}
+            {/*  <TextFieldsIcon className="mr-1" />*/}
+            {/*  <Typography>Fonts</Typography>*/}
+            {/*</IconButton>*/}
+            <button  onClick={(e) => handleClick(e)}
+                     className="mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
+                      <span
+                          className="font-['Iceland'] text-lg relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                         Fonts
+                      </span>
+            </button>
             <FontsMenu
               anchorEl={anchorEl}
               handleClose={handleClose}
