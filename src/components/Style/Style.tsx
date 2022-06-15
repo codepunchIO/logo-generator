@@ -31,7 +31,7 @@ const Style = () => {
         <h1 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7">
           Choose a layout
         </h1>
-        <div className=" flex flex-wrap p-4 justify-center">
+        <div className=" flex flex-wrap p-4 justify-center ">
           <div className="flex flex-wrap flex-row justify-between  p-2 gap-y-7 max-w-4xl ">
             {layouts.map(({ screen, id }) => (
               <ul key={id}>
@@ -44,7 +44,9 @@ const Style = () => {
                    } `}
                 >
                   <img src={screen} alt="layout" />
+
                 </li>
+                <div className=" bg-green-300 h-1 " ></div>
               </ul>
             ))}
           </div>
