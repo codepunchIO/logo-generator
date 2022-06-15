@@ -17,7 +17,7 @@ const Icons = () => {
   };
   const [icons, setIconsState] = useState<string[]>([]);
   const [smallIcons, setSmallIcons] = useState<string[]>([]);
-  const [active, setActive] = useState<boolean>(false);
+
   console.log("searchInputValue", searchInputValue);
 
   const FetchIcons = async (query: string) => {
@@ -31,7 +31,7 @@ const Icons = () => {
         },
       });
       console.log(res, "response");
-      setIconsState(res.data);
+      setIconsState(res.data["icon_list"]);
       setIsLoading(false);
     } catch {
       setIsError(true);
@@ -138,6 +138,7 @@ const Icons = () => {
       <div className="fixed bottom-1 right-2/4 rounded-lg translate-x-2/4 px-2 py-2 border-2 bg-sky-500/50 ">
         {smallIcons.map((smallIcon, index) => (
           <img
+            onClick={(e) => handleClick(e)}
             alt="smallIcon"
             src={smallIcon}
             key={index}
