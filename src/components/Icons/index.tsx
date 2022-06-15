@@ -1,55 +1,67 @@
-import { useDispatch } from 'react-redux'
-import { setIcon } from '../../store/slices/logoSlice/logoSlice'
-import axios from 'axios'
-import { store } from '../../store/store'
-import { useState, FormEvent, useEffect, ChangeEventHandler } from 'react'
-import CircularProgress from '@mui/material/CircularProgress'
+import CircularProgress from "@mui/material/CircularProgress";
+import axios from "axios";
+import { FormEvent, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setIcon } from "../../store/slices/logoSlice/logoSlice";
+import { store } from "../../store/store";
 
 const Icons = () => {
-  const state = store.getState()
-  const [searchInputValue, setSearchInputValue] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const [isError, setIsError] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
+  const state = store.getState();
+  const [searchInputValue, setSearchInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e: any) => {
-    setSearchInputValue(e.target.value)
-  }
-  const [icons, setIconsState] = useState<string[]>([])
-  console.log('searchInputValue', searchInputValue)
+    setSearchInputValue(e.target.value);
+  };
+  const [icons, setIconsState] = useState<string[]>([]);
+  const [smallIcons, setSmallIcons] = useState<string[]>([]);
+  const [active, setActive] = useState<boolean>(false);
+  console.log("searchInputValue", searchInputValue);
 
   const FetchIcons = async (query: string) => {
-    setIsError(false)
-    setIsLoading(true)
+    setIsError(false);
+    setIsLoading(true);
 
     try {
-      const res = await axios.get(`https://u2b7t9.deta.dev/icon/${query}`, {params:{
-        hash: 'fasnfhasi!@$124casd@#$dnjzshd2q_214124SDa23123'
-        }})
-      console.log(res, 'response')
-      setIconsState(res.data)
-      setIsLoading(false)
+      const res = await axios.get(`https://u2b7t9.deta.dev/icon/${query}`, {
+        params: {
+          hash: "fasnfhasi!@$124casd@#$dnjzshd2q_214124SDa23123",
+        },
+      });
+      console.log(res, "response");
+      setIconsState(res.data);
+      setIsLoading(false);
     } catch {
-      setIsError(true)
-      setErrorMessage(searchInputValue)
-      setIsLoading(false)
+      setIsError(true);
+      setErrorMessage(searchInputValue);
+      setIsLoading(false);
     }
-  }
+  };
 
   const QueryIcons = (e: FormEvent<HTMLFormElement>) => {
-    
-    e.preventDefault()
-    if (searchInputValue !== '') {
-      FetchIcons(searchInputValue)
+    e.preventDefault();
+    if (searchInputValue !== "") {
+      FetchIcons(searchInputValue);
     }
-  }
+  };
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
   const handleClick = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
-    const payload = e.currentTarget.src
-    
-    dispatch(setIcon(payload))
-  }
+    const currentIcon = e.currentTarget.src;
+
+    if (smallIcons.includes(currentIcon)) {
+      const filterIcons = smallIcons.filter((icon) => icon !== currentIcon);
+      setSmallIcons(filterIcons);
+    } else {
+      setSmallIcons([...smallIcons, currentIcon]);
+    }
+
+    dispatch(setIcon(currentIcon));
+  };
+
   return (
     <div className="flex flex-col h-full w-full p-1">
       <h1 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7">
@@ -72,7 +84,8 @@ const Icons = () => {
                 className="btn w-full inline-block px-6 py-2 border-2 border-green-600 text-green-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                 type="submit"
                 id="button-addon3"
-                disabled={searchInputValue === ''}>
+                disabled={searchInputValue === ""}
+              >
                 Search
               </button>
             </div>
@@ -84,16 +97,19 @@ const Icons = () => {
         {isError ? (
           <div
             className="flex bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700 w-1/4	"
-            role="alert">
+            role="alert"
+          >
             <svg
               className="w-5 h-5 inline mr-3"
               fill="currentColor"
               viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 fill-rule="evenodd"
                 d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                clip-rule="evenodd"></path>
+                clip-rule="evenodd"
+              ></path>
             </svg>
             <div>
               <span>We didn't find any icons for "{errorMessage}"</span>
@@ -105,7 +121,10 @@ const Icons = () => {
         {icons.map((icon, index) => (
           <div
             key={index}
-            className=" flex flex-row flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center ">
+            className={`flex flex-row flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center  ${
+              smallIcons.includes(icon) ? "bg-green-500/50" : ""
+            }  `}
+          >
             <img
               className="flex flex-col w-5/6  text-center min-w-full border-2 justify-center h-auto rounded-lg text-xl px-6 py-2"
               onClick={(e) => handleClick(e)}
@@ -116,8 +135,18 @@ const Icons = () => {
           </div>
         ))}
       </div>
+      <div className="fixed bottom-1 right-2/4 rounded-lg translate-x-2/4 px-2 py-2 border-2 bg-sky-500/50 ">
+        {smallIcons.map((smallIcon, index) => (
+          <img
+            alt="smallIcon"
+            src={smallIcon}
+            key={index}
+            className="backdrop-blur-3xl w-10 h-10 inline m-1  "
+          />
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Icons
+export default Icons;
