@@ -1,14 +1,12 @@
-import React, { useEffect,useState,useRef } from "react";
+import React, { useEffect,useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { setFont } from "../../store/slices/logoSlice/logoSlice";
-import axios from 'axios';
-import WebFont from 'webfontloader';
-import { StrollerRounded } from "@mui/icons-material";
+
 import { store } from "../../store/store";
-import { common } from "@mui/material/colors";
+
 import { colorCards } from '../../models/colorCards';
-import { modern,futuristic,handWritten,retro,rounded,light }  from './categories/categories';
+import { modern,futuristic,handWritten,retro,rounded,light }  from '../../models/categories/categories';
  
 
 
