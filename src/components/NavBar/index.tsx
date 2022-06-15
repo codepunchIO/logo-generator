@@ -64,17 +64,30 @@ const Navbar: React.FC<PropsType> = ({
       <AppBar position="fixed" color="inherit" elevation={0} className="border">
         <Toolbar className="flex justify-between">
           <Logotype />
-          <div>
-            <TextField
-              sx={{ input: { background: "white" } }}
-              id="standard-basic"
-              label="Type your logo text..."
-              variant="filled"
-              margin="none"
-              size="small"
-              color="primary"
-              onChange={onTestClick}
-            />
+          <div className="flex flex row">
+            {/*<TextField*/}
+            {/*  sx={{ input: { background: "white" } }}*/}
+            {/*  id="standard-basic"*/}
+            {/*  label="Type your logo text..."*/}
+            {/*  variant="filled"*/}
+            {/*  margin="none"*/}
+            {/*  size="small"*/}
+            {/*  color="primary"*/}
+            {/*  onChange={onTestClick}*/}
+            {/*/>*/}
+              <div className=" w-[400px] h-10 mr-4 mt-4 rounded-lg bg-gradient-to-br from-teal-300 to-lime-300">
+
+                  <input type="text" id="small-input"
+                         className=" relative inline-flex align-self-center mx-[2px] mt-[3px]   w-[396px] text-gray-900  bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+
+                         placeholder="Brand name"
+
+
+
+
+                         onChange={onTestClick}
+                  />
+              </div>
 
             <button onClick={(e) => handleClick(e)}
                 className="mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
