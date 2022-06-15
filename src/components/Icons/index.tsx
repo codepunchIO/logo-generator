@@ -26,8 +26,9 @@ const Icons = () => {
       const res = await axios.get(`https://u2b7t9.deta.dev/icon/${query}`, {params:{
         hash: 'fasnfhasi!@$124casd@#$dnjzshd2q_214124SDa23123'
         }})
+
       console.log(res, 'response')
-      setIconsState(res.data)
+      setIconsState(res.data['icon_list'])
       setIsLoading(false)
     } catch {
       setIsError(true)
