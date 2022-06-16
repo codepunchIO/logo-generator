@@ -16,7 +16,7 @@ export interface Logo {
   brandName?: string;
   industry?: string;
   style?: string;
-  colors?: number;
+  colors?: string;
   fonts?: string[];
   icons?: string[];
 }

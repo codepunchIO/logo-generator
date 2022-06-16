@@ -10,7 +10,7 @@ const initialState: LogoState = {
     brandName: "",
     industry: "",
     style: "",
-    colors: 0,
+    colors: "",
     fonts: [],
     icons: [],
   },
