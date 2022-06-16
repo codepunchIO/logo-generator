@@ -1,6 +1,6 @@
 import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setIcon } from "../../store/slices/logoSlice/logoSlice";
 import { store } from "../../store/store";
@@ -59,9 +59,14 @@ const Icons = () => {
       setSmallIcons([...smallIcons, currentIcon]);
     }
 
-    dispatch(setIcon(currentIcon));
+    console.log(smallIcons);
   };
 
+  useEffect(() => {
+    if (smallIcons.length > 0) {
+      dispatch(setIcon(smallIcons));
+    }
+  }, [smallIcons]);
   return (
     <div className="flex flex-col h-full w-full p-1">
       <h1 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7">
@@ -135,17 +140,21 @@ const Icons = () => {
           </div>
         ))}
       </div>
-      <div className="fixed bottom-1 right-2/4 rounded-lg translate-x-2/4 px-2 py-2 border-2 bg-sky-500/50 ">
-        {smallIcons.map((smallIcon, index) => (
-          <img
-            onClick={(e) => handleClick(e)}
-            alt="smallIcon"
-            src={smallIcon}
-            key={index}
-            className="backdrop-blur-3xl w-10 h-10 inline m-1  "
-          />
-        ))}
-      </div>
+      {smallIcons.length > 0 ? (
+        <div className="fixed bottom-1 right-2/4 rounded-lg translate-x-2/4 px-2 py-2 border-2 bg-sky-500/50 ">
+          {smallIcons.map((smallIcon, index) => (
+            <img
+              onClick={(e) => handleClick(e)}
+              alt="smallIcon"
+              src={smallIcon}
+              key={index}
+              className="backdrop-blur-3xl w-10 h-10 inline m-1  "
+            />
+          ))}
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
