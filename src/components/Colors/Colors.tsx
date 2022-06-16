@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setColor } from "../../store/slices/logoSlice/logoSlice";
 
-
 const colorCards = [
   {
     title: "Friendly, Loyal & Peacefull",
@@ -80,8 +79,8 @@ const Colors = () => {
           ))}
         </div>
       </div>
-    
-    </>)}
+    </>
+  );
+};
 
 export default Colors;
-
