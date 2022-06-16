@@ -5,8 +5,12 @@ const Explore = () => {
   const state = store.getState();
 
   const [icons, seticons] = useState<string[]>(state.logo.data.icons!);
-  const [svg, setSVG] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [brandName, setBrandName] = useState<string>(
+    state.logo.data.brandName!
+  );
+
+  //   const [svg, setSVG] = useState("");
+  //   const [errorMessage, setErrorMessage] = useState("");
 
   //   useEffect(() => {
   //     icons.map(
@@ -54,6 +58,7 @@ const Explore = () => {
                   key={index}
                 >
                   <img src={icon} alt="icon" className="h-20 w-20" />
+                  <p className="p-1">{brandName}</p>
                 </div>
               ))}
             </div>
