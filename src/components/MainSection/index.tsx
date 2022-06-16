@@ -32,6 +32,7 @@ const MainSection: React.FC<PropsType> = ({
   const icons = state.logo.data.icons!;
 
   const url = icons[0];
+
   const [svg, setSVG] = useState("");
   const [svg2, setSVG2] = useState("");
   const [isLoading, setIsLoading] = useState(false);
