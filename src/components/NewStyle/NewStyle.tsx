@@ -10,20 +10,24 @@ import slabImg from '../../assets/fonts_img/slabImg.svg'
 import handwrittenImg from '../../assets/fonts_img/handwrittenImg.svg'
 import playfulImg from '../../assets/fonts_img/playfulImg.svg'
 import futuristicImg from '../../assets/fonts_img/futuristicImg.svg'
-
+import FontsStepper from'../../components/FontsStepper/FontsStepper'
 import { setStyle } from "../../store/slices/logoSlice/logoSlice";
 function NewStyle() {
     const [currentID,setCurrentId] =useState(null);
+    const[displayFlag,setDisplay] = useState(true)
     const state = store.getState();
     const dispatch = useDispatch();
     const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         const id = e.currentTarget.id
+        const text = e.currentTarget.innerText;
         // @ts-ignore
         setCurrentId(e.currentTarget.id);
-        dispatch(setStyle(id))
+        setDisplay(!displayFlag)
+        dispatch(setStyle(text))
     }
 
     return (
+        displayFlag?
         <div className="bg-white py-6 sm:py-8 lg:py-20">
             <div className=" w-9/12 justify-center mx-auto">
                 <div className="flex justify-center items-end gap-4 mb-6">
@@ -35,7 +39,7 @@ function NewStyle() {
                                     <div
                                         id="1"
                                         className={` flex flex-col w-full group flex-nowrap   hover:scale-100 my-5   transition duration-500 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center `}
-                                        // key={style.indexOf(family)} >
+                                        key={1}
                                          onClick={(e) => handleClick(e)}
 
                                     >
@@ -145,7 +149,10 @@ function NewStyle() {
                                 </div>
                             </div>
                      </div>
+
         </div>
+            :
+            <FontsStepper />
     );
 }
 
