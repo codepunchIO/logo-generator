@@ -1,8 +1,5 @@
 import { Card } from "@mui/material";
-import CameraIcon from "@mui/icons-material/Camera";
 import { store } from "../../store/store";
-import { text } from "stream/consumers";
-import path from "path";
 
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -32,7 +29,10 @@ const MainSection: React.FC<PropsType> = ({
   const selectedStyleId = selectedStyle ? selectedStyle : "1";
   // const text = state.logo.data.brandName
 
-  const url = state.logo.data.icons!;
+  const icons = state.logo.data.icons!;
+
+  const url = icons[0];
+
   const [svg, setSVG] = useState("");
   const [svg2, setSVG2] = useState("");
   const [isLoading, setIsLoading] = useState(false);

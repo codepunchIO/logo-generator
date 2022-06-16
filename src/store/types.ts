@@ -18,5 +18,5 @@ export interface Logo {
   style?: string;
   colors?: number;
   fonts?: string[];
-  icons?: string;
+  icons?: string[];
 }
