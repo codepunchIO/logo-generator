@@ -31,120 +31,128 @@ function NewStyle() {
         <div className="bg-white py-6 sm:py-8 lg:py-20">
             <div className=" w-9/12 justify-center mx-auto">
                 <div className="flex justify-center items-end gap-4 mb-6">
-                    <h2 className="text-4xl w-9/12 text-center font-extrabold p-4 text-gray-900 mb-7 ">
+                    <h2 className="text-4xl w-9/12 text-center font-extrabold p-4 text-gray-900 mb-7">
                         Choose font style
                     </h2>
                 </div>
                             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-4 w-auto mx-auto md:gap-x-6 gap-y-12 ">
                                     <div
+                                    // Modern
                                         id="1"
-                                        className={` flex flex-col w-full group flex-nowrap   hover:scale-100 my-5   transition duration-500 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center `}
+                                        className={`flex flex-col w-full group flex-nowrap hover:bg-green-300 hover:scale-100 my-5 transition duration-700 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center cursor-pointer`}
                                         key={1}
                                          onClick={(e) => handleClick(e)}
 
                                     >
-                                            <span
-                                // style={{ fontFamily: `${family}` }}
-                                                  className=' flex flex-col flex-wrap w-full  mx-2 text-center justify-center h-screen  text-3xl hover: scale-75 transition delay-150 duration-500 ease-out'
+                                            <span style={{fontFamily:`${'Baumans'}`}}
+                                                  className='flex flex-col w-full flex-wrap text-center justify-center h-screen text-5xl mb-4'
                                                   // onClick={(e) => handleClick(e)}
                                                   // title={style[index]}
                                             >
                                               Modern
                                             </span>
 
-                                        <div className="  opacity-0 w-full group-hover:opacity-100 transition delay-150 duration-500 ease-in-out mb-3 ">
-                                           <img className=" hidden w-full group-hover:flex " src={modernImg} />
+                                        <div className="opacity-0 w-full group-hover:opacity-100 ease-in-out">
+                                           <img className="hidden w-full group-hover:flex rounded-lg translate-x-4 hover:shadow-2xl" src={modernImg} />
                                         </div>
                                     </div>
 
-                                <div className={` flex flex-col group w-full flex-nowrap hover:scale-100 my-5 transition duration-150 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-56  justify-center`}
+                                <div className={`flex flex-col w-full group flex-nowrap hover:bg-green-300 hover:scale-100 my-5 transition duration-500 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center cursor-pointer`}
                                     // key={style.indexOf(family)} >
                                      onClick={(e) => handleClick(e)}
+                                     
+                                    //  Elegant
                                      id="2"
                                 >
-                                            <span
-                                                // style={{ fontFamily: `${family}` }}
-                                                className=' flex flex-col w-full flex-wrap mx-2 text-center justify-center h-screen  text-3xl'
+                                            <span style={{fontFamily:`${'Advent Pro'}`}}
+                                                className=' flex flex-col w-full flex-wrap text-center justify-center h-screen text-5xl  mb-4'
                                                 // onClick={(e) => handleClick(e)}
                                                 // title={style[index]}
                                             >
                                               Elegant
                                             </span>
 
-                                    <div className="opacity-0 w-full group-hover:opacity-100 transition delay-150 duration-500 ease-in-out ">
-                                        <img className=" hidden w-full group-hover:flex " src={elegantImg} />
+                                    <div className="opacity-0 w-full group-hover:opacity-100 ease-in-out">
+                                        <img className="hidden w-full group-hover:flex rounded-lg translate-x-4 hover:shadow-2xl" src={elegantImg} />
                                     </div>
                                 </div>
-                                <div className={` flex flex-col group w-full flex-nowrap hover:scale-100 my-5 transition duration-150 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-56 justify-center`}
+                                <div className={`flex flex-col w-full group flex-nowrap hover:bg-green-300 hover:scale-100 my-5 transition duration-500 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center cursor-pointer`}
                                     // key={style.indexOf(family)} >
                                      onClick={(e) => handleClick(e)}
+
+                                    //  Slab
                                      id="3"
                                 >
-                                            <span
+                                            <span style={{fontFamily:`${'Quantico'}`}}
                                                 // style={{ fontFamily: `${family}` }}
-                                                className=' flex flex-col w-full flex-wrap mx-2 text-center justify-center h-screen  text-3xl'
+                                                className=' flex flex-col w-full flex-wrap  text-center justify-center h-screen  text-5xl  mb-4'
                                                 // onClick={(e) => handleClick(e)}
                                                 // title={style[index]}
                                             >
                                               Slab
                                             </span>
 
-                                    <div className="opacity-0 w-full group-hover:opacity-100 transition delay-150 duration-500 ease-in-out ">
-                                        <img className=" hidden w-full group-hover:flex " src={slabImg} />
+                                    <div className="opacity-0 w-full group-hover:opacity-100 ease-in-out">
+                                        <img className="hidden w-full group-hover:flex rounded-lg translate-x-4 hover:shadow-2xl" src={slabImg} />
                                     </div>
                                 </div>
-                                <div className={` flex flex-col group w-full flex-nowrap hover:scale-100 my-5 transition duration-150 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-56  justify-center`}
+                                <div className={`flex flex-col w-full group flex-nowrap hover:bg-green-300 hover:scale-100 my-5 transition duration-500 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center cursor-pointer`}
                                     // key={style.indexOf(family)} >
                                      onClick={(e) => handleClick(e)}
+
+                                    //  Handwritten
                                      id="4"
                                 >
-                                            <span
+                                            <span style={{fontFamily:`${'Monsieur La Doulaise'}`}}
                                                 // style={{ fontFamily: `${family}` }}
-                                                className=' flex flex-col w-full flex-wrap mx-2 text-center justify-center h-screen  text-3xl'
+                                                className=' flex flex-col w-full flex-wrap text-center justify-center h-screen  text-5xl mb-4'
                                                 // onClick={(e) => handleClick(e)}
                                                 // title={style[index]}
                                             >
                                               Handwritten
                                             </span>
 
-                                    <div className="opacity-0 w-full group-hover:opacity-100 transition delay-150 duration-500 ease-in-out ">
-                                        <img className=" hidden w-full group-hover:flex " src={handwrittenImg} />
+                                    <div className="opacity-0 w-full group-hover:opacity-100 ease-in-out">
+                                        <img className="hidden w-full group-hover:flex rounded-lg translate-x-4 hover:shadow-2xl" src={handwrittenImg} />
                                     </div>
                                 </div>
-                                <div className={` flex flex-col group w-full flex-nowrap hover:scale-100 my-5 transition duration-150 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-56  justify-center`}
+                                <div className={`flex flex-col w-full group flex-nowrap hover:bg-green-300 hover:scale-100 my-5 transition duration-500 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center cursor-pointer`}
                                     // key={style.indexOf(family)} >
                                      onClick={(e) => handleClick(e)}
+
+                                    //  Playfull
                                      id="5"
                                 >
-                                            <span
+                                            <span style={{fontFamily:`${'Flamenco'}`}}
                                                 // style={{ fontFamily: `${family}` }}
-                                                className=' flex flex-col w-full flex-wrap mx-2 text-center justify-center h-screen  text-3xl'
+                                                className=' flex flex-col w-full flex-wrap text-center justify-center h-screen text-5xl mb-4'
                                                 // onClick={(e) => handleClick(e)}
                                                 // title={style[index]}
                                             >
                                               Playfull
                                             </span>
 
-                                    <div className="opacity-0 w-full group-hover:opacity-100 transition delay-150 duration-500 ease-in-out ">
-                                        <img className=" hidden w-full  group-hover:flex " src={playfulImg} />
+                                    <div className="opacity-0 w-full group-hover:opacity-100 ease-in-out">
+                                        <img className="hidden w-full group-hover:flex rounded-lg translate-x-4 hover:shadow-2xl" src={playfulImg} />
                                     </div>
                                 </div>
-                                <div className={` flex flex-col group w-full flex-nowrap hover:scale-100 my-5 transition duration-150 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-56 justify-center`}
+                                <div className={`flex flex-col w-full group flex-nowrap hover:bg-green-300 hover:scale-100 my-5 transition duration-500 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center cursor-pointer`}
                                     // key={style.indexOf(family)} >
                                      onClick={(e) => handleClick(e)}
+                                    //  Futuristic
                                      id="6"
                                 >
-                                            <span
+                                            <span style={{fontFamily:`${'Sarpanch'}`}}
                                                 // style={{ fontFamily: `${family}` }}
-                                                className=' flex flex-col w-full flex-wrap mx-2 text-center justify-center h-screen  text-3xl'
+                                                className=' flex flex-col w-full flex-wrap text-center justify-center h-screen  text-5xl mb-4'
                                                 // onClick={(e) => handleClick(e)}
                                                 // title={style[index]}
                                             >
                                               Futuristic
                                             </span>
 
-                                    <div className="opacity-0 w-full group-hover:opacity-100 transition delay-150 duration-500 ease-in-out ">
-                                        <img className=" hidden w-full  group-hover:flex " src={futuristicImg} />
+                                    <div className="opacity-0 w-full group-hover:opacity-100 ease-in-out">
+                                        <img className="hidden w-full group-hover:flex rounded-lg translate-x-4 hover:shadow-2xl" src={futuristicImg} />
                                     </div>
                                 </div>
                             </div>

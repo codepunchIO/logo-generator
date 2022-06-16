@@ -50,8 +50,8 @@ const Fonts = () => {
   return (
 
     <>
-      <div className="bg-white py-6 sm:py-8 lg:py-20">
-        <div className="w-9/12 justify-center mx-auto">
+      <div className="bg-white py-6 sm:py-8  lg:py-20">
+        <div className="w-9/12 justify-center mx-auto"> 
         <h1 className="text-4xl text-center font-extrabold p-4 text-gray-900 mb-7">
           Choose font style
         </h1>
@@ -62,7 +62,7 @@ const Fonts = () => {
             {
               fontCategories.map((style,index) => (
                 
-                   <div className="flex flex-col w-32 px-1 mx-5 h-10 bg-green-500 rounded text-white  justify-center text-center"
+                   <div className="flex flex-col w-32 px-1 mx-5 h-12 bg-green-500 rounded-lg text-white justify-center w-48 px-1 text-center text-sm shadow-lg hover:shadow-2xl ease-in-out duration-200 cursor-pointer"
                      onClick={  (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
                         setStyle(style)
                       console.log(style);
