@@ -1,8 +1,8 @@
 import { Card } from "@mui/material";
-import { store } from "../../store/store";
-
 import axios from "axios";
 import { useEffect, useState } from "react";
+// import tShirt from "../../assets/img/Isolated.jpg";
+import { store } from "../../store/store";
 
 interface PropsType {
   inputValue: string;
@@ -145,14 +145,31 @@ const MainSection: React.FC<PropsType> = ({
           </button>
         </div>
       </div>
+      <div className=" pb-10 pr-7 max-w-[1200px] h-[800px] bg-black ml-auto mr-auto bg-[url('./assets/img/Isolated.jpg')] bg-cover flex  bg-top items-center justify-center">
+        <div className=" max-w-[280px] flex bg-dark static top-40 left-96">
+          <div
+            dangerouslySetInnerHTML={{ __html: svg }}
+            className={`min-w-[130px] max-w-[100%] h-[100%] ${
+              selectedStyleId === "4" ? "hidden" : ""
+            }`}
+          />
+          <p
+            style={{ color: textColor, fontFamily: fontStyle }}
+            className={` text-8xl text-center  mt-auto mb-auto${
+              selectedStyleId === "3" ? "hidden" : ""
+            }`}
+          >
+            {inputValue}
+          </p>
+        </div>
 
-      {/* <footer>
-        <p>select to layout : </p>
-        <button>LOGO</button>
-        <button>LOGO+ISOTYPE-V</button>
-        <button>LOGO+ISOTYPE-H</button>
-        <button>ISOTYPE</button>
-      </footer> */}
+        {/* <img
+          src={tShirt}
+          alt="tshirt
+        "
+          className="max-w-full h-auto"
+        /> */}
+      </div>
     </div>
   );
 };
