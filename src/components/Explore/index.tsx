@@ -157,20 +157,20 @@ const Explore = () => {
   return (
     <>
       <div className="bg-white py-6 sm:py-8 lg:py-20">
-        <div className="w-9/12 justify-center mx-auto">
+        <div className="w-1/2 justify-center mx-auto">
           <h1 className="text-4xl text-center font-extrabold p-4 text-gray-900 mb-7">
             Explore
           </h1>
 
           <div className="flex  h-full w-full justify-center overflow-y-auto p-3  ">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-4 w-full mx-auto md:gap-x-6 gap-y-12 ">
+            <div className="grid grid-cols-2 gap-x-3 w-full mx-auto  gap-y-2">
               {icons.map((icon, index) => (
                 <div
                   onClick={(e) => handleClick(e)}
                   // @ts-ignore
               style={{ fontFamily: `${state.logo.data.fonts[index]}` }}
                   // className={`flex flex-col  w-full  flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear`}>
-                  className={`flex flex-col  w-full  flex-nowrap hover:shadow-lg text-4xl text-center duration-200 hover:text-6xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear ${
+                  className={`flex flex-col  w-full  flex-nowrap hover:shadow-lg text-4xl text-center duration-200 hover:text-6xl my-1 rounded-lg h-96 justify-center cursor-pointer ease-in ease-linear ${
                     icon === oneIcon ? "border-4 border-green-500" : ""
                   } 
                  
