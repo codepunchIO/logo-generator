@@ -122,16 +122,20 @@ const Icons = () => {
           </div>
         ) : null}
       </div>
-      <div className="flex flex-wrap flex-row justify-evenly w-3/4 mx-auto p-8 h-full ">
+      {/* className="flex flex-wrap flex-row justify-evenly w-3/4 mx-auto p-8 h-full " */}
+      <div  className="grid sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-3 gap-x-4 w-auto mx-auto md:gap-x-6 gap-y-12 ">
         {icons.map((icon, index) => (
           <div
             key={index}
-            className={`flex flex-row flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center  ${
-              smallIcons.includes(icon) ? "bg-green-500/50" : ""
-            }  `}
-          >
+            // className={`flex flex-row flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center  ${
+            //   smallIcons.includes(icon) ? "bg-green-500/50" : ""
+            // }  `}
+            className={`flex flex-col group w-full  flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear
+             ${smallIcons.includes(icon) ? "border-4 border-green-500" : ""}`
+            }>
+          
             <img
-              className="flex flex-col w-5/6  text-center min-w-full border-2 justify-center h-auto rounded-lg text-xl px-6 py-2"
+              className="flex flex-col w-full h-32 text-center min-w-full  justify-center  rounded-lg text-xl px-6 py-2"
               onClick={(e) => handleClick(e)}
               id={String(icons.indexOf(icon) + 1)}
               src={icon}

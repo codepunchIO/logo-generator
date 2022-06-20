@@ -162,12 +162,13 @@ const Explore = () => {
           </h1>
 
           <div className="flex  h-full w-full justify-center overflow-y-auto p-3  ">
-            <div className=" flex flex-wrap flex-row justify-between  p-2 gap-y-7 max-w-4xl ">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-4 w-full mx-auto md:gap-x-6 gap-y-12 ">
               {icons.map((icon, index) => (
                 <div
                   onClick={(e) => handleClick(e)}
-                  className={`flex flex-row border-2flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center items-center ${
-                    icon === oneIcon ? "bg-green-500/50" : ""
+                  // className={`flex flex-col  w-full  flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear`}>
+                  className={`flex flex-col  w-full  flex-nowrap hover:shadow-lg text-4xl text-center duration-200 hover:text-6xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear ${
+                    icon === oneIcon ? "border-4 border-green-500" : ""
                   }  
                   ${colors[Math.floor(Math.random() * colors.length)]}
                   `}
@@ -219,7 +220,7 @@ const Explore = () => {
                     </g>
                   </svg> */}
 
-                  <img src={icon} alt="icon" className="h-20 w-20" />
+                  <img src={icon} alt="icon" className="flex flex-col w-full h-32 text-center min-w-full  justify-center  rounded-lg text-xl px-6 py-2" />
 
                   <p className="p-1">{brandName}</p>
                 </div>
