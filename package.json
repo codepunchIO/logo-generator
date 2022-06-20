@@ -23,6 +23,7 @@
     "@types/react-router-redux": "^5.0.21",
     "axios": "^0.27.2",
     "axios-oauth-1.0a": "^0.3.5",
+    "dom-to-image": "^2.6.0",
     "oauth": "^0.9.15",
     "react": "^18.1.0",
     "react-color": "^2.19.3",
@@ -66,6 +67,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2",
+    "@types/dom-to-image": "^2.6.4",
     "@types/webfontloader": "^1.6.34",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
