@@ -39,25 +39,25 @@ function NewStyle() {
                                     <div
                                     // Modern
                                         id="1"
-                                        className={`flex flex-col w-full group flex-nowrap hover:bg-green-300 hover:scale-100 my-5 transition duration-700 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center cursor-pointer`}
+                                        className={`flex flex-col group border border-gray-400 flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear`}
                                         key={1}
                                          onClick={(e) => handleClick(e)}
 
                                     >
                                             <span style={{fontFamily:`${'Baumans'}`}}
-                                                  className='flex flex-col w-full flex-wrap text-center justify-center h-screen text-5xl mb-4'
+                                                  className='flex flex-col flex-wrap text-center justify-center h-screen transition duration-700 ease-in-out ease-linear'
                                                   // onClick={(e) => handleClick(e)}
                                                   // title={style[index]}
                                             >
                                               Modern
                                             </span>
 
-                                        <div className="opacity-0 w-full group-hover:opacity-100 ease-in-out">
-                                           <img className="hidden w-full group-hover:flex rounded-lg translate-x-4 hover:shadow-2xl" src={modernImg} />
+                                        <div className="h-0 group-hover:h-full ease-linear ease-in-out duration-200 border-t border-gray-400 hover:shadow-md">
+                                           <img className="hidden mx-auto group-hover:flex transition ease-in-out rounded-lg ease-linear h-0 group-hover:h-full w-full ease-linear ease-in-out duration-100 " src={modernImg} />
                                         </div>
                                     </div>
 
-                                <div className={`flex flex-col w-full group flex-nowrap hover:bg-green-300 hover:scale-100 my-5 transition duration-500 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center cursor-pointer`}
+                                <div className={`flex flex-col group border border-gray-400 flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg  h-72 justify-center cursor-pointer ease-in ease-linear`}
                                     // key={style.indexOf(family)} >
                                      onClick={(e) => handleClick(e)}
                                      
@@ -65,18 +65,18 @@ function NewStyle() {
                                      id="2"
                                 >
                                             <span style={{fontFamily:`${'Advent Pro'}`}}
-                                                className=' flex flex-col w-full flex-wrap text-center justify-center h-screen text-5xl  mb-4'
+                                                className=' flex flex-col flex-wrap text-center justify-center  h-screen transition duration-700 ease-in-out ease-linear'
                                                 // onClick={(e) => handleClick(e)}
                                                 // title={style[index]}
                                             >
                                               Elegant
                                             </span>
 
-                                    <div className="opacity-0 w-full group-hover:opacity-100 ease-in-out">
-                                        <img className="hidden w-full group-hover:flex rounded-lg translate-x-4 hover:shadow-2xl" src={elegantImg} />
+                                    <div className="h-0 group-hover:h-full ease-linear ease-in-out duration-200 hover:shadow-md  border-t border-gray-400">
+                                        <img className="hidden mx-auto group-hover:flex transition ease-in-out rounded-lg ease-linear h-0 group-hover:h-full w-full ease-linear ease-in-out duration-100" src={elegantImg} />
                                     </div>
                                 </div>
-                                <div className={`flex flex-col w-full group flex-nowrap hover:bg-green-300 hover:scale-100 my-5 transition duration-500 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center cursor-pointer`}
+                                <div className={`flex flex-col group border border-gray-400 flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg  h-72 justify-center cursor-pointer ease-in ease-linear`}
                                     // key={style.indexOf(family)} >
                                      onClick={(e) => handleClick(e)}
 
@@ -85,18 +85,18 @@ function NewStyle() {
                                 >
                                             <span style={{fontFamily:`${'Quantico'}`}}
                                                 // style={{ fontFamily: `${family}` }}
-                                                className=' flex flex-col w-full flex-wrap  text-center justify-center h-screen  text-5xl  mb-4'
+                                                className='flex flex-col flex-wrap text-center justify-center  h-screen transition duration-700 ease-in-out ease-linear'
                                                 // onClick={(e) => handleClick(e)}
                                                 // title={style[index]}
                                             >
                                               Slab
                                             </span>
 
-                                    <div className="opacity-0 w-full group-hover:opacity-100 ease-in-out">
-                                        <img className="hidden w-full group-hover:flex rounded-lg translate-x-4 hover:shadow-2xl" src={slabImg} />
+                                    <div className="h-0 group-hover:h-full ease-linear ease-in-out duration-200  border-t border-gray-400 hover:shadow-md">
+                                        <img className="hidden mx-auto group-hover:flex transition ease-in-out rounded-lg ease-linear h-0 group-hover:h-full w-full ease-linear ease-in-out duration-100" src={slabImg} />
                                     </div>
                                 </div>
-                                <div className={`flex flex-col w-full group flex-nowrap hover:bg-green-300 hover:scale-100 my-5 transition duration-500 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center cursor-pointer`}
+                                <div className={`flex flex-col group border border-gray-400 flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg  h-72 justify-center cursor-pointer ease-in ease-linear`}
                                     // key={style.indexOf(family)} >
                                      onClick={(e) => handleClick(e)}
 
@@ -105,18 +105,18 @@ function NewStyle() {
                                 >
                                             <span style={{fontFamily:`${'Monsieur La Doulaise'}`}}
                                                 // style={{ fontFamily: `${family}` }}
-                                                className=' flex flex-col w-full flex-wrap text-center justify-center h-screen  text-5xl mb-4'
+                                                className=' flex flex-col flex-wrap text-center justify-center  h-screen transition duration-700 ease-in-out ease-linear'
                                                 // onClick={(e) => handleClick(e)}
                                                 // title={style[index]}
                                             >
                                               Handwritten
                                             </span>
 
-                                    <div className="opacity-0 w-full group-hover:opacity-100 ease-in-out">
-                                        <img className="hidden w-full group-hover:flex rounded-lg translate-x-4 hover:shadow-2xl" src={handwrittenImg} />
+                                    <div className="h-0 group-hover:h-full ease-linear ease-in-out duration-200  border-t border-gray-400 hover:shadow-md">
+                                        <img className="hidden mx-auto group-hover:flex transition ease-in-out rounded-lg ease-linear h-0 group-hover:h-full w-full ease-linear ease-in-out duration-100" src={handwrittenImg} />
                                     </div>
                                 </div>
-                                <div className={`flex flex-col w-full group flex-nowrap hover:bg-green-300 hover:scale-100 my-5 transition duration-500 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center cursor-pointer`}
+                                <div className={`flex flex-col group border border-gray-400 flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear`}
                                     // key={style.indexOf(family)} >
                                      onClick={(e) => handleClick(e)}
 
@@ -125,18 +125,18 @@ function NewStyle() {
                                 >
                                             <span style={{fontFamily:`${'Flamenco'}`}}
                                                 // style={{ fontFamily: `${family}` }}
-                                                className=' flex flex-col w-full flex-wrap text-center justify-center h-screen text-5xl mb-4'
+                                                className='flex flex-col flex-wrap text-center justify-center  h-screen transition duration-700 ease-in-out ease-linear'
                                                 // onClick={(e) => handleClick(e)}
                                                 // title={style[index]}
                                             >
                                               Playfull
                                             </span>
 
-                                    <div className="opacity-0 w-full group-hover:opacity-100 ease-in-out">
-                                        <img className="hidden w-full group-hover:flex rounded-lg translate-x-4 hover:shadow-2xl" src={playfulImg} />
+                                    <div className="h-0 group-hover:h-full ease-linear ease-in-out duration-200  border-t border-gray-400 hover:shadow-md">
+                                        <img className="hidden mx-auto group-hover:flex transition ease-in-out rounded-lg ease-linear h-0 group-hover:h-full w-full ease-linear ease-in-out duration-100" src={playfulImg} />
                                     </div>
                                 </div>
-                                <div className={`flex flex-col w-full group flex-nowrap hover:bg-green-300 hover:scale-100 my-5 transition duration-500 ease-in hover:shadow-2xl shadow-md rounded-lg h-56 justify-center cursor-pointer`}
+                                <div className={`flex flex-col group border border-gray-400 flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg  h-72 justify-center cursor-pointer ease-in ease-linear`}
                                     // key={style.indexOf(family)} >
                                      onClick={(e) => handleClick(e)}
                                     //  Futuristic
@@ -144,15 +144,15 @@ function NewStyle() {
                                 >
                                             <span style={{fontFamily:`${'Sarpanch'}`}}
                                                 // style={{ fontFamily: `${family}` }}
-                                                className=' flex flex-col w-full flex-wrap text-center justify-center h-screen  text-5xl mb-4'
+                                                className='flex flex-col flex-wrap text-center justify-center  h-screen transition duration-700 ease-in-out ease-linear'
                                                 // onClick={(e) => handleClick(e)}
                                                 // title={style[index]}
                                             >
                                               Futuristic
                                             </span>
 
-                                    <div className="opacity-0 w-full group-hover:opacity-100 ease-in-out">
-                                        <img className="hidden w-full group-hover:flex rounded-lg translate-x-4 hover:shadow-2xl" src={futuristicImg} />
+                                    <div className="h-0 group-hover:h-full ease-linear ease-in-out duration-200  border-t border-gray-400 hover:shadow-md">
+                                        <img className="hidden mx-auto group-hover:flex transition ease-in-out rounded-lg ease-linear h-0 group-hover:h-full w-full ease-linear ease-in-out duration-100" src={futuristicImg} />
                                     </div>
                                 </div>
                             </div>
