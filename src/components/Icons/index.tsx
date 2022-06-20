@@ -67,6 +67,7 @@ const Icons = () => {
       dispatch(setIcon(smallIcons));
     }
   }, [smallIcons]);
+
   return (
     <div className="flex flex-col h-full w-full p-1">
       <h1 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7">
