@@ -43,13 +43,13 @@ const MainSection: React.FC<PropsType> = ({
   
 
   useEffect(() => {
-    let element = document.querySelector('path');
-    console.log(element)
+    let elements = document.querySelectorAll('path');
+    console.log(elements)
   
 
   //  @ts-ignore
-  if(element){
-  element.style.setProperty("--lgColor", logoColor);
+  if(elements){
+  elements.forEach((element)=>element.style.setProperty("--lgColor", logoColor));
 }
   }, [logoColor])
   
