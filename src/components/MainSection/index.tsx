@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 // import tShirt from "../../assets/img/Isolated.jpg";
 import { store } from "../../store/store";
 import ButtonList from "../ButtonList";
-
+import Svg from '../Svg/Svg'
+import  './style.css'
 interface PropsType {
   inputValue: string;
   bgColor: any;
@@ -38,6 +39,20 @@ const MainSection: React.FC<PropsType> = ({
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  
+  
+
+  useEffect(() => {
+    let element = document.querySelector('path');
+    console.log(element)
+  
+
+  //  @ts-ignore
+  if(element){
+  element.style.setProperty("--lgColor", logoColor);
+}
+  }, [logoColor])
+  
 
   const FetchIcon = async () => {
     setIsError(false);
@@ -50,15 +65,16 @@ const MainSection: React.FC<PropsType> = ({
       });
 
       setSVG(
-        res.data.slice(0, 4) +
-          ` style="fill:${logoColor}!important"` +
-          res.data.slice(4)
+        res.data
+        // res.data.slice(0, 4) +
+        //   ` id='svg'` +
+        //   res.data.slice(4)
       );
-      setSVG2(
-        res.data.slice(0, 4) +
-          ` style="fill:${backgroundColor}!important"` +
-          res.data.slice(4)
-      );
+      // setSVG2(
+      //   res.data.slice(0, 4) +
+      //     ` style="fill:${backgroundColor}!important"` +
+      //     res.data.slice(4)
+      // );
       setIsLoading(false);
     } catch {
       setIsError(true);
@@ -73,6 +89,7 @@ const MainSection: React.FC<PropsType> = ({
     FetchIcon();
   }, [logoColor, backgroundColor]);
 
+  // @ts-ignore
   return (
     <div className="pl-6 h-screen pr-6">
       <h1 className=" flex text-4xl text-center font-bold p-4 text-gray-900 mb-7 font-['Iceland']">
@@ -81,9 +98,10 @@ const MainSection: React.FC<PropsType> = ({
       <hr className="w-36 mb-4" />
 
       <div className="flex justify-between h-full mb-4">
-        <div className="w-1/2 mr-6">
+        <div  ref={htmlDivElementRef}
+          className="w-5/6 mr-6">
           <div
-            ref={htmlDivElementRef}
+          
             className={`border-2 rounded-lg text-blue-600 h-4/6 font-bold text-6xl flex bg-green-500 items-center justify-center  ${
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
@@ -95,11 +113,17 @@ const MainSection: React.FC<PropsType> = ({
               }`}
             >
               <div
-                dangerouslySetInnerHTML={{ __html: svg }}
-                className={` h-20 w-20 ${
+
+               
+                 dangerouslySetInnerHTML={{ __html: svg }}
+                className={` logo h-20 w-20 ${
                   selectedStyleId === "4" ? "hidden" : ""
                 }`}
               />
+            
+             {/* <object data={url} id='svg'  className="logo" type="image/svg+xml">
+                
+            </object> */}
               <p
                 style={{ color: textColor, fontFamily: fontStyle }}
                 className={`${selectedStyleId === "3" ? "hidden" : ""}`}
@@ -126,7 +150,7 @@ const MainSection: React.FC<PropsType> = ({
             </span>
           </button> */}
 
-        <div className="w-1/2">
+        {/* <div className="w-1/2">
           <div
             ref={htmlDivElementRef}
             style={{ backgroundColor: logoColor }}
@@ -135,8 +159,8 @@ const MainSection: React.FC<PropsType> = ({
             }`}
           >
             <div
-              dangerouslySetInnerHTML={{ __html: svg2 }}
-              className={` h-20 w-20 ${
+                dangerouslySetInnerHTML={{ __html: svg2 }}
+              className={` logo h-20 w-20 ${
                 selectedStyleId === "4" ? "hidden" : ""
               }`}
             />
@@ -147,7 +171,7 @@ const MainSection: React.FC<PropsType> = ({
             >
               {inputValue}
             </p>
-          </div>
+          </div> */}
 
           {/* <button className=" mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
             <span className="font-['Iceland'] text-lg relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
@@ -159,13 +183,13 @@ const MainSection: React.FC<PropsType> = ({
               Dowlnoad PNG
             </span>
           </button> */}
-          <ButtonList
+          {/* <ButtonList
             htmlDivElementRef={htmlDivElementRef}
             backgroundColor=""
           />
         </div>
-      </div>
-      <div className=" pb-40 pr-7 max-w-[1200px] h-[800px] bg-black ml-auto mr-auto bg-[url('./assets/img/white.jpg')] bg-cover flex  bg-top items-center justify-center">
+      </div> */}
+      {/* <div className=" pb-40 pr-7 max-w-[1200px] h-[800px] bg-black ml-auto mr-auto bg-[url('./assets/img/white.jpg')] bg-cover flex  bg-top items-center justify-center">
         <div
           className={` max-w-[280px] flex  bg-dark static top-40 left-96 ${
             selectedStyleId === "2" ? "flex-col" : ""
@@ -185,8 +209,8 @@ const MainSection: React.FC<PropsType> = ({
           >
             {inputValue}
           </p>
-        </div>
-      </div>
+        </div>*/}
+      </div> 
     </div>
   );
 };
