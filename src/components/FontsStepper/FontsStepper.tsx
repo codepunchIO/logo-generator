@@ -1,49 +1,52 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react'
 import { Tab } from '@headlessui/react'
 import fontCategories from "./fontCategories";
 import {setFont, setStyle} from "../../store/slices/logoSlice/logoSlice";
 // @ts-ignore
+import { Modern, Futuristic, Handwritten, Playfull, Slab, Elegant } from './fontCategories'
+import { store } from '../../store/store';
+import NewColors from '../NewColors/NewColors';
 
 function FontsStepper() {
+    const state = store.getState();
     const [selectedIndex, setSelectedIndex] = useState(0)
+   
+    const [categories, setCategories] = useState<string[][]>(Modern)
+    useEffect(() => {
+     switch (state.logo.data.style!) {
+      case "Modern":
+        setCategories(Modern);
+        console.log("Modern");
 
-    let [categories] = useState(
-                    [
+        break;
+      case "Elegant":
+        setCategories(Elegant);
+        console.log("Elegant");
 
-                     ["Wire One",
-                        "Syncopate",
-                        "Josefin Slab"],
+        break;
+      case "Slab":
+        setCategories(Slab);
+        console.log("Slab");
 
+        break;
+      case "Handwritten":
+        setCategories(Handwritten);
+        console.log("Handwritten");
+        break;
+      case "Playfull":
+        setCategories(Playfull);
+        console.log("Playfull");
 
-        [
-        "Advent Pro",
-        "Orbitron",
-        "Rajdhani",
+        break;
+      case "Futuristic":
+        setCategories(Futuristic);
+        console.log("Futuristic");
 
-        ],
-                        [
-                            "Exo 2.0",
-                            "Audiowide",
-                            "Expletus Sans ",
-
-                            ],
-
-                        [
-                            "Quantico",
-                            "Iceland",
-                            "Electrolize",
-
-                            ],
-                        [
-                            "Monofett",
-                            "Sarpanch",
-                            "Share Tech Mono",
-                            ]
-                    ]
-
-
-    )
+        break;
+    }
+    }, [state.logo.data.style])
+    
     const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
         setSelectedIndex(selectedIndex+1);
 
@@ -55,16 +58,16 @@ function FontsStepper() {
 
             (selectedIndex<5)?
 
-                <div className="w-9/12 flex flex-row justify-between h-screen items-center mx-auto">
+                <div className="w-3/5 flex flex-row justify-between h-screen items-center mx-auto">
                     {categories[selectedIndex].map((family: any, index) => (
 
                         (
                             <div
-                                className={`flex flex-row flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center`}
+                                className={`flex flex-col w-full border mx-4 border-gray-400 flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear`}
                                 onClick={(e) => handleClick(e)}
                                 key={index}>
                                                 <span style={{fontFamily: `${family}`}}
-                                                      className='flex flex-col flex-wrap mx-2 text-center justify-center h-full  text-3xl'
+                                                      className='flex flex-col p-4 flex-wrap mx-2 text-center justify-center h-full  text-3xl'
                                                     // onClick={(e) => handleClick(e)}
 
                                                 >
@@ -78,11 +81,7 @@ function FontsStepper() {
                 </div>
 
                 :
-                <div className="flex  h-screen justify-center items-center gap-4 mb-6">
-                    <h2 className="text-4xl w-9/12 text-center font-extrabold p-4 text-gray-900 mb-7 ">
-                        Thank you for selecting fonts for us!
-                    </h2>
-                </div>
+               <NewColors />
         )
     }
 

@@ -44,7 +44,7 @@ const steps = ["Name", "Industry", "Style", "Colors", "Icon", "Explore"];
 const components = [
   <NameEditor />,
   <Industry />,
-  <NewStyle />,
+  <NewStyle  />,
   <NewColors />,
   <Icons />,
   <Explore />,
