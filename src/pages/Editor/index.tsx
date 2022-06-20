@@ -12,10 +12,8 @@ const EditorPage: React.FC = () => {
   const [font, setSelectedFont] = useState<any>("Sacramento");
   const [selectedStyle, setSelectedStyle] = useState<any>("1");
 
-
   useEffect(() => {
-    setSelectedStyle(state.logo.data.style!
-    );
+    setSelectedStyle(state.logo.data.style!);
   }, [state]);
 
   return (
