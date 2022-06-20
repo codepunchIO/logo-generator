@@ -16,14 +16,14 @@ const NewColors = () => {
   
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-20">
-      <div className=" w-9/12 justify-center mx-auto">
+      <div className=" w-4/6 justify-center mx-auto">
         <div className="flex justify-center items-end gap-4 mb-6">
-          <h2 className="text-4xl w-9/12 text-center font-extrabold p-4 text-gray-900 mb-7 ">
+          <h2 className="text-4xl w-4/6 text-center font-extrabold p-4 text-gray-900 mb-7 ">
             Pick favorite color
           </h2>
         </div>
 
-        <div  className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-4 w-auto mx-auto md:gap-x-6 gap-y-12 ">
+        <div  className="grid grid-cols-3 gap-x-4 w-full mx-auto md:gap-x-6 gap-y-12 ">
           {/* <!-- product - start --> */}
           {colorCards.map((card, index) => (
             <div
@@ -32,7 +32,7 @@ const NewColors = () => {
               }}
               id={String(index + 1)}
               key={index}
-              className={`flex flex-col group border border-gray-400 flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear
+              className={`flex flex-col group  border border-gray-400 flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear
                ${
                     selected === String(index + 1) ? "border-4 border-green-500 " : ""
                   }

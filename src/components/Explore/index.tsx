@@ -157,7 +157,7 @@ const Explore = () => {
   return (
     <>
       <div className="bg-white py-6 sm:py-8 lg:py-20">
-        <div className="w-1/2 justify-center mx-auto">
+        <div className="w-4/6 justify-center mx-auto">
           <h1 className="text-4xl text-center font-extrabold p-4 text-gray-900 mb-7">
             Explore
           </h1>

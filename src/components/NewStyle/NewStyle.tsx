@@ -101,9 +101,9 @@ function NewStyle() {
     return (
         displayFlag?
         <div className="bg-white py-6 sm:py-8 lg:py-20">
-            <div className=" w-9/12 justify-center mx-auto">
+            <div className=" w-4/6 justify-center mx-auto">
                 <div className="flex justify-center items-end gap-4 mb-6">
-                    <h2 className="text-4xl w-9/12 text-center font-extrabold p-4 text-gray-900 mb-7">
+                    <h2 className="text-4xl w-4/6 text-center font-extrabold p-4 text-gray-900 mb-7">
                         Choose font style
                     </h2>
                 </div>
@@ -113,7 +113,7 @@ function NewStyle() {
                                 <div
                                     // Modern
                                     id={String(card.id)}
-                             className={`flex flex-col group border border-gray-400 flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear`}
+                             className={`flex flex-col group border border-gray-400 flex-nowrap hover:shadow-lg text-6xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear`}
                                         key={index}
                                          onClick={(e) => handleClick(e)}
 

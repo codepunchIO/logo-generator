@@ -58,7 +58,7 @@ function FontsStepper() {
 
             (selectedIndex<7)?
 
-                <div className="w-3/5 flex flex-row justify-between h-screen items-center mx-auto">
+                <div className="w-4/6 flex flex-row justify-between h-screen items-center mx-auto">
                     {categories[selectedIndex].map((family: any, index) => (
 
                         (

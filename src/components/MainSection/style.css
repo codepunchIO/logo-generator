@@ -1,5 +1,5 @@
 
 .logo svg path {
-    --lgColor: red;
+    --lgColor: black;
     fill: var(--lgColor);
 }
