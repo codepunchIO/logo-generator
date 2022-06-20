@@ -10,11 +10,26 @@ interface Person {
   unavailable: boolean;
 }
 const people = [
-  { id: 1, name: "Durward Reynolds", unavailable: true },
-  { id: 2, name: "Kenton Towne", unavailable: false },
-  { id: 3, name: "Therese Wunsch", unavailable: false },
-  { id: 4, name: "Benedict Kessler", unavailable: false },
-  { id: 5, name: "Katelyn Rohan", unavailable: false },
+  { id: 1, name: "Technology", unavailable: true },
+  { id: 2, name: "Travel", unavailable: false },
+  { id: 3, name: "Sport", unavailable: false },
+  { id: 4, name: "Real Estate", unavailable: false },
+  { id: 5, name: "Legal", unavailable: false },
+  { id: 6, name: "Design", unavailable: false },
+  { id: 7, name: "Animals", unavailable: false },
+  { id: 8, name: "Retail", unavailable: false },
+  { id: 9, name: "Automotive", unavailable: false },
+  { id: 10, name: "Family", unavailable: false },
+  { id: 11, name: "Party", unavailable: false },
+  { id: 12, name: "Medical", unavailable: false },
+  { id: 13, name: "Restaurant", unavailable: false },
+  { id: 14, name: "Finance", unavailable: false },
+  { id: 15, name: "Nonprofit", unavailable: false },
+  { id: 16, name: "Entertainment", unavailable: false },
+  { id: 17, name: "Construction", unavailable: false },
+  { id: 18, name: "Education", unavailable: false },
+  { id: 19, name: "Beauty ", unavailable: false },
+  { id: 20, name: "Others", unavailable: false },
 ];
 
 const Industry: React.FC = () => {

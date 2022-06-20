@@ -20,6 +20,11 @@ const Icons = () => {
 
   console.log("searchInputValue", searchInputValue);
 
+  useEffect(() => {
+     FetchIcons(state.logo.data.industry!);
+  }, [])
+  
+
   const FetchIcons = async (query: string) => {
     setIsError(false);
     setIsLoading(true);
@@ -80,7 +85,7 @@ const Icons = () => {
               <input
                 type="search"
                 className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none mb-3"
-                placeholder="Search"
+                placeholder={state.logo.data.industry}
                 onChange={handleChange}
                 aria-label="Search"
                 aria-describedby="button-addon3"
@@ -122,8 +127,8 @@ const Icons = () => {
           </div>
         ) : null}
       </div>
-      {/* className="flex flex-wrap flex-row justify-evenly w-3/4 mx-auto p-8 h-full " */}
-      <div  className="grid sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-3 gap-x-4 w-auto mx-auto md:gap-x-6 gap-y-12 ">
+      {/*   sm:grid-cols-2  lg:grid-cols-3 xl: className="flex flex-wrap flex-row justify-evenly w-3/4 mx-auto p-8 h-full " */}
+      <div  className="grid grid-cols-3 gap-x-4 w-5/6 mx-auto md:gap-x-6 gap-y-12 ">
         {icons.map((icon, index) => (
           <div
             key={index}
