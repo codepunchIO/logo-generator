@@ -231,15 +231,15 @@ const GeneratorPage: React.FC = () => {
         ) : (
           <div className="">
             <div>{components[activeStep]}</div>
-            <div className="fixed bottom-0 right-0">
-              <Button
+            <div className="fixed bottom-0 w-full text-center bg-gray-50 px-20">
+              <Button className="float-left"
                 color="inherit"
                 disabled={activeStep === 0}
                 onClick={handleBack}
               >
                 Back
               </Button>
-              <Button onClick={handleNext}>Next</Button>
+              <Button onClick={handleNext} className="float-right">Next</Button>
               {activeStep !== steps.length &&
                 (completed[activeStep] ? (
                   <Typography

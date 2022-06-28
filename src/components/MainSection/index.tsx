@@ -88,17 +88,17 @@ const MainSection: React.FC<PropsType> = ({
 
   // @ts-ignore
   return (
-    <div className="pl-6 h-screen pr-6 ml-20">
-      <h1 className=" flex text-4xl text-center font-bold p-4 text-gray-900 mb-7 font-['Iceland']">
+    <div className="w-11/12 h-screen float-right">
+      <h1 className="text-4xl text-center font-bold p-4 text-gray-900 mb-7 mt-10 font-['Iceland']">
         Your logo project. Make it perfect!{" "}
       </h1>
 
-      <hr className="w-36 mb-4" />
+      <hr className="w-36 mb-4"/>
 
-      <div className="flex justify-between h-full mb-4">
-        <div ref={htmlDivElementRef} className="w-5/6 mr-6">
+      <div className="flex h-full mb-4 ">
+        <div ref={htmlDivElementRef} className="w-full content-center justify-center">
           <div
-            className={`border-2 rounded-lg text-blue-600 h-4/6 font-bold text-6xl flex bg-green-500 items-center justify-center  ${
+            className={`rounded-lg my-8 mx-auto text-blue-600 h-1/4 xl:w-5/12 sm:w-7/12 xl:float-left xl:mx-10 font-bold text-6xl bg-green-500 ${
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
             style={{ backgroundColor }}
@@ -125,6 +125,38 @@ const MainSection: React.FC<PropsType> = ({
                 {inputValue}
               </p>
             </div>
+            
+          </div>
+
+          <div
+            className={`rounded-lg mx-auto my-8 text-blue-600 h-1/4 xl:w-5/12 sm:w-7/12 xl:float-left xl:mx-10 font-bold text-6xl bg-green-500 ${
+              selectedStyleId === "2" ? "flex-col" : ""
+            }`}
+            style={{ backgroundColor }}
+          >
+            <div
+              className={`items-center justify-center flex ${
+                selectedStyleId === "2" ? "flex-col" : ""
+              }`}
+            >
+              <div
+                dangerouslySetInnerHTML={{ __html: svg }}
+                className={` logo h-20 w-20 ${
+                  selectedStyleId === "4" ? "hidden" : ""
+                }`}
+              />
+
+              {/* <object data={url} id='svg'  className="logo" type="image/svg+xml">
+                
+            </object> */}
+              <p
+                style={{ color: textColor, fontFamily: fontStyle }}
+                className={`${selectedStyleId === "3" ? "hidden" : ""}`}
+              >
+                {inputValue}
+              </p>
+            </div>
+            
           </div>
 
           <ButtonList

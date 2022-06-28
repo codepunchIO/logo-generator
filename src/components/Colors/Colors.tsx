@@ -52,7 +52,7 @@ const Colors = () => {
         {" "}
         Pick favorite color
       </h1>
-      <div className="flex  h-full w-full justify-center overflow-y-auto p-3  ">
+      <div className="flex h-full w-full justify-center overflow-y-auto p-3  ">
         <div className=" flex flex-wrap flex-row justify-between  p-2 gap-y-7 max-w-4xl ">
           {colorCards.map((card, index) => (
             <div

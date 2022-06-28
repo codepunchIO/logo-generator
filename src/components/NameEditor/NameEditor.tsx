@@ -22,12 +22,12 @@ const NameEditor: React.FC = () => {
   return (
     <div className="p-1 h-[500px] flex flex-col">
       <div className="flex flex-col justify-self-center w-auto mx-auto h-full items-center justify-center">
-        <div className="flex shadow-lg flex-row justify-center mt-10 ">
+        <div className="flex border rounded-lg flex-row justify-center mt-10 ">
           <input
             ref={newBrandRef}
             name="brand"
             placeholder="Brand name..."
-            className="shadow-lg cursor-pointer rounded-l-lg bg-gray-50 h-12 w-64 px-2"
+            className="cursor-pointer rounded-l-lg bg-gray-50 h-12 w-64 px-2"
           />
 
           <button

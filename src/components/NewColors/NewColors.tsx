@@ -50,7 +50,7 @@ const NewColors = () => {
                   </div>
                 ))}
               </ul>
-              <p className="bg-gray-100 pt-3  text-base  w-full text-center h-14 font-mono p-3 font-semibold text-gray-400 transition rounded-b-2xl duration-500 group-hover:text-gray-500">
+              <p className="pt-3 text-base w-full text-center h-14 font-mono p-3 font-semibold text-gray-400 transition rounded-b-2xl duration-500 group-hover:text-gray-500">
                 {card.title}
               </p>
             </div>

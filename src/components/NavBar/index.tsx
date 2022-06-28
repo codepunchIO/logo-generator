@@ -148,12 +148,12 @@ const Navbar: React.FC<PropsType> = ({
     <>
       <div
         // elevation={0}
-        className="border flex fixed inset-y-0 left-0 bg-white"
+        className="border-r flex fixed inset-y-0 left-0 bg-white"
       >
-        <div className="  ">
-          <div className=" flex flex-col gap-y-6 ">
+        <div className="">
+          <div className="flex flex-col">
             {" "}
-            <Logotype /> {/*<TextField*/}
+            <Logotype/> {/*<TextField*/}
             {/*  sx={{ input: { background: "white" } }}*/}
             {/*  id="standard-basic"*/}
             {/*  label="Type your logo text..."*/}
@@ -163,14 +163,14 @@ const Navbar: React.FC<PropsType> = ({
             {/*  color="primary"*/}
             {/*  onChange={onTestClick}*/}
             {/*/>*/}
-            <button onClick={(e) => handleClick(e)} className="">
+            <button onClick={(e) => handleClick(e)} className="hover:text-green-500 mx-auto border-b border-t w-full h-20 hover:bg-gray-100 hover:fill-green-500">
               <img
                 src={Name}
                 alt="Name"
-                className="w-6 h-6 ml-auto mr-auto
+                className="w-6 h-6 mx-auto
                 "
               />
-              <span className="text-center">Name</span>
+              <span className="text-center mx-4">Name</span>
             </button>
             {/* <div className=" w-[400px] h-10 mr-4 mt-4 rounded-lg bg-gradient-to-br from-teal-300 to-lime-300">
               <input
@@ -181,27 +181,27 @@ const Navbar: React.FC<PropsType> = ({
                 onChange={onTestClick}
               />
             </div> */}
-            <button onClick={(e) => handleClick(e)} className="">
+            <button onClick={(e) => handleClick(e)} className="hover:text-green-500  border-b h-20 hover:bg-gray-100">
               <img
                 src={Layout}
                 alt="Layout"
-                className="w-6 h-6 ml-auto mr-auto
+                className="w-6 h-6 mx-auto 
                 "
               />
-              <span className="text-center">Layout</span>
+              <span className="text-center mx-4">Layout</span>
             </button>
             {/*<IconButton className="mr-3" onClick={(e) => handleClick(e)}>*/}
             {/*  <ColorLensIcon className="mr-1" />*/}
             {/*  <Typography>Card color</Typography>*/}
             {/*</IconButton>*/}
-            <button onClick={(e) => handleClick(e)} className="">
+            <button onClick={(e) => handleClick(e)} className="hover:text-green-500 border-b h-20 hover:bg-gray-100">
               <img
                 src={Fonts}
                 alt="Fonts"
-                className="w-6 h-6 ml-auto mr-auto
+                className="w-6 h-6 mx-auto
                 "
               />
-              <span className="text-center">Fonts</span>
+              <span className="text-center mx-4 ">Fonts</span>
             </button>
             <LogotypeColorPicker
               isOpen={buttonType === "Card color"}
@@ -210,14 +210,14 @@ const Navbar: React.FC<PropsType> = ({
               color={bgColor}
               setColor={setBgColor}
             />
-            <button onClick={(e) => handleClick(e)} className="">
+            <button onClick={(e) => handleClick(e)} className="hover:text-green-500  border-b border-t h-20 hover:bg-gray-100">
               <img
                 src={Colors}
                 alt="Colors"
-                className="w-6 h-6 ml-auto mr-auto
+                className="w-6 h-6 mx-auto
                 "
               />
-              <span className="text-center">Colors</span>
+              <span className="text-center mx-4">Colors</span>
             </button>
             {/*<IconButton className="mr-3" onClick={(e) => handleClick(e)}>*/}
             {/*  <ColorLensIcon className="mr-1" />*/}
@@ -245,14 +245,14 @@ const Navbar: React.FC<PropsType> = ({
             {/*  <GridViewIcon className="mr-1" />*/}
             {/*  <Typography>Layout</Typography>*/}
             {/*</IconButton>*/}
-            <button onClick={(e) => handleClick(e)} className="">
+            <button onClick={(e) => handleClick(e)} className="hover:text-green-500  border-b border-t h-20 hover:bg-gray-100">
               <img
                 src={Icon}
                 alt="Icon"
-                className="w-6 h-6 ml-auto mr-auto
+                className="w-6 h-6 mx-auto
                 "
               />
-              <span className="text-center">Icon</span>
+              <span className="text-center mx-4">Icon</span>
             </button>
             <LayoutMenu
               isOpen={buttonType === "Layout"}
@@ -263,17 +263,16 @@ const Navbar: React.FC<PropsType> = ({
             {/*<IconButton className="mr-3" onClick={(e) => handleClick(e)}>*/}
             {/*  <TextFieldsIcon className="mr-1" />*/}
             {/*  <Typography>Fonts</Typography>*/}
-            <button
-              onClick={(e) => handleClick(e)}
-              // className="mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800"
-            >
+            <button onClick={(e) => handleClick(e)}className="hover:text-green-500  border-b border-t h-20 hover:bg-gray-100">
+              {/* // className="mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800" */}
+            
               <img
                 src={Preview}
                 alt="Preview"
-                className="w-6 h-6 ml-auto mr-auto
+                className="w-6 h-6 mx-auto
                 "
               />
-              <span className="text-center">Preview</span>
+              <span className="text-center mx-4">Preview</span>
             </button>
             <FontsMenu
               anchorEl={anchorEl}
@@ -286,7 +285,7 @@ const Navbar: React.FC<PropsType> = ({
         </div>{" "}
         {isOpen ? (
           <form
-            className="w-80 h-full bg-white border p-5 "
+            className="w-80 h-full bg-white border p-5"
             onSubmit={(e) => QueryIcons(e)}
           >
             <h2 className="text-center text-3xl tracking-wider font-extrabold mb-6 drop-shadow-2xl">
@@ -295,7 +294,7 @@ const Navbar: React.FC<PropsType> = ({
             {list ? (
               <input
                 type="search"
-                className="  mb-6  h-14 w-full text-gray-900  bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="  mb-6 h-14 w-full text-gray-900  bg-gray-50  rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Search icons..."
                 onChange={handleChange}
                 aria-label="Search"

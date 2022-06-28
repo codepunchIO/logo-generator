@@ -40,11 +40,11 @@ const StartPage: React.FC = () => {
             <img src={menuImg} alt="logo" className='w-12 h-12 my-auto'/>
           </div>
           <div className="flex flex-row justify-evenly ">
-            <button className="w-24 px-1 mx-5 h-9 shadow-lg rounded hover:shadow-xl bg-gray-50 ease-in-out duration-200 " onClick={(e) => handleOpenModal(e)}>
+            <button className="w-24 px-1 mx-5 h-9  rounded-lg hover:text-gray-600" onClick={(e) => handleOpenModal(e)}>
               Log in
             </button>
             <button
-              className="w-24 px-1 mx-5 h-9  bg-green-500 rounded text-white  shadow-lg hover:shadow-xl  ease-in-out duration-200"
+              className="w-24 px-1 mx-5 h-9  bg-green-500 rounded text-white  hover:text-gray-50 ease-in-out duration-200"
               onClick={(e) => handleOpenModal(e)}>
               Sign Up
             </button>
@@ -57,16 +57,16 @@ const StartPage: React.FC = () => {
         <p className="text-1 text-center text-gray-500 font-semibold">
           Flex is a Small SaaS Business. Flex isn’t a traditional company.{' '}
         </p>
-        <div className="flex flex-row bg-grey-400 shadow-lg justify-center mt-10  ">
+        <div className="flex flex-row bg-grey-400 border rounded-lg justify-center mt-10  ">
           <input
             ref={newBrandRef}
             name="brand"
             placeholder="Brand name..."
-            className="shadow-md cursor-pointer rounded-l-lg bg-gray-50 h-12 w-64 px-2"
+            className="cursor-pointer rounded-l-lg bg-gray-50 h-12 w-64 px-2"
           />
           <NavLink to={'/generator'}>
             <button
-              className="w-48 rounded-r-lg items-center justify-center text-lg text-white font-medium text-whit shadow-md h-12 bg-green-500 py-2 px-8 hover:scale-110 hover:shadow-xl ease-in-out duration-200 leading-6 tracking-wider ease-linear"
+              className="w-48 rounded-r-lg items-center justify-center text-lg text-white font-medium text-white h-12 bg-green-500 py-2 px-8 hover:scale-110 ease-in-out duration-200 leading-6 tracking-wider ease-linear"
               onClick={handleSubmit}>
               Get Started!
             </button>

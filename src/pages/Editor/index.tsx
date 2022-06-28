@@ -32,7 +32,7 @@ const EditorPage: React.FC = () => {
           selectedStyle={selectedStyle}
           setSelectedStyle={setSelectedStyle}
         />
-        <main className="border border-sky-500 h-screen">
+        <main className="border-sky-500 h-screen">
           <MainSection
             inputValue={inputValue}
             bgColor={bgColor.hex}

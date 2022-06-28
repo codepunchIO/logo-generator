@@ -129,14 +129,14 @@ const Icons = () => {
         ) : null}
       </div>
       {/*   sm:grid-cols-2  lg:grid-cols-3 xl: className="flex flex-wrap flex-row justify-evenly w-3/4 mx-auto p-8 h-full " */}
-      <div  className="grid grid-cols-6 gap-x-4 w-4/6 mx-auto md:gap-x-6 gap-y-12 ">
+      <div  className="grid grid-cols-6 gap-x-4 w-4/6 mx-auto md:gap-x-6">
         {icons.map((icon, index) => (
           <div
             key={index}
             // className={`flex flex-row flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center  ${
             //   smallIcons.includes(icon) ? "bg-green-500/50" : ""
             // }  `}
-            className={`flex flex-col group w-full  flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-40 justify-center cursor-pointer ease-in ease-linear
+            className={`flex flex-col group w-full border flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-40 justify-center cursor-pointer ease-in ease-linear
              ${smallIcons.includes(icon) ? "border-4 border-green-500" : ""}`
             }>
           
