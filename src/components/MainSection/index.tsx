@@ -11,6 +11,7 @@ interface PropsType {
   lgColor: any;
   font: any;
   selectedStyle: any;
+  selectedIcon: string;
 }
 
 const MainSection: React.FC<PropsType> = ({
@@ -20,6 +21,7 @@ const MainSection: React.FC<PropsType> = ({
   lgColor,
   font,
   selectedStyle,
+  selectedIcon
 }) => {
   const state = store.getState();
   const backgroundColor = bgColor ? bgColor : "";
@@ -28,10 +30,10 @@ const MainSection: React.FC<PropsType> = ({
   const fontStyle = font ? font : "Sacramento";
   const selectedStyleId = selectedStyle ? selectedStyle : "1";
   // const text = state.logo.data.brandName
-
+  
   const icons = state.logo.data.icons!;
 
-  const url = icons[0];
+  const url = selectedIcon ? selectedIcon : icons[0];
 
   const [svg, setSVG] = useState("");
   const [svg2, setSVG2] = useState("");
@@ -84,7 +86,7 @@ const MainSection: React.FC<PropsType> = ({
 
   useEffect(() => {
     FetchIcon();
-  }, icons);
+  }, [url]);
 
   // @ts-ignore
   return (

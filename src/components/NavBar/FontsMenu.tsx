@@ -23,7 +23,7 @@ const [fonts,setFonts] = useState<string[]>([])
   
   return (
     <>
-      <Menu
+      {/* <Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={isOpen}
@@ -32,17 +32,17 @@ const [fonts,setFonts] = useState<string[]>([])
           style: {
             width: 350,
           },
-        }}>
+        }}> */}
         {
           fonts.map((font: any, index) => (
-            <MenuItem   >
+            // <MenuItem   >
               <div
                 onClick={
                   (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
                     setSelectedFont(e.currentTarget.innerText) 
                   console.log(e.currentTarget.innerText)  
                   }
-                }className=' flex flex-row flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center'
+                }className=' overflow-y-auto flex flex-row flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center'
                 key={index} >
                 <span style={{ fontFamily: `${font}` }}
                   className='flex flex-col flex-wrap mx-2 text-center justify-center h-full  text-3xl'
@@ -53,11 +53,11 @@ const [fonts,setFonts] = useState<string[]>([])
                 </span>
                 
               </div>
-            </MenuItem>
+            // </MenuItem>
           ))
           }
       
-      </Menu>
+      {/* </Menu> */}
     </>
   )
 }

@@ -11,10 +11,14 @@ const EditorPage: React.FC = () => {
   const [lgColor, setLgColor] = useState<any>("black");
   const [font, setSelectedFont] = useState<any>("Sacramento");
   const [selectedStyle, setSelectedStyle] = useState<any>("1");
+  //@ts-ignore
+  const [selectedIcon,setSelectedIcon] = useState<string>(state.logo.data.icons[0]!)
 
   useEffect(() => {
     setSelectedStyle(state.logo.data.style!);
   }, [state]);
+
+  console.log(selectedIcon);
 
   return (
     <>
@@ -31,6 +35,8 @@ const EditorPage: React.FC = () => {
           setSelectedFont={setSelectedFont}
           selectedStyle={selectedStyle}
           setSelectedStyle={setSelectedStyle}
+          selectedIcon={selectedIcon}
+          setSelectedIcon = {setSelectedIcon}
         />
         <main className="border-sky-500 h-screen">
           <MainSection
@@ -40,6 +46,7 @@ const EditorPage: React.FC = () => {
             lgColor={lgColor.hex}
             font={font}
             selectedStyle={selectedStyle}
+            selectedIcon={selectedIcon}
           />
         </main>
       </div>
