@@ -27,11 +27,11 @@ const NameEditor: React.FC = () => {
             ref={newBrandRef}
             name="brand"
             placeholder="Brand name..."
-            className="cursor-pointer rounded-l-lg bg-gray-50 h-12 w-64 px-2"
+            className="cursor-pointer rounded-l-lg bg-gray-50 h-12 md:w-64 px-2"
           />
 
           <button
-            className="w-48 px-1 rounded-r-lg h-12 bg-green-500 text-white text-sm hover:scale-105 shadow-lg hover:shadow-2xl ease-in-out duration-200"
+            className="md:w-48 px-2 rounded-r-lg h-12 bg-green-500 text-white text-sm hover:scale-105 shadow-lg hover:shadow-2xl ease-in-out duration-200"
             onClick={handleSubmit}>
             Change Brand Name
           </button>

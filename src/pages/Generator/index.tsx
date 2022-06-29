@@ -188,8 +188,8 @@ const GeneratorPage: React.FC = () => {
   return (
     <main className="h-full flex flex-col">
       <Stack sx={{ width: "100%" }} spacing={4}></Stack>
-      <div className="px-24 py-4 flex border justify-between">
-        <img src={menuImg} alt="logo" className="w-12 h-12 my-auto" />
+      <div className=" md:px-24 py-4 flex border-b justify-between">
+        <img src={menuImg} alt="logo" className="w-12 h-12 my-auto " />
         <div>
           <Stepper
             alternativeLabel
@@ -203,7 +203,7 @@ const GeneratorPage: React.FC = () => {
             ))}
           </Stepper>
 
-          <Stepper nonLinear activeStep={activeStep} sx={{ width: "600px" }}>
+          <Stepper nonLinear activeStep={activeStep} sx={{ width:['300px','500px','600px'] }}>
             {steps.map((label, index) => (
               <StepButton
                 color="inherit"
@@ -215,7 +215,7 @@ const GeneratorPage: React.FC = () => {
             ))}
           </Stepper>
         </div>
-        <div className="my-auto mr-10">
+        <div className="my-auto mr-4 sm:mr-10">
           <NavLink to="/">x</NavLink>
         </div>
       </div>
@@ -231,7 +231,7 @@ const GeneratorPage: React.FC = () => {
         ) : (
           <div className="">
             <div>{components[activeStep]}</div>
-            <div className="fixed bottom-0 w-full text-center bg-gray-50 px-20">
+            <div className="fixed bottom-0 w-full text-center bg-gray-50 px-10 sm:px-20">
               <Button className="float-left"
                 color="inherit"
                 disabled={activeStep === 0}

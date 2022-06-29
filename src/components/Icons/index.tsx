@@ -75,7 +75,7 @@ const Icons = () => {
 
   return (
     <div className="flex flex-col h-full w-full p-1">
-      <h1 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7">
         Search for perfect logo
       </h1>
 
@@ -107,7 +107,7 @@ const Icons = () => {
         {isLoading ? <CircularProgress color="success" className="" /> : null}
         {isError ? (
           <div
-            className="flex bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700 w-1/4	"
+            className="flex bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700 w-2/4 md:w-1/4"
             role="alert"
           >
             <svg
@@ -129,7 +129,7 @@ const Icons = () => {
         ) : null}
       </div>
       {/*   sm:grid-cols-2  lg:grid-cols-3 xl: className="flex flex-wrap flex-row justify-evenly w-3/4 mx-auto p-8 h-full " */}
-      <div  className="grid grid-cols-6 gap-x-4 w-4/6 mx-auto md:gap-x-6">
+      <div  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-x-4 w-5/6 sm:w-4/6 mx-auto md:gap-x-6">
         {icons.map((icon, index) => (
           <div
             key={index}
@@ -151,7 +151,7 @@ const Icons = () => {
         ))}
       </div>
       {smallIcons.length > 0 ? (
-        <div className="fixed bottom-1 right-2/4 rounded-lg translate-x-2/4 px-2 py-2 border-2 bg-sky-500/50 ">
+        <div className="fixed bottom-10 right-2/4 rounded-lg translate-x-2/4 px-2 py-2 border-2 bg-sky-500/50 ">
           {smallIcons.map((smallIcon, index) => (
             <img
               onClick={(e) => handleClick(e)}

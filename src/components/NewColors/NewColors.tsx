@@ -16,14 +16,14 @@ const NewColors = () => {
   
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-20">
-      <div className=" w-4/6 justify-center mx-auto">
+      <div className="w-11/12 md:w-4/6 justify-center mx-auto">
         <div className="flex justify-center items-end gap-4 mb-6">
-          <h2 className="text-4xl w-4/6 text-center font-extrabold p-4 text-gray-900 mb-7 ">
+          <h2 className=" text-2xl sm:text-3xl md:text-4xl w-4/6 text-center font-extrabold p-4 text-gray-900 mb-7 ">
             Pick favorite color
           </h2>
         </div>
 
-        <div  className="grid grid-cols-3 gap-x-4 w-full mx-auto md:gap-x-6 gap-y-12 ">
+        <div  className="grid md:grid-cols-2 xl:grid-cols-3 gap-x-4 w-full mx-auto md:gap-x-6 gap-y-12 ">
           {/* <!-- product - start --> */}
           {colorCards.map((card, index) => (
             <div

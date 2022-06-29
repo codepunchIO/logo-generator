@@ -2,7 +2,7 @@
 
 
 const Footer: React.FC = () => {
-  return (<div className='p-4 absolute-bottom-0'>
+  return (<div className='p-4 absolute-bottom-0 mx-auto place-content-center'>
    {/* </div> <div className="flex flex-row justify-between top-0 left-0 h-24 bg-white mt-3 ">
       <div className='menu'>
         <img src={menuImg}  alt = 'logo'/>

@@ -61,13 +61,13 @@ const Industry: React.FC = () => {
   // }
   return (
     <div className="mt-5">
-      <h1 className="text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl text-center font-extrabold p-4 pt-24 text-gray-900 mb-7">
         Your industry
       </h1>
       <form className="rounded-lg  max-w-xl h-14 mt-10 mx-auto">
         <Combobox value={selected} onChange={setSelected}>
           <div className="relative ">
-            <div className="relative w-full h-14 cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+            <div className="relative w-11/12 mx-auto h-14 cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
               <Combobox.Input
                 // onInput={changeIndustry}
                 onSelect={changeIndustry}

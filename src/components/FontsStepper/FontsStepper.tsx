@@ -58,7 +58,7 @@ function FontsStepper() {
 
             (selectedIndex<7)?
 
-                <div className="w-4/6 flex flex-row justify-between h-screen items-center mx-auto">
+                <div className=" w-11/12 sm:w-4/6 flex flex-col md:flex-row md:justify-between mt-10 md:mt-0 h-screen items-center mx-auto">
                     {categories[selectedIndex].map((family: any, index) => (
 
                         (
@@ -67,7 +67,7 @@ function FontsStepper() {
                                 onClick={(e) => handleClick(e)}
                                 key={index}>
                                                 <span style={{fontFamily: `${family}`}}
-                                                      className='flex flex-col p-4 flex-wrap mx-2 text-center justify-center h-full  text-3xl'
+                                                      className='flex flex-col p-4 flex-wrap mx-2 text-center justify-center h-full text-2xl'
                                                     // onClick={(e) => handleClick(e)}
 
                                                 >
