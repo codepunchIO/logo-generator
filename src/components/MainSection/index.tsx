@@ -84,21 +84,21 @@ const MainSection: React.FC<PropsType> = ({
 
   useEffect(() => {
     FetchIcon();
-  }, [logoColor, backgroundColor]);
+  }, icons);
 
   // @ts-ignore
   return (
     <div className="w-11/12 h-screen float-right">
-      <h1 className="text-4xl text-center font-bold p-4 text-gray-900 mb-7 mt-10 font-['Iceland']">
+      <h1 className="text-4xl text-center font-bold p-4 text-gray-900 mb-5 mt-7 font-['Iceland']">
         Your logo project. Make it perfect!{" "}
       </h1>
 
-      <hr className="w-36 mb-4"/>
+      {/* <hr className="w-36 mb-4"/> */}
 
-      <div className="flex h-full mb-4 ">
-        <div ref={htmlDivElementRef} className="w-full content-center justify-center">
+      <div className="flex h-2/3 flex-row mb-4 ">
+        <div ref={htmlDivElementRef} className="w-full flex flex-row h-full content-center justify-center ">
           <div
-            className={`rounded-lg my-8 mx-auto text-blue-600 h-1/4 xl:w-5/12 sm:w-7/12 xl:float-left xl:mx-10 font-bold text-6xl bg-green-500 ${
+            className={`flex flex-col rounded-lg my-8 mx-auto text-blue-600 h-full xl:w-5/12 sm:w-7/12 xl:float-left xl:mx-10 font-bold text-6xl bg-green-500 items-center justify-center ${
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
             style={{ backgroundColor }}
@@ -129,7 +129,7 @@ const MainSection: React.FC<PropsType> = ({
           </div>
 
           <div
-            className={`rounded-lg mx-auto my-8 text-blue-600 h-1/4 xl:w-5/12 sm:w-7/12 xl:float-left xl:mx-10 font-bold text-6xl bg-green-500 ${
+            className={` flex flex-col rounded-lg mx-auto my-8 text-blue-600 h-full xl:w-5/12 sm:w-7/12 xl:float-left xl:mx-10 font-bold items-center justify-center text-6xl bg-green-500 ${
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
             style={{ backgroundColor }}
@@ -158,12 +158,9 @@ const MainSection: React.FC<PropsType> = ({
             </div>
             
           </div>
-
-          <ButtonList
-            htmlDivElementRef={htmlDivElementRef}
-            backgroundColor={""}
-          />
+          
         </div>
+      
 
         {/* <button className="mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
             <span className="font-['Iceland'] text-lg relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
@@ -237,6 +234,20 @@ const MainSection: React.FC<PropsType> = ({
           </p>
         </div>*/}
       </div>
+      <div className="flex flex-row justify-evenly py-4">
+          <div className="flex flex-row">
+          <ButtonList
+            htmlDivElementRef={htmlDivElementRef}
+            backgroundColor={""}
+            />
+      </div>
+      <div className="flex flex-row">
+          <ButtonList
+            htmlDivElementRef={htmlDivElementRef}
+            backgroundColor={""}
+            />
+        </div>
+        </div>
     </div>
   );
 };
