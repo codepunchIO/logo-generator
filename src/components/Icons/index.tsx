@@ -151,7 +151,7 @@ const Icons = () => {
         ))}
       </div>
       {smallIcons.length > 0 ? (
-        <div className="fixed bottom-10 right-2/4 rounded-lg translate-x-2/4 px-2 py-2 border-2 bg-sky-500/50 ">
+        <div className="fixed bottom-20 right-2/4 rounded-lg translate-x-2/4 px-2 py-2 border-2 bg-sky-500/50 ">
           {smallIcons.map((smallIcon, index) => (
             <img
               onClick={(e) => handleClick(e)}

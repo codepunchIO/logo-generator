@@ -10,6 +10,7 @@ import Icons from "../../components/Icons";
 import Industry from "../../components/Industry";
 import NameEditor from "../../components/NameEditor/NameEditor";
 import NewColors from "../../components/NewColors/NewColors";
+import "./style.css";
 
 import { Check } from "@mui/icons-material";
 import {
@@ -31,6 +32,7 @@ import {
   retro,
   rounded,
 } from "../../models/categories/categories";
+
 
 const fonts = [
   ...modern,
@@ -231,30 +233,32 @@ const GeneratorPage: React.FC = () => {
         ) : (
           <div className="">
             <div>{components[activeStep]}</div>
-            <div className="fixed bottom-0 w-full text-center bg-gray-50 px-10 sm:px-20">
-              <Button className="float-left"
+            <div className="fixed bottom-0 border-t w-full text-center bg-white px-10 py-4 sm:px-20">
+              <Button className="float-left  w-36 p-2 bgback colorback radiusback"
                 color="inherit"
                 disabled={activeStep === 0}
                 onClick={handleBack}
               >
                 Back
               </Button>
-              <Button onClick={handleNext} className="float-right">Next</Button>
+              {/* trzeci niepotrzebny button */}
+              {/* <Button onClick={handleNext} className="Next"></Button> */}
               {activeStep !== steps.length &&
                 (completed[activeStep] ? (
                   <Typography
                     variant="caption"
-                    sx={{ display: "inline-block" }}
+                    sx={{ display: "none" }}
                   >
                     Step {activeStep + 1} already completed
                   </Typography>
                 ) : (
-                  <Button onClick={handleComplete}>
+                  <Button onClick={handleComplete} className="float-right w-36 p-2 bgnext colornext radiusnext ">
                     {completedSteps() === totalSteps() - 1 ? (
-                      <NavLink to="/editor">Finish it's me'</NavLink>
+                      <NavLink to="/editor" className="bgbutton colornext radiusnext paddingnext p-2">Finish it's me'</NavLink>
                     ) : (
-                      "Complete Step"
+                      "Next"
                     )}
+                
                   </Button>
                 ))}
             </div>
