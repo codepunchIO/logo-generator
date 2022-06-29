@@ -21,7 +21,7 @@ const LogotypeColorPicker: React.FC<PropsTypes> = ({
 
   return (
     <>
-      <Menu
+      {/* <Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={isOpen}
@@ -30,14 +30,14 @@ const LogotypeColorPicker: React.FC<PropsTypes> = ({
           style: {
             width: 350,
           },
-        }}>
+        }}> */}
         <div className="flex flex-col items-center">
           <Picker color={color} onChange={setColor} className="!w-5/6 mb-3" />
           <Button onClick={handleClose} variant="outlined" className="w-4/5">
             SET COLOR
           </Button>
         </div>
-      </Menu>
+      {/* </Menu> */}
     </>
   )
 }

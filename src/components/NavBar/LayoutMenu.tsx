@@ -29,7 +29,7 @@ const LayoutMenu: React.FC<PropsType> = ({
   };
   return (
     <>
-      <Menu
+      {/* <Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={isOpen}
@@ -39,10 +39,10 @@ const LayoutMenu: React.FC<PropsType> = ({
             width: 350,
           },
         }}
-      >
-        <Typography>Several layout options for your logo :)</Typography>
+      > */}
+        
         {layouts.map(({ screen, id }) => (
-          <MenuItem key={id} onClick={handleClose}>
+          // <MenuItem key={id} onClick={handleClose}>
             <div id={id} onClick={(e) => handleClick(e)}>
               <img
                 className="hover:bg-green-500 p-1 rounded-lg"
@@ -50,9 +50,9 @@ const LayoutMenu: React.FC<PropsType> = ({
                 alt="layout1"
               />
             </div>
-          </MenuItem>
+          // </MenuItem>
         ))}
-      </Menu>
+      {/* </Menu> */}
     </>
   );
 };

@@ -12,7 +12,7 @@ import Icon from "../../assets/NavBar/Icon.svg";
 import Layout from "../../assets/NavBar/Layout.svg";
 import Name from "../../assets/NavBar/Name.svg";
 import Preview from "../../assets/NavBar/Preview.svg";
-import { setIcon } from "../../store/slices/logoSlice/logoSlice";
+import { setBrandName, setIcon } from "../../store/slices/logoSlice/logoSlice";
 
 interface PropsType {
   setInputValue: (value: string) => void;
@@ -21,11 +21,13 @@ interface PropsType {
   setLgColor: (value: string) => void;
   setSelectedFont: (value: string) => void;
   setSelectedStyle: (value: string) => void;
+  setSelectedIcon: (value: string) => void;
   bgColor: string;
   txColor: string;
   lgColor: string;
   font: string;
   selectedStyle: string;
+  selectedIcon: string;
 }
 
 const Navbar: React.FC<PropsType> = ({
@@ -39,6 +41,8 @@ const Navbar: React.FC<PropsType> = ({
   font,
   setSelectedFont,
   setSelectedStyle,
+  setSelectedIcon,
+  selectedIcon
 }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [buttonType, setButtonType] = useState<null | string>("");
@@ -70,7 +74,8 @@ const Navbar: React.FC<PropsType> = ({
         break;
       case "Fonts":
         setTitle("Typography");
-
+        
+            
         break;
       case "Colors":
         setTitle("Color palette");
@@ -117,6 +122,7 @@ const Navbar: React.FC<PropsType> = ({
     e.preventDefault();
     if (searchInputValue !== "") {
       FetchIcons(searchInputValue);
+      
     }
   };
 
@@ -126,6 +132,9 @@ const Navbar: React.FC<PropsType> = ({
     const currentIcon = e.currentTarget.src;
     if (list.length > 0) {
       dispatch(setIcon(currentIcon));
+      setSelectedIcon(currentIcon);
+      console.log(selectedIcon)
+
     }
   };
 
@@ -203,13 +212,7 @@ const Navbar: React.FC<PropsType> = ({
               />
               <span className="text-center mx-4 ">Fonts</span>
             </button>
-            <LogotypeColorPicker
-              isOpen={buttonType === "Card color"}
-              anchorEl={anchorEl}
-              handleClose={handleClose}
-              color={bgColor}
-              setColor={setBgColor}
-            />
+           
             <button onClick={(e) => handleClick(e)} className="hover:text-green-500  border-b border-t h-20 hover:bg-gray-100">
               <img
                 src={Colors}
@@ -219,32 +222,9 @@ const Navbar: React.FC<PropsType> = ({
               />
               <span className="text-center mx-4">Colors</span>
             </button>
-            {/*<IconButton className="mr-3" onClick={(e) => handleClick(e)}>*/}
-            {/*  <ColorLensIcon className="mr-1" />*/}
-            {/*  <Typography>Text color</Typography>*/}
-            {/*</IconButton>*/}
-            <LogotypeColorPicker
-              isOpen={buttonType === "Text color"}
-              anchorEl={anchorEl}
-              handleClose={handleClose}
-              color={txColor}
-              setColor={setTxColor}
-            />
-            {/*<IconButton className="mr-3" onClick={(e) => handleClick(e)}>*/}
-            {/*  <ColorLensIcon className="mr-1" />*/}
-            {/*  <Typography>Logo color</Typography>*/}
-            {/*</IconButton>*/}
-            <LogotypeColorPicker
-              isOpen={buttonType === "Logo color"}
-              anchorEl={anchorEl}
-              handleClose={handleClose}
-              color={lgColor}
-              setColor={setLgColor}
-            />
-            {/*<IconButton className="mr-3" onClick={(e) => handleClick(e)}>*/}
-            {/*  <GridViewIcon className="mr-1" />*/}
-            {/*  <Typography>Layout</Typography>*/}
-            {/*</IconButton>*/}
+        
+           
+           
             <button onClick={(e) => handleClick(e)} className="hover:text-green-500  border-b border-t h-20 hover:bg-gray-100">
               <img
                 src={Icon}
@@ -254,17 +234,9 @@ const Navbar: React.FC<PropsType> = ({
               />
               <span className="text-center mx-4">Icon</span>
             </button>
-            <LayoutMenu
-              isOpen={buttonType === "Layout"}
-              anchorEl={anchorEl}
-              handleClose={handleClose}
-              setSelectedStyle={setSelectedStyle}
-            />
-            {/*<IconButton className="mr-3" onClick={(e) => handleClick(e)}>*/}
-            {/*  <TextFieldsIcon className="mr-1" />*/}
-            {/*  <Typography>Fonts</Typography>*/}
-            <button onClick={(e) => handleClick(e)}className="hover:text-green-500  border-b border-t h-20 hover:bg-gray-100">
-              {/* // className="mt-2 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800" */}
+         
+            {/* <button onClick={(e) => handleClick(e)}className="hover:text-green-500  border-b border-t h-20 hover:bg-gray-100">
+             
             
               <img
                 src={Preview}
@@ -273,20 +245,20 @@ const Navbar: React.FC<PropsType> = ({
                 "
               />
               <span className="text-center mx-4">Preview</span>
-            </button>
-            <FontsMenu
-              anchorEl={anchorEl}
-              handleClose={handleClose}
-              isOpen={buttonType === "Fonts"}
-              font={font}
-              setSelectedFont={setSelectedFont}
-            />
+            </button> */}
+        
           </div>{" "}
         </div>{" "}
-        {isOpen ? (
+        {isOpen && title==="Logo icon" ?  (
+          
           <form
             className="w-80 h-full bg-white border p-5"
-            onSubmit={(e) => QueryIcons(e)}
+            onSubmit={(e) => {
+             
+                  QueryIcons(e)
+                }
+           
+            }
           >
             <h2 className="text-center text-3xl tracking-wider font-extrabold mb-6 drop-shadow-2xl">
               {title}
@@ -315,8 +287,112 @@ const Navbar: React.FC<PropsType> = ({
                 </li>
               ))}
             </ul>
+            
           </form>
-        ) : (
+      
+    
+        ) : isOpen && title === "Typography" ? (
+            <div className="w-80 h-full overflow-y-auto bg-white border ">
+              <h2 className="text-center text-3xl tracking-wider font-extrabold mb-6 drop-shadow-2xl">
+              {title}
+            </h2>
+          <FontsMenu
+              anchorEl={anchorEl}
+              handleClose={handleClose}
+              isOpen={buttonType === "Fonts"}
+              font={font}
+              setSelectedFont={setSelectedFont}
+              />
+              </div>
+          ) : isOpen && title === "Brand Name" ? (
+              // @ts-ignore
+                <form 
+            className="w-80 h-full bg-white border p-5"
+            onSubmit={(e) => {
+             
+                  QueryIcons(e)
+                }
+           
+            }
+          >
+            <h2 className="text-center text-3xl tracking-wider font-extrabold mb-6 drop-shadow-2xl">
+              {title}
+            </h2>
+           
+              <input
+                type="search"
+                className="  mb-6 h-14 w-full text-gray-900  bg-gray-50  rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Type new Brand Name"
+                onChange={(e) => {
+             
+                  dispatch(setBrandName(e.currentTarget.value))
+                  setInputValue(e.currentTarget.value)
+                   setAnchorEl(null);
+                    setButtonType("");
+                }
+           
+            }
+                aria-label="Search"
+                aria-describedby="button-addon3"
+                />
+               
+                </form>
+            ) : isOpen && title === "Logo layout" ? (
+             <div className="w-80 h-full overflow-y-auto bg-white border ">
+              <h2 className="text-center text-3xl tracking-wider font-extrabold mb-6 drop-shadow-2xl">
+              {title}
+            </h2>
+           <LayoutMenu
+              isOpen={buttonType === "Layout"}
+              anchorEl={anchorEl}
+              handleClose={handleClose}
+              setSelectedStyle={setSelectedStyle}
+            />
+              </div>
+            
+            )  : isOpen && title === "Color palette" ? (
+             <div className="w-80 h-full overflow-y-auto bg-white border ">
+              <h2 className="text-center text-3xl tracking-wider font-extrabold mb-6 drop-shadow-2xl">
+              {title}
+                    </h2>
+                     <h2 className="text-center text-xl tracking-wider font-extrabold mb-6 drop-shadow-2xl">
+             Background
+            </h2>
+         <LogotypeColorPicker
+              isOpen={buttonType === "Card color"}
+              anchorEl={anchorEl}
+              handleClose={handleClose}
+              color={bgColor}
+              setColor={setBgColor}
+                    />
+                     <h2 className="text-center text-xl tracking-wider font-extrabold mb-6 drop-shadow-2xl">
+              Text
+            </h2>
+                     <LogotypeColorPicker
+              isOpen={buttonType === "Text color"}
+              anchorEl={anchorEl}
+              handleClose={handleClose}
+              color={txColor}
+              setColor={setTxColor}
+            />
+             <h2 className="text-center text-xl tracking-wider font-extrabold mb-6 drop-shadow-2xl">
+              Icon
+            </h2>
+            <LogotypeColorPicker
+              isOpen={buttonType === "Logo color"}
+              anchorEl={anchorEl}
+              handleClose={handleClose}
+              color={lgColor}
+              setColor={setLgColor}
+            />
+              </div>
+            
+            )
+        
+          
+          
+          
+            : (
           ""
         )}
       </div>{" "}
