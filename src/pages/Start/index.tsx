@@ -33,12 +33,7 @@ const StartPage: React.FC = () => {
   }, []);
 
   const handleChange = (e: any) => {
-    if (e.target.value.length > 0) {
-      setInputValue(true);
-    }
-
-    console.log("inputValue :", inputValue);
-    console.log(" e.target.value.lenght :", e.target.value.length);
+    e.target.value.length > 0 ? setInputValue(true) : setInputValue(false);
   };
 
   return (

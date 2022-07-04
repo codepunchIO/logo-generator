@@ -261,7 +261,7 @@ const GeneratorPage: React.FC = () => {
                 disabled={activeStep === 0}
                 onClick={handleBack}
               >
-                Back
+                Previous
               </Button>
               {activeStep === 4 ? (
                 <div className=" cursor-pointer ">
@@ -271,7 +271,7 @@ const GeneratorPage: React.FC = () => {
                       alt="icon"
                       src={icon}
                       key={index}
-                      className="backdrop-blur-3xl w-10 h-10 inline   "
+                      className="backdrop-blur-3xl w-10 h-10 inline"
                     />
                   ))}
                 </div>
