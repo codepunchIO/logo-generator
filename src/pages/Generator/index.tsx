@@ -62,8 +62,6 @@ const GeneratorPage: React.FC = () => {
 
   const icons = useSelector(selectIcons);
 
-  console.log("icons :", icons);
-
   useEffect(() => {
     WebFont.load({
       loading: function () {
@@ -265,7 +263,7 @@ const GeneratorPage: React.FC = () => {
               >
                 Back
               </Button>
-              {completedSteps() === 4 ? (
+              {activeStep === 4 ? (
                 <div className=" cursor-pointer ">
                   {icons.map((icon, index) => (
                     <img
