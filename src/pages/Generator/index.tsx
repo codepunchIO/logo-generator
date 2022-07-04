@@ -22,6 +22,7 @@ import {
   StepLabel,
   styled,
 } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
 import WebFont from "webfontloader";
 import NewStyle from "../../components/NewStyle/NewStyle";
 import {
@@ -32,7 +33,7 @@ import {
   retro,
   rounded,
 } from "../../models/categories/categories";
-
+import { selectIcons, setIcon } from "../../store/slices/logoSlice/logoSlice";
 
 const fonts = [
   ...modern,
@@ -46,7 +47,7 @@ const steps = ["Name", "Industry", "Style", "Colors", "Icon", "Explore"];
 const components = [
   <NameEditor />,
   <Industry />,
-  <NewStyle  />,
+  <NewStyle />,
   <NewColors />,
   <Icons />,
   <Explore />,
@@ -58,6 +59,10 @@ const GeneratorPage: React.FC = () => {
   const [completed, setCompleted] = useState<{ [k: number]: boolean }>({
     0: true,
   });
+
+  const icons = useSelector(selectIcons);
+
+  console.log("icons :", icons);
 
   useEffect(() => {
     WebFont.load({
@@ -173,6 +178,20 @@ const GeneratorPage: React.FC = () => {
       },
     })
   );
+  const dispatch = useDispatch();
+  const handleDeleteSmallIcon = (
+    e: React.MouseEvent<HTMLImageElement, MouseEvent>
+  ) => {
+    const currentIcon = e.currentTarget.src;
+    console.log("currentIcon :", currentIcon);
+
+    if (icons.includes(currentIcon)) {
+      const filterIcons = icons.filter((icon) => icon !== currentIcon);
+      dispatch(setIcon(filterIcons));
+    } else {
+      dispatch(setIcon([...icons, currentIcon]));
+    }
+  };
 
   function QontoStepIcon(props: StepIconProps) {
     const { active, completed, className } = props;
@@ -205,7 +224,11 @@ const GeneratorPage: React.FC = () => {
             ))}
           </Stepper>
 
-          <Stepper nonLinear activeStep={activeStep} sx={{ width:['300px','500px','600px'] }}>
+          <Stepper
+            nonLinear
+            activeStep={activeStep}
+            sx={{ width: ["300px", "500px", "600px"] }}
+          >
             {steps.map((label, index) => (
               <StepButton
                 color="inherit"
@@ -233,32 +256,52 @@ const GeneratorPage: React.FC = () => {
         ) : (
           <div className="">
             <div>{components[activeStep]}</div>
-            <div className="fixed bottom-0 border-t w-full text-center bg-white px-10 py-4 sm:px-20">
-              <Button className="float-left  w-36 p-2 bgback colorback radiusback"
+            <div className="flex justify-between fixed bottom-0 border-t w-full text-center p-4 bg-white">
+              <Button
+                className="float-left h-10 w-36 p-2 bgback colorback radiusback"
                 color="inherit"
                 disabled={activeStep === 0}
                 onClick={handleBack}
               >
                 Back
               </Button>
+              {completedSteps() === 4 ? (
+                <div className=" cursor-pointer ">
+                  {icons.map((icon, index) => (
+                    <img
+                      onClick={(e) => handleDeleteSmallIcon(e)}
+                      alt="icon"
+                      src={icon}
+                      key={index}
+                      className="backdrop-blur-3xl w-10 h-10 inline   "
+                    />
+                  ))}
+                </div>
+              ) : (
+                ""
+              )}
               {/* trzeci niepotrzebny button */}
               {/* <Button onClick={handleNext} className="Next"></Button> */}
               {activeStep !== steps.length &&
                 (completed[activeStep] ? (
-                  <Typography
-                    variant="caption"
-                    sx={{ display: "none" }}
-                  >
+                  <Typography variant="caption" sx={{ display: "none" }}>
                     Step {activeStep + 1} already completed
                   </Typography>
                 ) : (
-                  <Button onClick={handleComplete} className="float-right w-36 p-2 bgnext colornext radiusnext ">
+                  <Button
+                    onClick={handleComplete}
+                    className="float-right h-10 w-36 p-2 bgnext colornext radiusnext "
+                  >
                     {completedSteps() === totalSteps() - 1 ? (
-                      <NavLink to="/editor" className="bgbutton colornext radiusnext paddingnext p-2">Finish it's me'</NavLink>
+                      <NavLink
+                        to="/editor"
+                        className="bgbutton colornext radiusnext paddingnext p-2"
+                      >
+                        Finish it's me
+                      </NavLink>
                     ) : (
                       "Next"
                     )}
-                
                   </Button>
                 ))}
             </div>
@@ -270,3 +313,6 @@ const GeneratorPage: React.FC = () => {
 };
 
 export default GeneratorPage;
+function dispatch(arg0: any) {
+  throw new Error("Function not implemented.");
+}

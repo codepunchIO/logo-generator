@@ -133,9 +133,7 @@ const Icons = () => {
         {icons.map((icon, index) => (
           <div
             key={index}
-            // className={`flex flex-row flex-nowrap hover:scale-100 my-2 duration-300 ease-in-out hover:shadow-2xl shadow-md rounded-lg h-40 w-72 justify-center  ${
-            //   smallIcons.includes(icon) ? "bg-green-500/50" : ""
-            // }  `}
+   
             className={`flex flex-col group w-full border flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-40 justify-center cursor-pointer ease-in ease-linear
              ${smallIcons.includes(icon) ? "border-4 border-green-500" : ""}`
             }>
@@ -150,7 +148,7 @@ const Icons = () => {
           </div>
         ))}
       </div>
-      {smallIcons.length > 0 ? (
+      {/* {smallIcons.length > 0 ? (
         <div className="fixed bottom-20 right-2/4 rounded-lg translate-x-2/4 px-2 py-2 border-2 bg-sky-500/50 ">
           {smallIcons.map((smallIcon, index) => (
             <img
@@ -164,7 +162,7 @@ const Icons = () => {
         </div>
       ) : (
         ""
-      )}
+      )} */}
     </div>
   );
 };
