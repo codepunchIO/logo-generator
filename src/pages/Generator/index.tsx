@@ -205,7 +205,7 @@ const GeneratorPage: React.FC = () => {
     );
   }
   return (
-    <main className="h-full flex flex-col">
+    <main className="h-screen flex flex-col">
       <Stack sx={{ width: "100%" }} spacing={4}></Stack>
       <div className=" md:px-24 py-4 flex border-b justify-between">
         <img src={menuImg} alt="logo" className="w-12 h-12 my-auto " />
@@ -243,7 +243,7 @@ const GeneratorPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="border-sky-500 h-full flex-col justify-evenly">
+      <div className="h-screen border-sky-500 h-full flex-col justify-evenly">
         {allStepsCompleted() ? (
           <>
             <div>All steps completed - you&apos;re finished</div>

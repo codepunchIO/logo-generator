@@ -37,7 +37,7 @@ const StartPage: React.FC = () => {
   };
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-screen flex flex-col">
       <div className="">
         <div className="flex flex-row border-2 border-white justify-between items-center ms:px-4 py-4 md:px-24 top-0 left-0  bg-white">
           <div className="menu">

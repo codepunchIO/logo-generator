@@ -98,21 +98,21 @@ const MainSection: React.FC<PropsType> = ({
       {/* <hr className="w-36 mb-4"/> */}
 
       <div className="flex h-2/3 flex-row mb-4 ">
-        <div ref={htmlDivElementRef} className="w-full flex flex-row h-full content-center justify-center ">
+        <div ref={htmlDivElementRef} className="w-full flex flex-row flex-wrap xl:flex-nowrap h-11/12 content-center justify-end sm:justify-center my-8">
           <div
-            className={`flex flex-col rounded-lg my-8 mx-auto text-blue-600 h-full xl:w-5/12 sm:w-7/12 xl:float-left xl:mx-10 font-bold text-6xl bg-green-500 items-center justify-center ${
+            className={`flex flex-col rounded-lg my-8 mx-2 xl:mx-auto text-blue-600 h-3/6 xl:h-4/6 xl:w-4/12 w-10/12 md:w-8/12 xl:float-left xl:mx-10 font-bold text-6xl bg-green-500 items-center justify-center ${
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
             style={{ backgroundColor }}
           >
             <div
-              className={`items-center justify-center flex ${
+              className={`items-center justify-center flex  ${
                 selectedStyleId === "2" ? "flex-col" : ""
               }`}
             >
               <div
                 dangerouslySetInnerHTML={{ __html: svg }}
-                className={` logo h-20 w-20 ${
+                className={`logo xl:h-20 xl:w-20 w-16 h-16 mx-4 mb-4 xl:mx-8 xl-mb-8 ${
                   selectedStyleId === "4" ? "hidden" : ""
                 }`}
               />
@@ -131,7 +131,7 @@ const MainSection: React.FC<PropsType> = ({
           </div>
 
           <div
-            className={` flex flex-col rounded-lg mx-auto my-8 text-blue-600 h-full xl:w-5/12 sm:w-7/12 xl:float-left xl:mx-10 font-bold items-center justify-center text-6xl bg-green-500 ${
+            className={`flex flex-col rounded-lg my-8 mx-2 xl:mx-auto text-blue-600 h-3/6 xl:h-4/6 xl:w-4/12 w-10/12 md:w-8/12 xl:float-left xl:mx-10 font-bold text-6xl bg-green-500 items-center justify-center ${
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
             style={{ backgroundColor }}
@@ -143,7 +143,7 @@ const MainSection: React.FC<PropsType> = ({
             >
               <div
                 dangerouslySetInnerHTML={{ __html: svg }}
-                className={` logo h-20 w-20 ${
+                className={`logo xl:h-20 xl:w-20 w-16 h-16 mx-4 mb-4 xl:mx-8 xl-mb-8 ${
                   selectedStyleId === "4" ? "hidden" : ""
                 }`}
               />
