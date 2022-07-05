@@ -61,7 +61,7 @@ const GeneratorPage: React.FC = () => {
   });
 
   const icons = useSelector(selectIcons);
-  console.log('Icons',icons)
+  console.log("Icons", icons);
 
   useEffect(() => {
     WebFont.load({
@@ -184,33 +184,29 @@ const GeneratorPage: React.FC = () => {
     const currentIcon = e.currentTarget.src;
     console.log("currentIcon :", currentIcon);
     icons.map((icon, index) => {
-      
-    
-    if (icon.icon_link===currentIcon) {
-      //   let payload: any = [];
-      
-      //   icons.map((icon, index) => {
-      //     if (currentIcon === icon.icon_link) {
-      //     //  payload=[...payload,icon]
-           
-      //      // dispatch(setIcon(rest));
-      //     }
-      //   })
-      
-     
-      // console.log("payloaddd", payload);
-      
-      
-      const filterIcons = icons.filter((icon) => icon.icon_link !== currentIcon);
-      console.log('trueee')
-      dispatch(setIcon(filterIcons));
-    } else {
+      if (icon.icon_link === currentIcon) {
+        //   let payload: any = [];
 
-      
-       console.log('false')
-      //  dispatch(setIcon([...icons, currentIcon]));
-    }
-    })
+        //   icons.map((icon, index) => {
+        //     if (currentIcon === icon.icon_link) {
+        //     //  payload=[...payload,icon]
+
+        //      // dispatch(setIcon(rest));
+        //     }
+        //   })
+
+        // console.log("payloaddd", payload);
+
+        const filterIcons = icons.filter(
+          (icon) => icon.icon_link !== currentIcon
+        );
+        console.log("trueee");
+        dispatch(setIcon(filterIcons));
+      } else {
+        console.log("false");
+        //  dispatch(setIcon([...icons, currentIcon]));
+      }
+    });
   };
 
   function QontoStepIcon(props: StepIconProps) {
@@ -277,14 +273,14 @@ const GeneratorPage: React.FC = () => {
           <div className="">
             <div>{components[activeStep]}</div>
             <div className="flex justify-between fixed bottom-0 border-t w-full text-center p-4 bg-white">
-              <Button
-                className="float-left h-10 w-36 p-2 bgback colorback radiusback"
+              <button
+                className="  w-36 p-2 bg-white hover:bg-[#edebeb]  rounded-3xl border-solid border-2 border-[ #A9B0BC]   text-[#A9B0BC] text-base font-black leading-4 tracking-widest "
                 color="inherit"
                 disabled={activeStep === 0}
                 onClick={handleBack}
               >
                 Previous
-              </Button>
+              </button>
               {activeStep === 4 ? (
                 <div className=" cursor-pointer ">
                   {icons.map((icon, index) => (
@@ -308,21 +304,21 @@ const GeneratorPage: React.FC = () => {
                     Step {activeStep + 1} already completed
                   </Typography>
                 ) : (
-                  <Button
+                  <button
                     onClick={handleComplete}
-                    className="float-right h-10 w-36 p-2 bgnext colornext radiusnext "
+                    className="h-10 w-36 p-1 hover:bg-[#4fbd40] bg-[#3fac29] text-white rounded-3xl text-base font-black leading-4 tracking-widest"
                   >
                     {completedSteps() === totalSteps() - 1 ? (
                       <NavLink
                         to="/editor"
-                        className="bgbutton colornext radiusnext paddingnext p-2"
+                        className="bgbutton text-white  rounded-3xl  p-1 text-base font-black leading-4 tracking-widest"
                       >
                         Finish it's me
                       </NavLink>
                     ) : (
                       "Next"
                     )}
-                  </Button>
+                  </button>
                 ))}
             </div>
           </div>
