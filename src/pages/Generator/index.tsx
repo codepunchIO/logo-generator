@@ -10,7 +10,7 @@ import Icons from "../../components/Icons";
 import Industry from "../../components/Industry";
 import NameEditor from "../../components/NameEditor/NameEditor";
 import NewColors from "../../components/NewColors/NewColors";
-import "./style.css";
+// import "./style.css";
 
 import { Check } from "@mui/icons-material";
 import {

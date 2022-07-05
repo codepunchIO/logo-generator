@@ -1,5 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectFonts } from "../../store/slices/logoSlice/logoSlice";
 // import tShirt from "../../assets/img/Isolated.jpg";
 import { store } from "../../store/store";
 import ButtonList from "../ButtonList";
@@ -21,23 +22,21 @@ const MainSection: React.FC<PropsType> = ({
   lgColor,
   font,
   selectedStyle,
-  selectedIcon
+  selectedIcon,
 }) => {
+  const fonts = useSelector(selectFonts);
   const state = store.getState();
   const backgroundColor = bgColor ? bgColor : "";
   const textColor = txColor ? txColor : " Black";
   const logoColor = lgColor ? lgColor : "Black";
-  const fontStyle = font ? font : "Sacramento";
+  const fontStyle = font ? font : fonts;
   const selectedStyleId = selectedStyle ? selectedStyle : "1";
   // const text = state.logo.data.brandName
-  
+
   const icons = state.logo.data.icons!;
 
-
-
-  const [svg, setSVG] = useState( icons[0].icon_svg);
+  const [svg, setSVG] = useState(icons[0].icon_svg);
   const [svg2, setSVG2] = useState("");
- 
 
   useEffect(() => {
     let elements = document.querySelectorAll("path");
@@ -51,12 +50,11 @@ const MainSection: React.FC<PropsType> = ({
     }
   }, [logoColor]);
 
- 
   const htmlDivElementRef =
     React.useRef() as React.MutableRefObject<HTMLDivElement>;
 
   useEffect(() => {
-   setSVG(selectedIcon)
+    setSVG(selectedIcon);
   }, [selectedIcon]);
 
   // @ts-ignore
@@ -66,12 +64,13 @@ const MainSection: React.FC<PropsType> = ({
         Your logo project. Make it perfect!{" "}
       </h1>
 
-     
-
       <div className="flex h-2/3 flex-row mb-4 ">
-        <div ref={htmlDivElementRef} className="w-full flex flex-row flex-wrap xl:flex-nowrap h-11/12 content-center justify-end sm:justify-center my-8">
+        <div
+          ref={htmlDivElementRef}
+          className="w-full flex flex-row flex-wrap xl:flex-nowrap h-11/12 content-center justify-end sm:justify-center my-8"
+        >
           <div
-            className={`flex flex-col rounded-lg my-8 mx-2 xl:mx-auto text-blue-600 h-3/6 xl:h-4/6 xl:w-4/12 w-10/12 md:w-8/12 xl:float-left xl:mx-10 font-bold text-6xl bg-green-500 items-center justify-center ${
+            className={`flex flex-col rounded-lg my-8 mx-2 xl:mx-auto text-blue-600 h-3/6 xl:h-4/6 xl:w-4/12 w-10/12 md:w-8/12 xl:float-left xl:mx-10 font-bold text-6xl bg-red-500 items-center justify-center ${
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
             style={{ backgroundColor }}
@@ -88,15 +87,13 @@ const MainSection: React.FC<PropsType> = ({
                 }`}
               />
 
-           
               <p
-                style={{ color: textColor, fontFamily: fontStyle }}
+                style={{ color: textColor, fontFamily: `${fontStyle}` }}
                 className={`${selectedStyleId === "3" ? "hidden" : ""}`}
               >
                 {inputValue}
               </p>
             </div>
-            
           </div>
 
           {/* <div
@@ -127,26 +124,22 @@ const MainSection: React.FC<PropsType> = ({
             </div>
             
           </div> */}
-          
         </div>
-      
-
-     
       </div>
       <div className="flex flex-row justify-evenly py-4">
-          <div className="flex flex-row">
+        <div className="flex flex-row">
           <ButtonList
             htmlDivElementRef={htmlDivElementRef}
             backgroundColor={""}
-            />
-      </div>
-      {/* <div className="flex flex-row">
+          />
+        </div>
+        {/* <div className="flex flex-row">
           <ButtonList
             htmlDivElementRef={htmlDivElementRef}
             backgroundColor={""}
             />
         </div> */}
-        </div>
+      </div>
     </div>
   );
 };

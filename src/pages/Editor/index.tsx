@@ -9,10 +9,12 @@ const EditorPage: React.FC = () => {
   const [bgColor, setBgcolor] = useState<any>("red");
   const [txColor, setTxColor] = useState<any>("black");
   const [lgColor, setLgColor] = useState<any>("black");
-  const [font, setSelectedFont] = useState<any>("Sacramento");
+  const [font, setSelectedFont] = useState<any>("");
   const [selectedStyle, setSelectedStyle] = useState<any>("1");
   //@ts-ignore
-  const [selectedIcon,setSelectedIcon] = useState<any>(state.logo.data.icons[0].icon_svg!)
+  const [selectedIcon, setSelectedIcon] = useState<any>(
+    state.logo.data.icons[0].icon_svg!
+  );
 
   useEffect(() => {
     setSelectedStyle(state.logo.data.style!);
@@ -36,7 +38,7 @@ const EditorPage: React.FC = () => {
           selectedStyle={selectedStyle}
           setSelectedStyle={setSelectedStyle}
           selectedIcon={selectedIcon}
-          setSelectedIcon = {setSelectedIcon}
+          setSelectedIcon={setSelectedIcon}
         />
         <main className="border-sky-500 h-screen">
           <MainSection
