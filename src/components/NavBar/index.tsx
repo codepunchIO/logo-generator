@@ -21,13 +21,13 @@ interface PropsType {
   setLgColor: (value: string) => void;
   setSelectedFont: (value: string) => void;
   setSelectedStyle: (value: string) => void;
-  setSelectedIcon: (value: string) => void;
+  setSelectedIcon: (value: any) => void;
   bgColor: string;
   txColor: string;
   lgColor: string;
   font: string;
   selectedStyle: string;
-  selectedIcon: string;
+  selectedIcon: any;
 }
 
 const Navbar: React.FC<PropsType> = ({
@@ -48,7 +48,7 @@ const Navbar: React.FC<PropsType> = ({
   const [buttonType, setButtonType] = useState<null | string>("");
   const [isOpen, setIsopen] = useState<boolean>(false);
   // const [icons, setIconsState] = useState<string[]>([]);
-  const [list, setList] = useState<string[]>([]);
+  const [list, setList] = useState<any[]>([]);
   const [title, setTitle] = useState<string>("");
   const [searchInputValue, setSearchInputValue] = useState("");
   const [isError, setIsError] = useState(false);
@@ -109,7 +109,7 @@ const Navbar: React.FC<PropsType> = ({
         },
       });
       console.log(res, "response");
-      setList(res.data["icon_list"]);
+      setList(res.data["icon_dicts"]);
       setIsLoading(false);
     } catch {
       setIsError(true);
@@ -131,9 +131,22 @@ const Navbar: React.FC<PropsType> = ({
   ) => {
     const currentIcon = e.currentTarget.src;
     if (list.length > 0) {
-      dispatch(setIcon(currentIcon));
-      setSelectedIcon(currentIcon);
-      console.log(selectedIcon)
+       let payload: any = [];
+      
+        list.map((icon, index) => {
+          if (currentIcon === icon.icon_link) {
+           
+           payload=[...payload,icon]
+          }
+        })
+      
+     
+     
+      
+      dispatch(setIcon(payload));
+    // dispatch(setIcon(currentIcon));
+      setSelectedIcon(payload[0].icon_svg);
+      
 
     }
   };
@@ -279,7 +292,7 @@ const Navbar: React.FC<PropsType> = ({
               {list.map((item, index) => (
                 <li key={index} className="border rounded cursor-pointer">
                   <img
-                    src={item}
+                    src={item.icon_link}
                     alt=""
                     className="w-20 h-20 p-3"
                     onClick={(e) => handleCardClick(e)}

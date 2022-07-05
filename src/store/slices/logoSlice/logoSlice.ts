@@ -71,7 +71,7 @@ export const logoSlice = createSlice({
 
 });
 
-export const selectIcons = (state: { logo: { data: { icons: string[]; }; }; }) => state.logo.data.icons
+export const selectIcons = (state: { logo: { data: { icons: any[]; }; }; }) => state.logo.data.icons
 
 export const {
   setBrandName,

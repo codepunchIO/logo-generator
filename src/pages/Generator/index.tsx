@@ -61,6 +61,7 @@ const GeneratorPage: React.FC = () => {
   });
 
   const icons = useSelector(selectIcons);
+  console.log('Icons',icons)
 
   useEffect(() => {
     WebFont.load({
@@ -182,13 +183,34 @@ const GeneratorPage: React.FC = () => {
   ) => {
     const currentIcon = e.currentTarget.src;
     console.log("currentIcon :", currentIcon);
-
-    if (icons.includes(currentIcon)) {
-      const filterIcons = icons.filter((icon) => icon !== currentIcon);
+    icons.map((icon, index) => {
+      
+    
+    if (icon.icon_link===currentIcon) {
+      //   let payload: any = [];
+      
+      //   icons.map((icon, index) => {
+      //     if (currentIcon === icon.icon_link) {
+      //     //  payload=[...payload,icon]
+           
+      //      // dispatch(setIcon(rest));
+      //     }
+      //   })
+      
+     
+      // console.log("payloaddd", payload);
+      
+      
+      const filterIcons = icons.filter((icon) => icon.icon_link !== currentIcon);
+      console.log('trueee')
       dispatch(setIcon(filterIcons));
     } else {
-      dispatch(setIcon([...icons, currentIcon]));
+
+      
+       console.log('false')
+      //  dispatch(setIcon([...icons, currentIcon]));
     }
+    })
   };
 
   function QontoStepIcon(props: StepIconProps) {
@@ -269,7 +291,7 @@ const GeneratorPage: React.FC = () => {
                     <img
                       onClick={(e) => handleDeleteSmallIcon(e)}
                       alt="icon"
-                      src={icon}
+                      src={icon.icon_link}
                       key={index}
                       className="backdrop-blur-3xl w-10 h-10 inline"
                     />

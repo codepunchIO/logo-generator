@@ -12,7 +12,7 @@ const EditorPage: React.FC = () => {
   const [font, setSelectedFont] = useState<any>("Sacramento");
   const [selectedStyle, setSelectedStyle] = useState<any>("1");
   //@ts-ignore
-  const [selectedIcon,setSelectedIcon] = useState<string>(state.logo.data.icons[0]!)
+  const [selectedIcon,setSelectedIcon] = useState<any>(state.logo.data.icons[0].icon_svg!)
 
   useEffect(() => {
     setSelectedStyle(state.logo.data.style!);

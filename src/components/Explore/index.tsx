@@ -80,7 +80,7 @@ const green = [
 const Explore = () => {
   const state = store.getState();
 
-  const [icons, seticons] = useState<string[]>(state.logo.data.icons!);
+  const [icons, seticons] = useState<any[]>(state.logo.data.icons!);
   // const [icons, seticons] = useState<string[]>([
   //   "https://static.thenounproject.com/noun-svg/364.svg?Expires=1655384339&Signature=g8bwTOq3dReOwyJnKVvprTRfJzPfyqKG~J6HJjtz71I45N-8VP1WtnbZrAESk1aEus6RGKwcHuUfklSXneAjoaGk7Dygb-5dOgOJC2YJm2vSO-CQUb6xxUonH56A3VCjkoir25Slqzr4u2WBTUHwq4s4-4VyW6AE5M1NFMuZZcI_&Key-Pair-Id=APKAI5ZVHAXN65CHVU2Q",
   //   "https://static.thenounproject.com/noun-svg/41163.svg?Expires=1655384339&Signature=ToXWCu1iyLplZEAIXofvDXtSBVyhPLGcrlcOxJ5TbW2nDqUqPSoF3C3c--z5qPS28H97Tta0YOqOqIUukoE0J8gXKDYXtpgzJH5ncUWOndMWege66-NUtywUR9qw9y4Qx4vaAXXpVCptNRVK5rzdM3x4OkxoNPQjQ3~~S0K9MHk_&Key-Pair-Id=APKAI5ZVHAXN65CHVU2Q",
@@ -103,7 +103,7 @@ const Explore = () => {
   );
   const [colors, setColors] = useState<string[]>([]);
 
-  const [oneIcon, setOneIcon] = useState<string>("");
+  const [oneIcon, setOneIcon] = useState<any>("");
 
   const dispatch = useDispatch();
 
@@ -151,7 +151,19 @@ const Explore = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(setIcon([oneIcon]));
+      let payload: any = [];
+      
+        icons.map((icon, index) => {
+          if (oneIcon === icon.icon_link) {
+           payload=[...payload,icon]
+          }
+        })
+      
+     
+      console.log("payloaddd", payload);
+      
+      dispatch(setIcon(payload));
+    // dispatch(setIcon([oneIcon]));
   }, [oneIcon]);
 
   return (
@@ -180,7 +192,7 @@ const Explore = () => {
                 >
                  
 
-                  <img src={icon} alt="icon" className="flex flex-col w-full h-32 text-center min-w-full  justify-center  rounded-lg text-xl px-6 py-2" />
+                  <img src={icon.icon_link} alt="icon" className="flex flex-col w-full h-32 text-center min-w-full  justify-center  rounded-lg text-xl px-6 py-2" />
 
                   <p className="p-1">{brandName}</p>
                 </div>

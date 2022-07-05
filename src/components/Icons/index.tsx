@@ -15,8 +15,8 @@ const Icons = () => {
   const handleChange = (e: any) => {
     setSearchInputValue(e.target.value);
   };
-  const [icons, setIconsState] = useState<string[]>([]);
-  const [smallIcons, setSmallIcons] = useState<string[]>([]);
+  const [icons, setIconsState] = useState<any[]>([]);
+  const [smallIcons, setSmallIcons] = useState<any[]>([]);
 
   console.log("searchInputValue", searchInputValue);
 
@@ -35,8 +35,11 @@ const Icons = () => {
           hash: "fasnfhasi!@$124casd@#$dnjzshd2q_214124SDa23123",
         },
       });
-      console.log(res, "response");
-      setIconsState(res.data["icon_list"]);
+
+      setIconsState(res.data["icon_dicts"]);
+    
+      console.log('new response....', res.data["icon_dicts"])
+
       setIsLoading(false);
     } catch {
       setIsError(true);
@@ -69,7 +72,19 @@ const Icons = () => {
 
   useEffect(() => {
     if (smallIcons.length > 0) {
-      dispatch(setIcon(smallIcons));
+    
+      let payload: any = [];
+      smallIcons.map((sIcon, index) => {
+        icons.map((icon, index) => {
+          if (sIcon === icon.icon_link) {
+           payload=[...payload,icon]
+          }
+        })
+      })
+     
+      console.log("payloaddd", payload);
+      
+      dispatch(setIcon(payload));
     }
   }, [smallIcons]);
 
@@ -135,14 +150,14 @@ const Icons = () => {
             key={index}
    
             className={`flex flex-col group w-full border flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-40 justify-center cursor-pointer ease-in ease-linear
-             ${smallIcons.includes(icon) ? "border-4 border-green-500" : ""}`
+             ${smallIcons.includes(icon.icon_link) ? "border-4 border-green-500" : ""}`
             }>
           
             <img
               className="flex flex-col w-full h-16 text-center min-w-full  justify-center  rounded-lg text-xl px-6 py-2"
               onClick={(e) => handleClick(e)}
               id={String(icons.indexOf(icon) + 1)}
-              src={icon}
+              src={icon.icon_link}
               alt="layout"
             />
           </div>
