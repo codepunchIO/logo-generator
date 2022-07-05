@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import categories from "../../models/categories/categories";
-import { setIcon } from "../../store/slices/logoSlice/logoSlice";
+import { setFont, setIcon } from "../../store/slices/logoSlice/logoSlice";
 import { store } from "../../store/store";
 
 const orange = [
@@ -124,7 +124,8 @@ const Explore = () => {
      
       console.log("payloaddd", payload);
       
-      dispatch(setIcon(payload));
+    dispatch(setIcon(payload));
+    dispatch(setFont(e.currentTarget.style.fontFamily))
   };
 
   useEffect(() => {
