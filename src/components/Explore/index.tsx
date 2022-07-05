@@ -79,7 +79,7 @@ const green = [
 
 const Explore = () => {
   const state = store.getState();
-
+  const fonts = state.logo.data.fonts;
   const [icons, seticons] = useState<any[]>(state.logo.data.icons!);
   // const [icons, seticons] = useState<string[]>([
   //   "https://static.thenounproject.com/noun-svg/364.svg?Expires=1655384339&Signature=g8bwTOq3dReOwyJnKVvprTRfJzPfyqKG~J6HJjtz71I45N-8VP1WtnbZrAESk1aEus6RGKwcHuUfklSXneAjoaGk7Dygb-5dOgOJC2YJm2vSO-CQUb6xxUonH56A3VCjkoir25Slqzr4u2WBTUHwq4s4-4VyW6AE5M1NFMuZZcI_&Key-Pair-Id=APKAI5ZVHAXN65CHVU2Q",
@@ -108,9 +108,23 @@ const Explore = () => {
   const dispatch = useDispatch();
 
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    
+    e.preventDefault();
     // @ts-ignore
     const currentIcon = e.currentTarget.children[0].currentSrc;
-    setOneIcon(currentIcon);
+    // setOneIcon(currentIcon);
+    let payload: any = [];
+      
+        icons.map((icon, index) => {
+          if (currentIcon === icon.icon_link) {
+           payload=[...payload,icon]
+          }
+        })
+      
+     
+      console.log("payloaddd", payload);
+      
+      dispatch(setIcon(payload));
   };
 
   useEffect(() => {
@@ -150,21 +164,23 @@ const Explore = () => {
     }
   }, []);
 
-  useEffect(() => {
-      let payload: any = [];
+  // useEffect(() => {
+    
+
+  //     let payload: any = [];
       
-        icons.map((icon, index) => {
-          if (oneIcon === icon.icon_link) {
-           payload=[...payload,icon]
-          }
-        })
+  //       icons.map((icon, index) => {
+  //         if (oneIcon === icon.icon_link) {
+  //          payload=[...payload,icon]
+  //         }
+  //       })
       
      
-      console.log("payloaddd", payload);
+  //     console.log("payloaddd", payload);
       
-      dispatch(setIcon(payload));
-    // dispatch(setIcon([oneIcon]));
-  }, [oneIcon]);
+  //     dispatch(setIcon(payload));
+  //   // dispatch(setIcon([oneIcon]));
+  // }, [oneIcon]);
 
   return (
     <>
@@ -176,15 +192,18 @@ const Explore = () => {
 
           <div className="flex h-full w-full justify-center overflow-y-auto p-3  ">
             <div className="grid sm:grid-cols-2 gap-x-3 w-full mx-auto  gap-y-2">
-              {icons.map((icon, index) => (
+              {
+                
+                fonts?.map((font, index) => 
+                  icons.map((icon, index) => (
                 <div
                   onClick={(e) => handleClick(e)}
                   // @ts-ignore
-              style={{ fontFamily: `${state.logo.data.fonts[index]}` }}
+              style={{ fontFamily: `${state.logo.data.fonts[Math.floor(Math.random() * fonts.length)]}` }}
                   // className={`flex flex-col  w-full  flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear`}>
                   className={`flex flex-col  w-full  flex-nowrap hover:shadow-lg text-4xl text-center duration-200 hover:text-6xl my-1 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear ${
                     icon === oneIcon ? "border-4 border-green-500" : ""
-                  } 
+                  }
                  
                   ${colors[Math.floor(Math.random() * colors.length)]}
                   `}
@@ -196,7 +215,32 @@ const Explore = () => {
 
                   <p className="p-1">{brandName}</p>
                 </div>
-              ))}
+              ))
+                  
+                
+                )
+              
+              /* {icons.map((icon, index) => (
+                <div
+                  onClick={(e) => handleClick(e)}
+                  // @ts-ignore
+              style={{ fontFamily: `${state.logo.data.fonts[index]}` }}
+                  // className={`flex flex-col  w-full  flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear`}>
+                  className={`flex flex-col  w-full  flex-nowrap hover:shadow-lg text-4xl text-center duration-200 hover:text-6xl my-1 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear ${
+                    icon === oneIcon ? "border-4 border-green-500" : ""
+                  }
+                 
+                  ${colors[Math.floor(Math.random() * colors.length)]}
+                  `}
+                  key={index}
+                >
+                 
+
+                  <img src={icon.icon_link} alt="icon" className="flex flex-col w-full h-32 text-center min-w-full  justify-center  rounded-lg text-xl px-6 py-2" />
+
+                  <p className="p-1">{brandName}</p>
+                </div>
+              ))} */}
             </div>
           </div>
         </div>
