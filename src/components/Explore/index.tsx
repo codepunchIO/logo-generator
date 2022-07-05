@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import categories from "../../models/categories/categories";
-import { setFont, setIcon } from "../../store/slices/logoSlice/logoSlice";
+import { setColor, setIcon, setStyle } from "../../store/slices/logoSlice/logoSlice";
 import { store } from "../../store/store";
+
+
 
 const orange = [
   "bg-orange-50",
@@ -64,19 +65,30 @@ const blue = [
   "bg-blue-800",
   "bg-blue-900",
 ];
+// const green = [
+//   "bg-green-50",
+//   "bg-green-100",
+//   "bg-green-200",
+//   "bg-green-300",
+//   "bg-green-400",
+//   "bg-green-500",
+//   "bg-green-600",
+//   "bg-green-700",
+//   "bg-green-800",
+//   "bg-green-900",
+// ];
 const green = [
-  "bg-green-50",
-  "bg-green-100",
-  "bg-green-200",
-  "bg-green-300",
-  "bg-green-400",
-  "bg-green-500",
-  "bg-green-600",
-  "bg-green-700",
-  "bg-green-800",
-  "bg-green-900",
+  "#f0fdf4",
+  "#dcfce7",
+  "#bbf7d0",
+  "#86efac",
+  "#4ade80",
+  "#22c55e",
+  "#16a34a",
+  "#15803d",
+  "#166534",
+  "#14532d",
 ];
-
 const Explore = () => {
   const state = store.getState();
   const fonts = state.logo.data.fonts;
@@ -125,7 +137,8 @@ const Explore = () => {
       console.log("payloaddd", payload);
       
     dispatch(setIcon(payload));
-    dispatch(setFont(e.currentTarget.style.fontFamily))
+    dispatch(setStyle(e.currentTarget.style.fontFamily))
+    dispatch(setColor(e.currentTarget.style.background))
   };
 
   useEffect(() => {
@@ -200,13 +213,13 @@ const Explore = () => {
                 <div
                   onClick={(e) => handleClick(e)}
                   // @ts-ignore
-              style={{ fontFamily: `${state.logo.data.fonts[Math.floor(Math.random() * fonts.length)]}` }}
+              style={{ fontFamily: `${state.logo.data.fonts[Math.floor(Math.random() * fonts.length)]}`, background:`${colors[Math.floor(Math.random() * colors.length)]}` }}
                   // className={`flex flex-col  w-full  flex-nowrap hover:shadow-lg text-8xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear`}>
                   className={`flex flex-col  w-full  flex-nowrap hover:shadow-lg text-4xl text-center duration-200 hover:text-6xl my-1 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear ${
                     icon === oneIcon ? "border-4 border-green-500" : ""
                   }
                  
-                  ${colors[Math.floor(Math.random() * colors.length)]}
+                  
                   `}
                   key={index}
                 >

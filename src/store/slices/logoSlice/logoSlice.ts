@@ -71,8 +71,11 @@ export const logoSlice = createSlice({
 
 export const selectIcons = (state: { logo: { data: { icons: any[] } } }) =>
   state.logo.data.icons;
-export const selectFonts = (state: { logo: { data: { fonts: any[] } } }) =>
-  state.logo.data.fonts;
+export const selectStyle = (state: { logo: { data: { style: any[] } } }) =>
+  state.logo.data.style;
+
+export const selectColor = (state: { logo: { data: { colors: any[] } } }) =>
+  state.logo.data.colors;
 
 export const {
   setBrandName,
