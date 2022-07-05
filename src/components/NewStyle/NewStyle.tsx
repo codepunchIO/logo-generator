@@ -50,15 +50,19 @@ const model = [
 ];
 
 function NewStyle() {
+  const [selected, setSelected] = useState<any>(null);
   const [currentID, setCurrentId] = useState(null);
   const [displayFlag, setDisplay] = useState(true);
   const state = store.getState();
   const dispatch = useDispatch();
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const id = parseInt(e.currentTarget.id);
+     setSelected(id);
     console.log(id);
     const text = e.currentTarget.innerText;
-
+ 
+   
+    console.log('selected',selected)
     // @ts-ignore
     setCurrentId(e.currentTarget.id);
     setDisplay(!displayFlag);
@@ -91,7 +95,8 @@ function NewStyle() {
     // dispatch(setFont(categories[id]))
   };
 
-  return displayFlag ? (
+  //return displayFlag ? (
+   return(
     <div className="h-screen bg-white py-6 sm:py-8 lg:py-20">
       <div className="w-11/12 md:w-4/6 justify-center mx-auto">
         <div className="flex justify-center items-end gap-4 mb-6">
@@ -104,7 +109,9 @@ function NewStyle() {
             <div
               // Modern
               id={String(card.id)}
-              className={`flex flex-col group border border-gray-400 flex-nowrap hover:shadow-lg text-6xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear`}
+              className={`flex flex-col group  flex-nowrap hover:shadow-lg text-6xl duration-200 hover:text-4xl my-5 rounded-lg h-72 justify-center cursor-pointer ease-in ease-linear
+              ${selected === index ? "border-4 border-green-500" : "border border-gray-400"}
+              `}
               key={index}
               onClick={(e) => handleClick(e)}
             >
@@ -128,9 +135,10 @@ function NewStyle() {
         </div>
       </div>
     </div>
-  ) : (
-    <FontsStepper />
-  );
+  ) 
+  // : (
+  //   <FontsStepper />
+  // );
 }
 
 export default NewStyle;

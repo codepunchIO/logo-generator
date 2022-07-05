@@ -99,7 +99,7 @@ const MainSection: React.FC<PropsType> = ({
             
           </div>
 
-          <div
+          {/* <div
             className={`flex flex-col rounded-lg my-8 mx-2 xl:mx-auto text-blue-600 h-3/6 xl:h-4/6 xl:w-4/12 w-10/12 md:w-8/12 xl:float-left xl:mx-10 font-bold text-6xl bg-green-500 items-center justify-center ${
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
@@ -126,7 +126,7 @@ const MainSection: React.FC<PropsType> = ({
               </p>
             </div>
             
-          </div>
+          </div> */}
           
         </div>
       
@@ -140,12 +140,12 @@ const MainSection: React.FC<PropsType> = ({
             backgroundColor={""}
             />
       </div>
-      <div className="flex flex-row">
+      {/* <div className="flex flex-row">
           <ButtonList
             htmlDivElementRef={htmlDivElementRef}
             backgroundColor={""}
             />
-        </div>
+        </div> */}
         </div>
     </div>
   );
