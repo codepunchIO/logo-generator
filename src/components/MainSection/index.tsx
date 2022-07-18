@@ -78,14 +78,21 @@ console.log('backgroundColor :', color );
             // style={{ backgroundColor }}
             style={{ background:`${backgroundColor}` }}
           >
+        <div ref={htmlDivElementRef} className="w-full flex flex-row flex-wrap xl:flex-nowrap h-5/6 content-center justify-end sm:justify-center my-8">
+          <div
+            className={`flex flex-col rounded-lg my-8 mx-2 xl:mx-auto text-blue-600 h-4/6 xl:h-5/6 xl:w-10/12 w-10/12 md:w-8/12 xl:float-left xl:mx-10 font-bold text-6xl bg-green-500 items-center justify-center ${
+              selectedStyleId === "2" ? "flex-col" : ""
+            }`}
+            style={{ backgroundColor }}
+            >
             <div
-              className={`items-center justify-center flex  ${
+              className={`items-center justify-center flex w-10/12 my-auto ${
                 selectedStyleId === "2" ? "flex-col" : ""
               }`}
-            >
-              <div
+              >
+              <div 
                 dangerouslySetInnerHTML={{ __html: svg }}
-                className={`logo xl:h-20 xl:w-20 w-16 h-16 mx-4 mb-4 xl:mx-8 xl-mb-8 ${
+                className={`logo xl:w-2/12 h-1/3 w-16 h-16 mx-4 mb-4 xl:mx-10 xl-mb-10 items-center ${
                   selectedStyleId === "4" ? "hidden" : ""
                 }`}
               />
@@ -143,6 +150,8 @@ console.log('backgroundColor :', color );
             />
         </div> */}
       </div>
+    </div>
+    </div>
     </div>
   );
 };
