@@ -62,44 +62,44 @@ console.log('backgroundColor :', color );
   // @ts-ignore
   return (
     <div className="w-11/12 h-screen float-right">
-      <h1 className="text-4xl text-center font-bold p-4 text-gray-900 mb-5 mt-7 font-['Iceland']">
+      <h1 className="text-4xl text-center font-bold p-4 text-gray-900 mb-5 mt-7 font-['Iceland'] mb-16">
         Your logo project. Make it perfect!{" "}
       </h1>
 
-      <div className="flex h-2/3 flex-row mb-4 ">
+      <div className="flex h-5/6 flex-row mb-4 ">
         <div
           ref={htmlDivElementRef}
-          className="w-full flex flex-row flex-wrap xl:flex-nowrap h-11/12 content-center justify-end sm:justify-center my-8"
+          className="w-full flex flex-col flex-wrap xl:flex-nowrap content-center justify-center sm:justify-center mr-10"
         >
           <div
-            className={`flex flex-col rounded-lg my-8 mx-2 xl:mx-auto text-blue-600 h-3/6 xl:h-4/6 xl:w-4/12 w-10/12 md:w-8/12 xl:float-left xl:mx-10 font-bold text-6xl  items-center justify-center ${
+            className={`flex flex-row rounded-lg text-blue-600 h-full w-full font-bold text-6xl  items-center justify-center ${
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
             // style={{ backgroundColor }}
             style={{ background:`${backgroundColor}` }}
           >
-        <div ref={htmlDivElementRef} className="w-full flex flex-row flex-wrap xl:flex-nowrap h-5/6 content-center justify-end sm:justify-center my-8">
+        <div ref={htmlDivElementRef} className="w-full flex flex-row flex-wrap xl:flex-nowrap h-full content-center justify-end sm:justify-center py-8">
           <div
-            className={`flex flex-col rounded-lg my-8 mx-2 xl:mx-auto text-blue-600 h-4/6 xl:h-5/6 xl:w-10/12 w-10/12 md:w-8/12 xl:float-left xl:mx-10 font-bold text-6xl bg-green-500 items-center justify-center ${
+            className={`flex flex-col rounded-lg xl:mx-auto text-blue-600 w-full h-full xl:float-left font-bold text-6xl bg-green-500 items-center justify-center ${
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
             style={{ backgroundColor }}
             >
             <div
-              className={`items-center justify-center flex w-10/12 my-auto ${
+              className={`items-center justify-center flex w-full  ${
                 selectedStyleId === "2" ? "flex-col" : ""
               }`}
               >
               <div 
                 dangerouslySetInnerHTML={{ __html: svg }}
-                className={`logo xl:w-2/12 h-1/3 w-16 h-16 mx-4 mb-4 xl:mx-10 xl-mb-10 items-center ${
+                className={`logo items-center w-2/6 my-5 ${
                   selectedStyleId === "4" ? "hidden" : ""
                 }`}
               />
 
               <p
                 style={{ color: textColor, fontFamily: `${fontStyle}` }}
-                className={`${selectedStyleId === "3" ? "hidden" : ""}`}
+                className={`logo text-center  w-3/6 text-9xl my-5 ${selectedStyleId === "3" ? "hidden" : ""}`}
               >
                 {inputValue}
               </p>
@@ -136,7 +136,7 @@ console.log('backgroundColor :', color );
           </div> */}
         </div>
       </div>
-      <div className="flex flex-row justify-evenly py-4">
+      <div className="flex flex-row justify-around py-4">
         <div className="flex flex-row">
           <ButtonList
             htmlDivElementRef={htmlDivElementRef}

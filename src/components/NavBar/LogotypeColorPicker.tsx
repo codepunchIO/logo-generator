@@ -32,7 +32,7 @@ const LogotypeColorPicker: React.FC<PropsTypes> = ({
           },
         }}> */}
         <div className="flex flex-col items-center">
-          <Picker color={color} onChange={setColor} className="!w-5/6 mb-3" />
+          <Picker color={color} onChange={setColor} className="!w-5/6 mb-3 !shadow-none" />
           <Button onClick={handleClose} variant="outlined" className="w-4/5">
             SET COLOR
           </Button>
