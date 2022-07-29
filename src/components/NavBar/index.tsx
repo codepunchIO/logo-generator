@@ -170,10 +170,10 @@ const Navbar: React.FC<PropsType> = ({
     <>
       <div
         // elevation={0}
-        className="border-r flex fixed inset-y-0 left-0 bg-white"
+        className="border-r flex items-end md:items-start fixed inset-y-0 left-0 md:bg-white"
       >
         <div className="">
-          <div className="flex flex-col">
+          <div className="flex w-screen md:w-full justify-evenly flex-row md:flex-col bg-white border-t">
             {" "}
             <Logotype/> {/*<TextField*/}
             {/*  sx={{ input: { background: "white" } }}*/}
@@ -185,14 +185,14 @@ const Navbar: React.FC<PropsType> = ({
             {/*  color="primary"*/}
             {/*  onChange={onTestClick}*/}
             {/*/>*/}
-            <button onClick={(e) => handleClick(e)} className="hover:text-green-500 mx-auto border-b border-t w-full h-20 hover:bg-gray-100 hover:fill-green-500">
+            <button onClick={(e) => handleClick(e)} className="hover:text-green-500  md:border-b h-20 hover:bg-gray-100">
               <img
                 src={Name}
                 alt="Name"
-                className="w-6 h-6 mx-auto
+                className="ms:w-6 ms:h-6 w-4 h-4 mx-auto
                 "
               />
-              <span className="text-center mx-4">Name</span>
+              <span className="text-center text-sm sm:text-xl mx-2 sm:mx-4">Name</span>
             </button>
             {/* <div className=" w-[400px] h-10 mr-4 mt-4 rounded-lg bg-gradient-to-br from-teal-300 to-lime-300">
               <input
@@ -203,49 +203,49 @@ const Navbar: React.FC<PropsType> = ({
                 onChange={onTestClick}
               />
             </div> */}
-            <button onClick={(e) => handleClick(e)} className="hover:text-green-500  border-b h-20 hover:bg-gray-100">
+            <button onClick={(e) => handleClick(e)} className="hover:text-green-500  md:border-b h-20 hover:bg-gray-100">
               <img
                 src={Layout}
                 alt="Layout"
-                className="w-6 h-6 mx-auto 
+                className="ms:w-6 md:h-6 w-4 h-4 mx-auto
                 "
               />
-              <span className="text-center mx-4">Layout</span>
+              <span className="text-center text-sm sm:text-xl mx-2 sm:mx-4">Layout</span>
             </button>
             {/*<IconButton className="mr-3" onClick={(e) => handleClick(e)}>*/}
             {/*  <ColorLensIcon className="mr-1" />*/}
             {/*  <Typography>Card color</Typography>*/}
             {/*</IconButton>*/}
-            <button onClick={(e) => handleClick(e)} className="hover:text-green-500 border-b h-20 hover:bg-gray-100">
+            <button onClick={(e) => handleClick(e)} className="hover:text-green-500  md:border-b h-20 hover:bg-gray-100">
               <img
                 src={Fonts}
                 alt="Fonts"
-                className="w-6 h-6 mx-auto
+                className="ms:w-6 md:h-6 w-4 h-4 mx-auto
                 "
               />
-              <span className="text-center mx-4 ">Fonts</span>
+              <span className="text-center text-sm sm:text-xl mx-2 sm:mx-4">Fonts</span>
             </button>
            
-            <button onClick={(e) => handleClick(e)} className="hover:text-green-500  border-b border-t h-20 hover:bg-gray-100">
+            <button onClick={(e) => handleClick(e)} className="hover:text-green-500  md:border-b md:border-t h-20 hover:bg-gray-100">
               <img
                 src={Colors}
                 alt="Colors"
-                className="w-6 h-6 mx-auto
+                className="ms:w-6 md:h-6 w-4 h-4 mx-auto
                 "
               />
-              <span className="text-center mx-4">Colors</span>
+              <span className="text-center text-sm sm:text-xl mx-2 sm:mx-4">Colors</span>
             </button>
         
            
            
-            <button onClick={(e) => handleClick(e)} className="hover:text-green-500  border-b border-t h-20 hover:bg-gray-100">
+            <button onClick={(e) => handleClick(e)} className="hover:text-green-500  md:border-b md:border-t h-20 hover:bg-gray-100">
               <img
                 src={Icon}
                 alt="Icon"
-                className="w-6 h-6 mx-auto
+                className="ms:w-6 md:h-6 w-4 h-4 mx-auto
                 "
               />
-              <span className="text-center mx-4">Icon</span>
+              <span className="text-center text-sm sm:text-xl mx-2 sm:mx-4">Icon</span>
             </button>
          
             {/* <button onClick={(e) => handleClick(e)}className="hover:text-green-500  border-b border-t h-20 hover:bg-gray-100">

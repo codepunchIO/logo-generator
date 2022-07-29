@@ -61,26 +61,26 @@ console.log('backgroundColor :', color );
 
   // @ts-ignore
   return (
-    <div className="w-11/12 h-screen float-right">
-      <h1 className="text-4xl text-center font-bold p-4 text-gray-900 mb-5 mt-7 font-['Iceland'] mb-16">
+    <div className="w-full md:w-11/12 h-3/6 md:h-screen float-right">
+      {/* <h1 className="text-4xl text-center font-bold p-4 text-gray-900 mb-5 mt-7 font-['Iceland'] mb-16">
         Your logo project. Make it perfect!{" "}
-      </h1>
+      </h1> */}
 
-      <div className="flex h-5/6 flex-row mb-4 justify-end">
+      <div className="flex h-5/6 flex-col sm:flex-row mb-4 justify-start md:justify-end">
         <div
           ref={htmlDivElementRef}
-          className="w-full flex flex-col flex-nowrap content-center justify-center mr-[10px]"
+          className="sm:w-screen flex flex-col flex-nowrap content-center justify-center pt-10 mx-5 md:mr-[10px]"
         >
           <div
-            className={`flex flex-row rounded-lg text-blue-600 h-full w-full font-bold text-6xl  items-center justify-center ${
+            className={`flex flex-row rounded-lg text-blue-600 h-full w-full font-bold text-6xl items-center justify-center ${
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
             // style={{ backgroundColor }}
             style={{ background:`${backgroundColor}` }}
           >
-        <div ref={htmlDivElementRef} className="w-full flex flex-row flex-wrap xl:flex-nowrap h-full content-center justify-end sm:justify-center py-8">
+        <div ref={htmlDivElementRef} className="w-full flex flex-row flex-wrap xl:flex-nowrap h-full content-center justify-end md:justify-center py-8">
           <div
-            className={`flex flex-col rounded-lg text-blue-600 w-full h-full font-bold text-6xl bg-green-500 items-center justify-center border ${
+            className={`flex flex-col rounded-lg text-blue-600 w-10/12 sm:w-full h-full font-bold text-6xl bg-green-500 items-center justify-center ${
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
             style={{ backgroundColor }}
@@ -96,10 +96,10 @@ console.log('backgroundColor :', color );
                   selectedStyleId === "4" ? "hidden" : ""
                 }`}
               />
-              <div className="flex items-center text-center float:right md:justify-start md:pl-10 pl-5 w-5/12">
+              <div className="flex items-center text-center float:right justify-start md:pl-10 pl-5 w-5/12">
               <p
                 style={{ color: textColor, fontFamily: `${fontStyle}` }}
-                className={`logo w-full h-full text-center text-9xl leading-[125px] my-5 ${selectedStyleId === "3" ? "hidden" : ""}`}
+                className={`logo w-full h-full text-center text-4xl sm:text-6xl sm:leading[50px] md:text-8xl md:leading[80px] lg:text-9xl lg:leading-[125px] my-5 ${selectedStyleId === "3" ? "hidden" : ""}`}
               >
                 {inputValue}
               </p>
