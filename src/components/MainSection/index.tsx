@@ -66,10 +66,10 @@ console.log('backgroundColor :', color );
         Your logo project. Make it perfect!{" "}
       </h1>
 
-      <div className="flex h-5/6 flex-row mb-4 ">
+      <div className="flex h-5/6 flex-row mb-4 justify-end">
         <div
           ref={htmlDivElementRef}
-          className="w-full flex flex-col flex-wrap xl:flex-nowrap content-center justify-center sm:justify-center mr-10"
+          className="w-full flex flex-col flex-nowrap content-center justify-center mr-[10px]"
         >
           <div
             className={`flex flex-row rounded-lg text-blue-600 h-full w-full font-bold text-6xl  items-center justify-center ${
@@ -80,29 +80,30 @@ console.log('backgroundColor :', color );
           >
         <div ref={htmlDivElementRef} className="w-full flex flex-row flex-wrap xl:flex-nowrap h-full content-center justify-end sm:justify-center py-8">
           <div
-            className={`flex flex-col rounded-lg xl:mx-auto text-blue-600 w-full h-full xl:float-left font-bold text-6xl bg-green-500 items-center justify-center ${
+            className={`flex flex-col rounded-lg text-blue-600 w-full h-full font-bold text-6xl bg-green-500 items-center justify-center border ${
               selectedStyleId === "2" ? "flex-col" : ""
             }`}
             style={{ backgroundColor }}
             >
             <div
-              className={`items-center justify-center flex w-full  ${
+              className={`items-center justify-center flex flex-start w-full text-center ${
                 selectedStyleId === "2" ? "flex-col" : ""
               }`}
               >
-              <div 
+              <div
                 dangerouslySetInnerHTML={{ __html: svg }}
-                className={`logo items-center w-2/6 my-5 ${
+                className={`logo w-4/12 my-5${
                   selectedStyleId === "4" ? "hidden" : ""
                 }`}
               />
-
+              <div className="flex items-center text-center float:right md:justify-start md:pl-10 pl-5 w-5/12">
               <p
                 style={{ color: textColor, fontFamily: `${fontStyle}` }}
-                className={`logo text-center  w-3/6 text-9xl my-5 ${selectedStyleId === "3" ? "hidden" : ""}`}
+                className={`logo w-full h-full text-center text-9xl leading-[125px] my-5 ${selectedStyleId === "3" ? "hidden" : ""}`}
               >
                 {inputValue}
               </p>
+              </div>
             </div>
           </div>
 
